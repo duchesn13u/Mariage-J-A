@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos et Vidéos du mariage de Jeanne & Antoine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Couleurs Thème Coucher de Soleil */
+        :root {
+            --color-primary-start: #f97316; /* Orange 600 */
+            --color-primary-end: #f59e0b; /* Ambre 500 */
+            --color-text-dark: #475569; /* Slate 600 */
+            --color-text-light: #ffffff;
+            --color-bg-light: #fef3c7; /* Jaune très clair */
+        }
+        
+        .action-btn {
+            background: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-primary-end) 100%);
+            transition: all 0.3s ease;
+        }
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3); /* Orange */
+        }
+
+        .photographer-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .photographer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -8px rgba(249, 115, 22, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--color-primary-start);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+
+        /* Style spécifique pour le Carrousel */
+        .carousel-item {
+            display: none;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+        /* Style pour le bouton Play et l'image de couverture */
+        .video-thumbnail-container {
+            position: relative;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .video-thumbnail-container:hover {
+            opacity: 0.9;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .video-thumbnail-container:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.05);
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-yellow-50 font-sans antialiased">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center text-xl font-bold text-orange-600">
+                        <i class="fas fa-heart mr-3"></i>
+                        <span>Mariage J&A</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#remerciements" class="nav-link text-gray-700 hover:text-orange-600">Remerciements</a>
+                        <a href="#photos" class="nav-link text-gray-700 hover:text-orange-600">Photos</a>
+                        <a href="#videos" class="nav-link text-gray-700 hover:text-orange-600">Vidéos</a>
+						<a href="#livret" class="nav-link text-gray-700 hover:text-orange-600">Livret de messe</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-orange-600">Contact</a>
+                    </div>
+                    
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-button" class="text-gray-500 hover:text-orange-600 focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#remerciements" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Remerciements</a>
+                <a href="#photos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Photos</a>
+                <a href="#videos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Vidéos</a>
+                <a href="#livret" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Livret de messe</a>
+				<a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+	<section id="remerciements" class="py-16 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col md:flex-row items-center gap-10">	
+				
+				<div class="md:w-1/2 animate-fadeIn" style="animation-delay: 0.2s;">
+					<h1 class="text-4xl md:text-5xl font-extrabold text-orange-600 mb-6">Merci du fond du cœur !</h1>
+					
+					<p class="text-xl text-gray-700 mb-6">
+						Merci pour votre <strong class="font-bold">présence</strong> et d'avoir permis de faire de notre mariage, le <strong class="font-bold">23 août 2025</strong> à Saint Sever et Mont de Marsan dans les Landes, une journée <strong class="font-bold">exceptionnelle</strong> et inoubliable.
+					</p>
+					
+					<p class="text-lg text-gray-600 mb-6">
+						Un merci tout particulier à <strong class="font-bold">nos parents et à toute notre famille</strong> pour leur soutien inconditionnel, leur amour immense et leur aide précieuse qui nous ont portés tout au long de cette préparation.
+					</p>
+
+					<p class="text-lg text-gray-600 mb-6">
+						Nous tenons aussi à remercier chaleureusement <strong class="font-bold">Ségolène et David Basle</strong> pour leur investissement incroyable dans l'organisation et la préparation de la cérémonie à l’église. Ce moment a été rendu encore plus spécial grâce à vous.
+					</p>
+
+					<p class="text-lg text-gray-600 mb-8">
+						Merci à nos incroyables <strong class="font-bold">DJ, Thomas et Xavier</strong>, ainsi qu'au <strong class="font-bold">groupe de musique</strong> pour l'ambiance et l'énergie folles qu'ils ont apportées ! Et enfin, un grand merci à <strong class="font-bold">toutes les personnes</strong> qui ont contribué de près ou de loin à la réussite et à la magie de cette journée.
+					</p>
+
+					<p class="text-xl text-gray-700 mb-8">
+						Un immense merci aux <strong class="font-bold">photographes</strong> et vidéastes pour leur travail. Ce site a été créé spécialement pour que vous puissiez <strong class="font-bold">télécharger toutes les photos et vidéos</strong>. Nous souhaitons que ces souvenirs vivants restent à jamais avec vous !
+					</p>
+
+					<a href="#photos" class="action-btn inline-block px-8 py-3 rounded-full text-white font-medium shadow-lg hover:shadow-xl transition duration-300">
+						Accéder aux Collections <i class="fas fa-arrow-down ml-2"></i>
+					</a>
+				</div>
+
+				<div class="md:w-1/2 mb-10 md:mb-0">
+					<img src="./aquarelle_maison.png" alt="Aquarelle de la maison de mariage" class="rounded-xl shadow-2xl object-cover w-full animate-fadeIn" style="animation-delay: 0.4s;">
+				</div>
+			</div>
+
+			<hr class="border-t border-yellow-200 my-10">
+
+			<div class="animate-fadeIn" style="animation-delay: 0.6s;">
+				<h3 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center justify-center"><i class="fas fa-camera-retro mr-2 text-orange-500"></i> Aperçu de la journée</h3>
+				
+				<div id="photo-carousel" class="relative w-full max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden bg-gray-900 border-4 border-orange-400">
+					
+					<div id="carousel-inner" class="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
+						</div>
+
+					<button onclick="changeCarouselImage(-1)" class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 text-white rounded-full h-10 w-10 flex items-center justify-center hover:bg-black/70 transition text-xl z-10">
+						<i class="fas fa-chevron-left"></i>
+					</button>
+					
+					<button onclick="changeCarouselImage(1)" class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 text-white rounded-full h-10 w-10 flex items-center justify-center hover:bg-black/70 transition text-xl z-10">
+						<i class="fas fa-chevron-right"></i>
+					</button>
+					
+					<div id="carousel-counter" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white text-sm px-3 py-1 rounded-full"></div>
+
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+    <hr class="border-t border-yellow-200 my-12">
+
+    <section id="photos" class="py-16 bg-yellow-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">La Galerie des Photographes 📸</h2>
+                <p class="text-lg text-gray-600">Cliquez pour voir la description et télécharger la collection.</p>
+            </div>
+            
+            <div class="mb-16">
+                <h3 <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera-retro mr-2 text-orange-500"></i> Photographes Officiels</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    
+                    <div id="photos-benjamin" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 0.8s;">
+                        <button onclick="openPhotographerModal('Benjamin')" class="focus:outline-none">
+                            <img src="./Benjamin_photo.jpg" alt="Photo de Benjamin" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Benjamin</h3>
+                            <p class="text-orange-600 font-semibold">Photographe Officiel (Pro)</p>
+                        </button>
+                        <button onclick="openPhotographerModal('Benjamin')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    </div>
+                    
+                    <div id="photos-yanis" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.0s;">
+                        <button onclick="openPhotographerModal('Yanis')" class="focus:outline-none">
+                            <img src="./Yanis_photo.jpg" alt="Photo de Yanis" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Yanis</h3>
+                            <p class="text-orange-600 font-semibold">Photographe passionné </p>
+                        </button>
+                        <button onclick="openPhotographerModal('Yanis')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-users-viewfinder mr-2 text-orange-500"></i> Photos des Invités Passionnés</h3>
+                <p class="text-lg text-gray-600 mb-8">Ces collections offrent un regard plus personnel et spontané sur la journée.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+                    
+                    <div id="photos-alice" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.2s;">
+                        <button onclick="openPhotographerModal('Alice')" class="focus:outline-none">
+                            <img src="./Alice_photo.jpg" alt="Photo d'Alice" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Alice</h3>
+                            <p class="text-orange-600 font-semibold">Amie proche et photographe à ses heures perdues</p>
+                        </button>
+                        <button onclick="openPhotographerModal('Alice')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    </div>
+
+                    <div id="photos-orlando" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.4s;">
+                        <button onclick="openPhotographerModal('Orlando')" class="focus:outline-none">
+                            <img src="./Orlando_photo.jpg" alt="Photo d'Orlando" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Orlando</h3>
+                            <p class="text-orange-600 font-semibold">Prêtre Colombien et amateur de photos</p>
+                        </button>
+                        <button onclick="openPhotographerModal('Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-t border-yellow-200 my-12">
+
+    <section id="videos" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Les Souvenirs en Vidéo 🎥</h2>
+                <p class="text-lg text-gray-600">Cliquez sur l'image pour accéder au téléchargement sécurisé des fichiers vidéo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-church mr-2 text-orange-500"></i> Cérémonie Religieuse en l'Eglise de Saint Sever</h3>
+                    
+                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ceremonie')">
+                        <img src="./vignette_ceremonie.png" alt="Vignette Cérémonie Religieuse" class="w-full h-full object-cover border-2 border-gray-300">
+                        <div class="play-button">
+                            <i class="fas fa-play text-white text-3xl ml-1"></i>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openVideoModal('Ceremonie')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger le ZIP de la Vidéo</button>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-music mr-2 text-orange-500"></i> Ouverture de Bal</h3>
+                    
+                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ouverture')">
+                        <img src="./vignette_ouverture.png" alt="Vignette Ouverture de Bal" class="w-full h-full object-cover border-2 border-gray-300">
+                        <div class="play-button">
+                            <i class="fas fa-play text-white text-3xl ml-1"></i>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openVideoModal('Ouverture')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger le ZIP de la Vidéo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<section id="livret" class="py-16 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-gray-900 mb-4">Livret de Messe 🕊️</h2>
+				<p class="text-lg text-gray-600">Consultez le livret directement ci-dessous ou téléchargez-le au format PDF.</p>
+			</div>
+
+			<div class="max-w-4xl mx-auto bg-gray-100 rounded-xl shadow-2xl p-4 border-4 border-orange-500 animate-fadeIn" style="animation-delay: 0.2s;">
+				<h3 class="text-xl font-semibold text-gray-800 mb-4 text-center flex items-center justify-center"><i class="fas fa-book-open mr-2 text-orange-600"></i> Aperçu (Lecteur PDF)</h3>
+				
+				<div class="w-full h-[600px] md:h-[800px] border border-gray-300 rounded-lg overflow-hidden">
+					<iframe 
+						src="./livret_messe.pdf" 
+						width="100%" 
+						height="100%" 
+						style="border: none;" 
+						title="Livret de Messe du Mariage">
+						Votre navigateur ne supporte pas la visualisation de PDF.
+					</iframe>
+				</div>
+
+				<p class="text-center text-gray-600 mt-6 mb-4">
+					Si l'aperçu ne s'affiche pas ou si vous préférez le conserver, vous pouvez le télécharger :
+				</p>
+				
+				<a href="./livret_messe.pdf" download="livret_messe_mariage_JA.pdf" class="action-btn w-full md:w-1/2 mx-auto py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
+					<i class="fas fa-download mr-3"></i> Télécharger le PDF
+				</a>
+			</div>
+			
+		</div>
+	</section>
+
+    <hr class="border-t border-yellow-200 my-12">
+    
+    <section id="contact" class="py-16 bg-yellow-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12 animate-fadeIn" style="animation-delay: 0.2s;">
+				<h2 class="text-3xl font-bold text-gray-900 mb-4">Besoin de nous Contacter ? 💌</h2>
+				<p class="text-lg text-gray-600">Pour toute question, demande spéciale, ou simplement pour nous laisser un message, n'hésitez pas !</p>
+			</div>
+
+			<div class="bg-white rounded-xl shadow-2xl p-8 md:p-10 border-4 border-orange-400 animate-fadeIn" style="animation-delay: 0.4s;">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+					
+					<div class="p-4 rounded-lg bg-yellow-50">
+						<i class="fas fa-envelope text-4xl text-orange-600 mb-3"></i>
+						<h3 class="text-xl font-semibold text-gray-800 mb-2">Email de Jeanne et Antoine</h3>
+						<a href="mailto:jeannetastet1@orange.fr" class="text-orange-600 hover:text-orange-700 font-medium break-words">jeannetastet1@orange.fr</a>
+						<a href="mailto:antoine.dchn@gmail.com" class="text-orange-600 hover:text-orange-700 font-medium break-words">antoine.dchn@gmail.com</a>
+					</div>
+
+					<div class="p-4 rounded-lg bg-yellow-50">
+						<i class="fas fa-phone-alt text-4xl text-orange-600 mb-3"></i>
+						<h3 class="text-xl font-semibold text-gray-800 mb-2">Téléphone de Jeanne et Antoine</h3>
+						<p class="text-gray-700 font-medium">+33 6 43 80 59 02</p>
+						<p class="text-gray-700 font-medium">+33 6 28 40 57 96</p>
+						<p class="text-sm text-gray-500 mt-1">(Appel ou SMS)</p>
+					</div>
+				</div>
+
+				<hr class="border-t border-yellow-200 my-8">
+
+				<div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center justify-center"><i class="fas fa-heart-circle-check mr-3 text-orange-600"></i> Laisser un message</h3>
+                    <p class="text-gray-700 mb-6">Utilisez le formulaire ci-dessous pour nous envoyer vos vœux ou commentaires directement.</p>
+
+                    <form action="https://formspree.io/f/f/jeannetastet1@orange.fr" method="POST" class="space-y-4">
+                        <input type="text" name="name" placeholder="Votre Nom/Prénom (Facultatif)" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500">
+                        <input type="email" name="_replyto" placeholder="Votre Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500" required>
+                        <textarea name="message" placeholder="Votre Message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500" required></textarea>
+                        
+                        <button type="submit" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i> Envoyer le Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-400">
+            <p>© 2025 Mariage J&A. Créé avec amour.</p>
+        </div>
+    </footer>
+
+    <div id="photographerModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-xl w-full max-h-[80vh] overflow-y-auto"> <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 id="modalPhotoTitle" class="text-3xl font-bold text-gray-900"></h3>
+                    <button onclick="closeModal('photographerModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
+                </div>
+
+                <div id="modalPhotoDescription" class="text-gray-700 mb-6 border-l-4 border-orange-400 pl-4 py-2 bg-yellow-50 rounded-md max-h-96 overflow-y-auto"></div>
+                
+                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès Sécurisé</h4>
+                <div id="download-form-photos">
+                    <input type="password" id="photo-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
+                    <p id="photo-error-message" class="text-red-500 mb-4 hidden"></p>
+                    <button onclick="attemptPhotoDownload()" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-cloud-download-alt mr-2"></i> Télécharger les Photos</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-xl w-full">
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 id="modalVideoTitle" class="text-3xl font-bold text-gray-900"></h3>
+                    <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès au Téléchargement</h4>
+                <div id="download-form-videos">
+                    <input type="password" id="video-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
+                    <p id="video-error-message" class="text-red-500 mb-4 hidden"></p>
+                    <button onclick="attemptVideoDownload()" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-cloud-download-alt mr-2"></i> Télécharger le ZIP de la Vidéo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Définitions des données (CORRIGÉES pour Benjamin) ---
+
+        const photographers = {
+            'Benjamin': {
+                // Chaîne corrigée avec <strong> et <br><br>
+				description: "Photographe professionnel aux <strong>horizons sans limites</strong>, Benjamin Faure a capturé l’extraordinaire : des paysages exotiques aux <strong>sportifs de l’extrême</strong>.<br><br>Son <strong>regard unique</strong> transforme chaque instant en une œuvre <strong>intemporelle</strong>.<br><br>Benjamin, un <strong>ami exceptionnel</strong> rencontré par Antoine lors de leur formation commando à la BA 118 de Mont de Marsan, a immortalisé notre cérémonie avec la même <strong>passion et générosité</strong> qui le définissent.<br><br>Un <strong>immense merci</strong> pour ces souvenirs inoubliables !",
+				file: 'https://drive.google.com/file/d/1Yp-7GHweC0EuZLJqQrXZxMhYYjOJxmtH/view?usp=drive_link',  
+                code: 'J&A2308' // Code secret pour les photos
+            },
+            'Yanis': {
+                description: "Yanis, vétérinaire rencontré sur les bancs de l’école, mais aussi <strong>photographe talentueux</strong> qui capture la beauté du monde à travers son objectif.<br><br>Un <strong>ami fidèle</strong>, toujours présent pour partager les fous rires et les moments précieux, et dont la <strong>générosité</strong> a rendu notre journée encore plus lumineuse.",
+                file: 'https://drive.google.com/file/d/1ypJiedLUyqclgghF-i89iE77GN0JllVn/view?usp=drive_link',
+                code: 'J&A2308'  
+            },
+            'Alice': {
+                description: "Alice, amie <strong>très proche</strong> de Jeanne et Antoine, est toujours dans les bons coups. Sa générosité et son talent pour la photographie l'ont tout de suite convaincue d'immortaliser la <strong>cérémonie civile à la mairie et le brunch !</strong>.<br><br>Elle nous a offert une série de clichés <strong>chaleureux et spontanés</strong>. <br><br> N'hésitez pas si vous avez une vache qui ne va pas bien dans la région de Foix : Alice est aussi <strong>vétérinaire</strong> !",
+                file: 'https://drive.google.com/file/d/1q2tWJjrQ74FsNbntM7gdvuT6xulTbcE-/view?usp=sharing',
+                code: 'J&A2308'  
+            },
+            'Orlando': {
+				description: "Le Père Orlando, celui qui a officié notre cérémonie religieuse, est bien plus qu'un prêtre : il est un <strong>ami très proche</strong> et un membre à part entière de la famille d'Antoine.<br><br>Il n'a pas hésité à traverser l’Atlantique, depuis sa <strong>Colombie natale</strong>, pour venir célébrer ce mariage si important en France.<br><br>Considéré comme un frère depuis qu'il est venu étudier en France durant son séminaire catholique, sa présence et sa bénédiction ont été le <strong>plus beau des cadeaux</strong>.",                
+                file: 'https://drive.google.com/file/d/1flAEgdttpLf8iy8rjt5rG-oOoMtjFxAU/view?usp=sharing',
+                code: 'J&A2308'  
+            }
+        };
+
+        const videos = {
+            'Ceremonie': {
+                title: 'Cérémonie Religieuse en l\'Eglise de Saint Sever',
+                file: 'https://drive.google.com/file/d/1LRurLnrM0W47hd4nG7RRlukIUyn5u6uI/view?usp=sharing',  
+                code: 'J&A2308' // Code secret pour les vidéos
+            },
+            'Ouverture': {
+                title: 'Ouverture de Bal',
+                file: 'https://drive.google.com/file/d/1jnoscl55I7QkqlzmsXlCVDUStBxhG0iD/view?usp=drive_link',
+                code: 'J&A2308'  
+            }
+        };
+
+		// Liste des images de prévisualisation (pour le carrousel)
+		const previewImages = [
+			'preview-1.jpg', 'preview-2.jpg', 'preview-3.jpg', 'preview-4.jpg', 
+			'preview-5.jpg', 'preview-6.jpg', 'preview-7.jpg', 'preview-8.jpg',
+			'preview-9.jpg', 'preview-10.jpg', 'preview-11.jpg', 'preview-12.jpg',
+			'preview-13.jpg', 'preview-14.jpg', 'preview-15.jpg', 'preview-16.jpg',
+			'preview-17.jpg', 'preview-18.jpg', 'preview-19.jpg', 'preview-20.jpg',
+			'preview-21.jpg', 'preview-22.jpg', 'preview-23.jpg', 'preview-24.jpg',
+			'preview-25.jpg', 'preview-26.jpg'
+		];
+
+        // --- Variables d'état et éléments DOM (Pas de changement) ---
+
+        let currentCarouselIndex = 0; // Index pour le carrousel
+        let currentItem = null; // Photographe ou Vidéo sélectionnée
+
+        const photographerModal = document.getElementById('photographerModal');
+        const videoModal = document.getElementById('videoModal');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+
+        // --- Initialisation et Gestion des événements (Suite) ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselInner = document.getElementById('carousel-inner');
+            previewImages.forEach((imgSrc, index) => {
+                const imgContainer = document.createElement('div');
+                imgContainer.className = `carousel-item absolute inset-0 transition-opacity duration-500 ${index === 0 ? 'active' : ''}`;
+                imgContainer.innerHTML = `<img src="./${imgSrc}" alt="Aperçu photo mariage ${index + 1}" class="w-full h-full object-contain">`;
+                carouselInner.appendChild(imgContainer);
+            });
+            updateCarouselCounter();
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            document.addEventListener('keydown', handleKeydown);
+        });
+
+        photographerModal.addEventListener('click', (e) => { if (e.target === photographerModal) closeModal('photographerModal'); });
+        videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeModal('videoModal'); });
+
+
+        // --- Fonctions de gestion du Carrousel (Suite) ---
+
+        function updateCarouselCounter() {
+            document.getElementById('carousel-counter').textContent = `${currentCarouselIndex + 1} / ${previewImages.length}`;
+        }
+
+        function changeCarouselImage(direction) {
+            const items = document.querySelectorAll('#carousel-inner .carousel-item');
+            
+            if (items.length === 0) return; 
+
+            items[currentCarouselIndex].classList.remove('active');
+            
+            currentCarouselIndex = (currentCarouselIndex + direction + previewImages.length) % previewImages.length;
+            
+            items[currentCarouselIndex].classList.add('active');
+            updateCarouselCounter();
+        }
+
+        function handleKeydown(e) {
+            if (photographerModal.classList.contains('hidden') && videoModal.classList.contains('hidden')) {
+                if (e.key === 'ArrowRight') changeCarouselImage(1);
+                else if (e.key === 'ArrowLeft') changeCarouselImage(-1);
+            }
+        }
+
+        // --- Fonctions de gestion des Modales (Ouverture/Fermeture) ---
+
+        function openPhotographerModal(name) {
+            currentItem = photographers[name];
+            document.getElementById('modalPhotoTitle').textContent = `Photos de ${name}`;
+            // On utilise innerHTML car la description contient des balises HTML (<strong> et <br>)
+            document.getElementById('modalPhotoDescription').innerHTML = currentItem.description; 
+            document.getElementById('photo-code-input').value = '';
+            document.getElementById('photo-error-message').classList.add('hidden');
+            photographerModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openVideoModal(name) {
+            currentItem = videos[name];
+            document.getElementById('modalVideoTitle').textContent = currentItem.title;
+            document.getElementById('video-code-input').value = '';
+            document.getElementById('video-error-message').classList.add('hidden');
+            videoModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            if (photographerModal.classList.contains('hidden') && videoModal.classList.contains('hidden')) {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+
+        // --- Fonctions de Téléchargement sécurisé (Pas de changement) ---
+
+        function attemptPhotoDownload() {
+            const input = document.getElementById('photo-code-input');
+            const error = document.getElementById('photo-error-message');
+            const code = input.value.trim();
+
+            if (code === currentItem.code) {
+                const link = document.createElement('a');
+                link.href = currentItem.file;
+                link.download = currentItem.file.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                error.classList.add('hidden');
+                closeModal('photographerModal');
+                alert(`Le téléchargement des photos de ${currentItem.file.split('_')[1].split('.')[0]} a démarré !`);
+            } else {
+                error.textContent = 'Code secret incorrect. Veuillez réessayer.';
+                error.classList.remove('hidden');
+            }
+        }
+
+        function attemptVideoDownload() {
+            const input = document.getElementById('video-code-input');
+            const error = document.getElementById('video-error-message');
+            const code = input.value.trim();
+
+            if (code === currentItem.code) {
+                const link = document.createElement('a');
+                link.href = currentItem.file;
+                link.download = currentItem.file.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                error.classList.add('hidden');
+                closeModal('videoModal');
+                alert(`Le téléchargement du ZIP de la vidéo "${currentItem.title}" a démarré !`);
+            } else {
+                error.textContent = 'Code secret incorrect. Veuillez réessayer.';
+                error.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
