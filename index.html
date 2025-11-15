@@ -251,7 +251,8 @@
                 <p class="text-lg text-gray-600 mb-8">Ces collections offrent un regard plus personnel et spontané sur la journée.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-start">
                     
-                    <div id="photos-alice" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.2s;">
+                    <div id="photos-alice" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between min-h-[500px]" style="animation-delay: 1.2s;">
+
                         <button onclick="openPhotographerModal('Alice')" class="focus:outline-none">
                             <img src="./Alice_photo.jpg" alt="Photo d'Alice" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
                             <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Alice</h3>
@@ -260,7 +261,7 @@
                         <button onclick="openPhotographerModal('Alice')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
                     </div>
 
-                    <div id="photos-orlando" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.4s;">
+                    <div id="photos-orlando" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between min-h-[500px]" style="animation-delay: 1.2s;">
                         <button onclick="openPhotographerModal('Orlando')" class="focus:outline-none">
                             <img src="./Orlando_photo.jpg" alt="Photo d'Orlando" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
                             <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Orlando</h3>
@@ -269,7 +270,7 @@
                         <button onclick="openPhotographerModal('Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
                     </div>
 					
-					                    <div id="photos-valentine-pierre" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.6s;">
+					<div id="photos-valentine-pierre" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between min-h-[500px]" style="animation-delay: 1.2s;">
                         <button onclick="openPhotographerModal('Valentine & Pierre')" class="focus:outline-none">
                             <img src="./valpierre_photo.jpg" alt="Photo Valentine & Pierre" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
                             <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Valentine et Pierre</h3>
@@ -694,6 +695,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
