@@ -1,154 +1,155 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariage J&A</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage J&A</title>
 	<link rel="icon" href="./just-married.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* Couleurs Thème Coucher de Soleil */
-        :root {
-            --color-primary-start: #f97316; /* Orange 600 */
-            --color-primary-end: #f59e0b; /* Ambre 500 */
-            --color-text-dark: #475569; /* Slate 600 */
-            --color-text-light: #ffffff;
-            --color-bg-light: #fef3c7; /* Jaune très clair */
-        }
-        
-        .action-btn {
-            background: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-primary-end) 100%);
-            transition: all 0.3s ease;
-        }
-        .action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3); /* Orange */
-        }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Couleurs Thème Coucher de Soleil */
+        :root {
+            --color-primary-start: #f97316; /* Orange 600 */
+            --color-primary-end: #f59e0b; /* Ambre 500 */
+            --color-text-dark: #475569; /* Slate 600 */
+            --color-text-light: #ffffff;
+            --color-bg-light: #fef3c7; /* Jaune très clair */
+        }
+        
+        .action-btn {
+            background: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-primary-end) 100%);
+            transition: all 0.3s ease;
+        }
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3); /* Orange */
+        }
 
-        .photographer-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .photographer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px -8px rgba(249, 115, 22, 0.2);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--color-primary-start);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
+        .photographer-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .photographer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -8px rgba(249, 115, 22, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--color-primary-start);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        .modal {
-            transition: opacity 0.3s ease;
-        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
 
-        /* Style spécifique pour le Carrousel */
-        .carousel-item {
-            display: none;
-        }
-        .carousel-item.active {
-            display: block;
-        }
-        /* Style pour le bouton Play et l'image de couverture */
-        .video-thumbnail-container {
-            position: relative;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-        .video-thumbnail-container:hover {
-            opacity: 0.9;
-        }
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        .video-thumbnail-container:hover .play-button {
-            transform: translate(-50%, -50%) scale(1.05);
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+        /* Style spécifique pour le Carrousel */
+        .carousel-item {
+            display: none;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+        /* Style pour le bouton Play et l'image de couverture */
+        .video-thumbnail-container {
+            position: relative;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .video-thumbnail-container:hover {
+            opacity: 0.9;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+        _config
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+    _config      justify-content: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .video-thumbnail-container:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.05);
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 		@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 .animate-fadeIn {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
-    </style>
+    </style>
 </head>
 <body class="bg-yellow-50 font-sans antialiased">
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#" class="flex items-center text-xl font-bold text-orange-600">
-                        <i class="fas fa-heart mr-3"></i>
-                        <span>Mariage J&A</span>
-                    </a>
-                </div>
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center text-xl font-bold text-orange-600">
+                        <i class="fas fa-heart mr-3"></i>
+                        <span>Mariage J&A</span>
+                    </a>
+                </div>
 
-                <div class="flex items-center">
-                    <div class="hidden md:flex items-center space-x-8">
-                        <a href="#remerciements" class="nav-link text-gray-700 hover:text-orange-600">Remerciements</a>
-                        <a href="#photos" class="nav-link text-gray-700 hover:text-orange-600">Photos</a>
-                        <a href="#videos" class="nav-link text-gray-700 hover:text-orange-600">Vidéos</a>
+                <div class="flex items-center">
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#remerciements" class="nav-link text-gray-700 hover:text-orange-600">Remerciements</a>
+                        <a href="#photos" class="nav-link text-gray-700 hover:text-orange-600">Photos</a>
+                        <a href="#videos" class="nav-link text-gray-700 hover:text-orange-600">Vidéos</a>
 						<a href="#livret" class="nav-link text-gray-700 hover:text-orange-600">Livret de messe</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-orange-600">Contact</a>
-                    </div>
-                    
-                    <div class="md:hidden flex items-center">
-                        <button id="mobile-menu-button" class="text-gray-500 hover:text-orange-600 focus:outline-none">
-                            <i class="fas fa-bars text-2xl"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-orange-600">Contact</a>
+                    </div>
+                    
+        _config             <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-button" class="text-gray-500 hover:text-orange-600 focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#remerciements" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Remerciements</a>
-                <a href="#photos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Photos</a>
-                <a href="#videos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Vidéos</a>
-                <a href="#livret" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Livret de messe</a>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#remerciements" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Remerciements</a>
+                <a href="#photos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Photos</a>
+                <a href="#videos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Vidéos</a>
+                <a href="#livret" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Livret de messe</a>
 				<a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Contact</a>
-            </div>
-        </div>
-    </nav>
+            </div>
+        </div>
+    </nav>
 
 	<section id="remerciements" class="py-16 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -213,43 +214,43 @@
 		</div>
 	</section>
 
-    <hr class="border-t border-yellow-200 my-12">
+    <hr class="border-t border-yellow-200 my-12">
 
-    <section id="photos" class="py-16 bg-yellow-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">La Galerie des Photographes 📸</h2>
-                <p class="text-lg text-gray-600">Cliquez pour voir la description et télécharger la collection.</p>
-            </div>
-            
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera-retro mr-2 text-orange-500"></i> Photographes Officiels</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    
-                    <div id="photos-benjamin" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 0.8s;">
-                        <button onclick="openPhotographerModal('Benjamin')" class="focus:outline-none">
-                            <img src="./Benjamin_photo.jpg" alt="Photo de Benjamin" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Benjamin</h3>
-                            <p class="text-orange-600 font-semibold">Photographe Officiel (Pro)</p>
-                        </button>
-                        <button onclick="openPhotographerModal('Benjamin')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-                    </div>
-                    
-                    <div id="photos-yanis" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.0s;">
-                        <button onclick="openPhotographerModal('Yanis')" class="focus:outline-none">
-                            <img src="./Yanis_photo.jpg" alt="Photo de Yanis" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Yanis</h3>
-                            <p class="text-orange-600 font-semibold">Photographe passionné </p>
-                        </button>
-                        <button onclick="openPhotographerModal('Yanis')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-                    </div>
-                </div>
-            </div>
+    <section id="photos" class="py-16 bg-yellow-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">La Galerie des Photographes 📸</h2>
+                <p class="text-lg text-gray-600">Cliquez pour voir la description et télécharger la collection.</p>
+            </div>
+            
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera-retro mr-2 text-orange-500"></i> Photographes Officiels</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    
+                    <div id="photos-benjamin" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 0.8s;">
+                        <button onclick="openPhotographerModal('Benjamin')" class="focus:outline-none">
+                            <img src="./Benjamin_photo.jpg" alt="Photo de Benjamin" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Benjamin</h3>
+                            <p class="text-orange-600 font-semibold">Photographe Officiel (Pro)</p>
+                        </button>
+                        <button onclick="openPhotographerModal('Benjamin')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    </div>
+                    
+                    <div id="photos-yanis" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.0s;">
+                        <button onclick="openPhotographerModal('Yanis')" class="focus:outline-none">
+                            <img src="./Yanis_photo.jpg" alt="Photo de Yanis" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+e                           <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Yanis</h3>
+                            <p class="text-orange-600 font-semibold">Photographe passionné </p>
+                        </button>
+                        <button onclick="openPhotographerModal('Yanis')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    </div>
+                </div>
+            </div>
 
 		<div>
                 <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-users-viewfinder mr-2 text-orange-500"></i> Photos des Invités Passionnés</h3>
                 <p class="text-lg text-gray-600 mb-8">Ces collections offrent un regard plus personnel et spontané sur la journée.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     
                     <div id="photos-alice" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.2s;">
                         <button onclick="openPhotographerModal('Alice')" class="focus:outline-none">
@@ -279,47 +280,47 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </div>
+    </section>
 
-    <hr class="border-t border-yellow-200 my-12">
+    <hr class="border-t border-yellow-200 my-12">
 
-    <section id="videos" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Les Souvenirs en Vidéo 🎥</h2>
-                <p class="text-lg text-gray-600">Cliquez sur l'image pour accéder au téléchargement sécurisé des fichiers vidéo.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.2s;">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-church mr-2 text-orange-500"></i> Cérémonie Religieuse en l'Eglise de Saint Sever</h3>
-                    
-                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ceremonie')">
-                        <img src="./vignette_ceremonie.png" alt="Vignette Cérémonie Religieuse" class="w-full h-full object-cover border-2 border-gray-300">
-                        <div class="play-button">
-                            <i class="fas fa-play text-white text-3xl ml-1"></i>
-                        </div>
-                    </div>
-                    
-                    <button onclick="openVideoModal('Ceremonie')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
-                </div>
-                
-                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.4s;">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-music mr-2 text-orange-500"></i> Ouverture de Bal</h3>
-                    
-                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ouverture')">
-                        <img src="./vignette_ouverture.png" alt="Vignette Ouverture de Bal" class="w-full h-full object-cover border-2 border-gray-300">
-                        <div class="play-button">
-                            <i class="fas fa-play text-white text-3xl ml-1"></i>
-                        </div>
-                    </div>
-                    
-                    <button onclick="openVideoModal('Ouverture')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="videos" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Les Souvenirs en Vidéo 🎥</h2>
+                <p class="text-lg text-gray-600">Cliquez sur l'image pour accéder au téléchargement sécurisé des fichiers vidéo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-church mr-2 text-orange-500"></i> Cérémonie Religieuse en l'Eglise de Saint Sever</h3>
+                    
+                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ceremonie')">
+                        <img src="./vignette_ceremonie.png" alt="Vignette Cérémonie Religieuse" class="w-full h-full object-cover border-2 border-gray-300">
+                        <div class="play-button">
+                            <i class="fas fa-play text-white text-3xl ml-1"></i>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openVideoModal('Ceremonie')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
+                </div>
+                
+              _config <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-music mr-2 text-orange-500"></i> Ouverture de Bal</h3>
+                    
+                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ouverture')">
+                        <img src="./vignette_ouverture.png" alt="Vignette Ouverture de Bal" class="w-full h-full object-cover border-2 border-gray-300">
+                        <div class="play-button">
+                            <i class="fas fa-play text-white text-3xl ml-1"></i>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openVideoModal('Ouverture')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
 	<section id="livret" class="py-16 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -332,11 +333,11 @@
 				<h3 class="text-xl font-semibold text-gray-800 mb-4 text-center flex items-center justify-center"><i class="fas fa-book-open mr-2 text-orange-600"></i> Aperçu (Lecteur PDF)</h3>
 				
 				<div class="w-full h-[600px] md:h-[800px] border border-gray-300 rounded-lg overflow-hidden">
-					<iframe 
-						src="./livret_messe.pdf" 
-						width="100%" 
-						height="100%" 
-						style="border: none;" 
+					<iframe 
+						src="./livret_messe.pdf" 
+						width="100%" 
+						height="100%" 
+						style="border: none;" 
 						title="Livret de Messe du Mariage">
 						Votre navigateur ne supporte pas la visualisation de PDF.
 					</iframe>
@@ -354,9 +355,9 @@
 		</div>
 	</section>
 
-    <hr class="border-t border-yellow-200 my-12">
-    
-    <section id="contact" class="py-16 bg-yellow-50">
+    <hr class="border-t border-yellow-200 my-12">
+    
+    <section id="contact" class="py-16 bg-yellow-50">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="text-center mb-12 animate-fadeIn" style="animation-delay: 0.2s;">
 				<h2 class="text-3xl font-bold text-gray-900 mb-4">Besoin de nous Contacter ? 💌</h2>
@@ -385,321 +386,244 @@
 				<hr class="border-t border-yellow-200 my-8">
 
 				<div class="text-center">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center justify-center"><i class="fas fa-heart-circle-check mr-3 text-orange-600"></i> Laisser un message</h3>
-                    <p class="text-gray-700 mb-6">Utilisez le formulaire ci-dessous pour nous envoyer vos vœux ou commentaires directement.</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center justify-center"><i class="fas fa-heart-circle-check mr-3 text-orange-600"></i> Laisser un message</h3>
+ar                 <p class="text-gray-700 mb-6">Utilisez le formulaire ci-dessous pour nous envoyer vos vœux ou commentaires directement.</p>
 
-                    <form action="https://formspree.io/f/mqawagww" method="POST" class="space-y-4">
-                        <input type="hidden" name="_next" value="https://votresite.com/merci.html">
-    					<input type="hidden" name="_captcha" value="true">
+                    <form action="https://formspree.io/f/mqawagww" method="POST" class="space-y-4">
+                        <input type="hidden" name="_next" value="https://votresite.com/merci.html">
+    					<input type="hidden" name="_captcha" value="true">
 						
 						<input type="text" name="name" placeholder="Votre Nom/Prénom (Facultatif)" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500">
-                        <input type="email" name="_replyto" placeholder="Votre Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500" required>
-                        <textarea name="message" placeholder="Votre Message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500" required></textarea>
-                        
-                        <button type="submit" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
-                            <i class="fas fa-paper-plane mr-2"></i> Envoyer le Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+
+                        <input type="email" name="_replyto" placeholder="Votre Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500" required>
+                        <textarea name="message" placeholder="Votre Message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500" required></textarea>
+                        
+                        <button type="submit" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i> Envoyer le Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-    <footer class="bg-gray-800 text-white py-6 text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-400">
-            <p>© 2025 Mariage J&A. Créé avec amour.</p>
-        </div>
-    </footer>
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-400">
+            <p>© 2025 Mariage J&A. Créé avec amour.</p>
+        </div>
+    </footer>
 
-    <div id="photographerModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl max-w-xl w-full max-h-[80vh] overflow-y-auto"> <div class="p-8">
-                <div class="flex justify-between items-start mb-6">
-                    <h3 id="modalPhotoTitle" class="text-3xl font-bold text-gray-900"></h3>
-                    <button onclick="closeModal('photographerModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
-                </div>
+    <div id="photographerModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-xl w-full max-h-[80vh] overflow-y-auto"> <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 id="modalPhotoTitle" class="text-3xl font-bold text-gray-900"></h3>
+CH_CHARSET                     <button onclick="closeModal('photographerModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
+                </div>
 
-                <div id="modalPhotoDescription" class="text-gray-700 mb-6 border-l-4 border-orange-400 pl-4 py-2 bg-yellow-50 rounded-md max-h-96 overflow-y-auto"></div>
-                
-                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès Sécurisé</h4>
-                <div id="download-form-photos">
-                    <input type="password" id="photo-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
-                    <p id="photo-error-message" class="text-red-500 mb-4 hidden"></p>
-                    <button onclick="attemptPhotoDownload()" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-cloud-download-alt mr-2"></i> Télécharger les Photos</button>
-                </div>
+                <div id="modalPhotoDescription" class="text-gray-700 mb-6 border-l-4 border-orange-400 pl-4 py-2 bg-yellow-50 rounded-md max-h-96 overflow-y-auto"></div>
+                
+                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès Sécurisé</h4>
+                <div id="download-form-photos">
+                    <input type="password" id="photo-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
+                    <p id="photo-error-message" class="text-red-500 mb-4 hidden"></p>
+                    <button onclick="attemptPhotoDownload()" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-cloud-download-alt mr-2"></i> Télécharger les Photos</button>
+                </div>
 
-            </div>
-        </div>
-    </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl max-w-xl w-full">
-            <div class="p-8">
-                <div class="flex justify-between items-start mb-6">
-                    <h3 id="modalVideoTitle" class="text-3xl font-bold text-gray-900"></h3>
-                    <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
-                </div>
-                
-                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès au Téléchargement</h4>
-                <div id="download-form-videos">
-                    <input type="password" id="video-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
-                    <p id="video-error-message" class="text-red-500 mb-4 hidden"></p>
-                    <button onclick="attemptVideoDownload()" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-cloud-download-alt mr-2"></i> Télécharger le ZIP de la Vidéo</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-xl w-full">
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 id="modalVideoTitle" class="text-3xl font-bold text-gray-900"></h3>
+                    <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
+          _config     </div>
+                
+                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès au Téléchargement</h4>
+                <div id="download-form-videos">
+                    <input type="password" id="video-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
+                    <p id="video-error-message" class="text-red-500 mb-4 hidden"></p>
+                    <button onclick="attemptVideoDownload()" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-cloud-download-alt mr-2"></i> Télécharger le ZIP de la Vidéo</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        // --- Définitions des données (CORRIGÉES pour Benjamin) ---
+    <script>
+        // --- Définitions des données (CORRIGÉES pour Benjamin) ---
 
-        const photographers = {
-            'Benjamin': {
-                // Chaîne corrigée avec <strong> et <br><br>
+        const photographers = {
+            'Benjamin': {
+                // Chaîne corrigée avec <strong> et <br><br>
 				description: "Photographe professionnel aux <strong>horizons sans limites</strong>, Benjamin Faure a capturé l’extraordinaire : des paysages exotiques aux <strong>sportifs de l’extrême</strong>.<br><br>Son <strong>regard unique</strong> transforme chaque instant en une œuvre <strong>intemporelle</strong>.<br><br>Benjamin, un <strong>ami exceptionnel</strong> rencontré par Antoine lors de leur formation commando à la BA 118 de Mont de Marsan, a immortalisé notre cérémonie avec la même <strong>passion et générosité</strong> qui le définissent.<br><br>Un <strong>immense merci</strong> pour ces souvenirs inoubliables !",
-				file: 'https://drive.google.com/file/d/1Yp-7GHweC0EuZLJqQrXZxMhYYjOJxmtH/view?usp=drive_link',  
-                code: 'J&A2308' // Code secret pour les photos
-            },
-            'Yanis': {
-                description: "Yanis, vétérinaire rencontré sur les bancs de l’école, mais aussi <strong>photographe talentueux</strong> qui capture la beauté du monde à travers son objectif.<br><br>Un <strong>ami fidèle</strong>, toujours présent pour partager les fous rires et les moments précieux, et dont la <strong>générosité</strong> a rendu notre journée encore plus lumineuse.",
-                file: 'https://drive.google.com/file/d/1ypJiedLUyqclgghF-i89iE77GN0JllVn/view?usp=drive_link',
-                code: 'J&A2308'  
-            },
-            'Alice': {
-                description: "Alice, amie <strong>très proche</strong> de Jeanne et Antoine, est toujours dans les bons coups. Sa générosité et son talent pour la photographie l'ont tout de suite convaincue d'immortaliser la <strong>cérémonie civile à la mairie et le brunch !</strong><br><br>Elle nous a offert une série de clichés <strong>chaleureux et spontanés</strong>. <br><br> N'hésitez pas si vous avez une vache qui ne va pas bien dans la région de Foix : Alice est aussi <strong>vétérinaire</strong> !",
-                file: 'https://drive.google.com/file/d/1q2tWJjrQ74FsNbntM7gdvuT6xulTbcE-/view?usp=sharing',
-                code: 'J&A2308'  
-            },
-            'Orlando': {
-				description: "Le Père Orlando, celui qui a officié notre cérémonie religieuse, est bien plus qu'un prêtre : il est un <strong>ami très proche</strong> et un membre à part entière de la famille d'Antoine.<br><br>Il n'a pas hésité à traverser l’Atlantique, depuis sa <strong>Colombie natale</strong>, pour venir célébrer ce mariage si important en France.<br><br>Considéré comme un frère depuis qu'il est venu étudier en France durant son séminaire catholique, sa présence et sa bénédiction ont été le <strong>plus beau des cadeaux</strong>.",                
-                file: 'https://drive.google.com/file/d/1nMrOi4uSwvM5XbAphTmzvzdp_C-P2d4v/view?usp=sharing',
-                code: 'J&A2308'  
-            },
-            'Valentine & Pierre': {
-				description: "Valentine, notre <strong>belle</strong> sœur — et le mot <strong>belle</strong> est presque un euphémisme — et Pierre, notre batteur star pour le vin d’honneur, ont dépassé toutes nos attentes. En plus de nous faire danser, ils nous ont offert des <strong>photos extraordinaires</strong>, des images qui valent tous les <strong>cadeaux</strong> du monde.<br><br> Leur talent et leur générosité ont rendu cette journée encore plus <strong>exceptionnelle</strong>. Merci à eux pour ces <strong>moments inoubliables</strong> !",                
-                file: 'https://drive.google.com/file/d/1eJWG1RwUVQ8-HjmIspQdqZH2ovXYApPX/view?usp=sharing',
-                code: 'J&A2308'  
-            }
-        };
+				file: 'https://drive.google.com/file/d/1Yp-7GHweC0EuZLJqQrXZxMhYYjOJxmtH/view?usp=drive_link',  
+                code: 'J&A2308' // Code secret pour les photos
+            },
+            'Yanis': {
+                description: "Yanis, vétérinaire rencontré sur les bancs de l’école, mais aussi <strong>photographe talentueux</strong> qui capture la beauté du monde à travers son objectif.<br><br>Un <strong>ami fidèle</strong>, toujours présent pour partager les fous rires et les moments précieux, et dont la <strong>générosité</strong> a rendu notre journée encore plus lumineuse.",
+                file: 'https://drive.google.com/file/d/1ypJiedLUyqclgghF-i89iE77GN0JllVn/view?usp=drive_link',
+                code: 'J&A2308'  
+            },
+            'Alice': {
+                description: "Alice, amie <strong>très proche</strong> de Jeanne et Antoine, est toujours dans les bons coups. Sa générosité et son talent pour la photographie l'ont tout de suite convaincue d'immortaliser la <strong>cérémonie civile à la mairie et le brunch !</strong><br><br>Elle nous a offert une série de clichés <strong>chaleureux et spontanés</strong>. <br><br> N'hésitez pas si vous avez une vache qui ne va pas bien dans la région de Foix : Alice est aussi <strong>vétérinaire</strong> !",
+                file: 'https://drive.google.com/file/d/1q2tWJjrQ74FsNbntM7gdvuT6xulTbcE-/view?usp=sharing',
+                code: 'J&A2308'  
+            },
+            'Orlando': {
+				description: "Le Père Orlando, celui qui a officié notre cérémonie religieuse, est bien plus qu'un prêtre : il est un <strong>ami très proche</strong> et un membre à part entière de la famille d'Antoine.<br><br>Il n'a pas hésité à traverser l’Atlantique, depuis sa <strong>Colombie natale</strong>, pour venir célébrer ce mariage si important en France.<br><br>Considéré comme un frère depuis qu'il est venu étudier en France durant son séminaire catholique, sa présence et sa bénédiction ont été le <strong>plus beau des cadeaux</strong>.",                
+                file: 'https://drive.google.com/file/d/1nMrOi4uSwvM5XbAphTmzvzdp_C-P2d4v/view?usp=sharing',
+                code: 'J&A2308'  
+            },
+            'Valentine & Pierre': {
+				description: "Valentine, notre <strong>belle</strong> sœur — et le mot <strong>belle</strong> est presque un euphémisme — et Pierre, notre batteur star pour le vin d’honneur, ont dépassé toutes nos attentes. En plus de nous faire danser, ils nous ont offert des <strong>photos extraordinaires</strong>, des images qui valent tous les <strong>cadeaux</strong> du monde.<br><br> Leur talent et leur générosité ont rendu cette journée encore plus <strong>exceptionnelle</strong>. Merci à eux pour ces <strong>moments inoubliables</strong> !",                
+              }
+        };
 
-        const videos = {
-            'Ceremonie': {
-                title: 'Cérémonie Religieuse en l\'Eglise de Saint Sever',
-                file: 'https://drive.google.com/file/d/1LRurLnrM0W47hd4nG7RRlukIUyn5u6uI/view?usp=sharing',  
-                code: 'J&A2308' // Code secret pour les vidéos
-            },
-            'Ouverture': {
-                title: 'Ouverture de Bal',
-                file: 'https://drive.google.com/file/d/1jnoscl55I7QkqlzmsXlCVDUStBxhG0iD/view?usp=drive_link',
-                code: 'J&A2308'  
-            }
-        };
+        const videos = {
+            'Ceremonie': {
+Type                 title: 'Cérémonie Religieuse en l\'Eglise de Saint Sever',
+                file: 'https://drive.google.com/file/d/1LRurLnrM0W47hd4nG7RRlukIUyn5u6uI/view?usp=sharing',  
+                code: 'J&A2308' // Code secret pour les vidéos
+            },
+  V         'Ouverture': {
+                title: 'Ouverture de Bal',
+Signature               file: 'https://drive.google.com/file/d/1jnoscl55I7QkqlzmsXlCVDUStBxhG0iD/view?usp=drive_link',
+                code: 'J&A2308'  
+            }
+        };
 
 		// Liste des images de prévisualisation (pour le carrousel)
 		const previewImages = [
-			'preview-1.jpg', 'preview-2.jpg', 'preview-3.jpg', 'preview-4.jpg', 
-			'preview-5.jpg','preview-6.jpg', 'preview-7.jpg', 'preview-8.jpg',
-			'preview-9.jpg', 'preview-10.jpg', 'preview-11.jpg', 'preview-12.jpg',
-			'preview-13.jpg','preview-14.jpg','preview-15.jpg', 'preview-16.jpg', 
-			'preview-17.jpg','preview-18.jpg', 'preview-19.jpg',
-			'preview-20.jpg','preview-21.jpg','preview-22.jpg', 'preview-23.jpg', 
-			'preview-24.jpg','preview-25.jpg', 'preview-26.jpg', 'preview-27.jpg'
+			'preview-1.jpg', 'preview-2.jpg', 'preview-3.jpg', 'preview-4.jpg', 
+			'preview-5.jpg','preview-6.jpg', 'preview-7.jpg', 'preview-8.jpg', 
+			'preview-9.jpg','preview-10.jpg', 'preview-11.jpg', 'preview-12.jpg',
+			'preview-13.jpg','preview-14.jpg', 'preview-15.jpg', 'preview-16.jpg',
+			'preview-17.jpg','preview-18.jpg', 'preview-19.jpg', 'preview-20.jpg',
+			'preview-21.jpg','preview-22.jpg', 'preview-23.jpg', 'preview-24.jpg',
+			'preview-25.jpg','preview-26.jpg', 'preview-27.jpg'
 		];
 
-        // --- Variables d'état et éléments DOM (Pas de changement) ---
 
-        let currentCarouselIndex = 0; // Index pour le carrousel
-        let currentItem = null; // Photographe ou Vidéo sélectionnée
+        // --- Fonctions de base (Menu, Modales, Téléchargement) ---
 
-        const photographerModal = document.getElementById('photographerModal');
-        const videoModal = document.getElementById('videoModal');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // 1. Carrousel
+		let currentImageIndex = 0;
+		const carouselInner = document.getElementById('carousel-inner');
+		const carouselCounter = document.getElementById('carousel-counter');
 
+		function loadCarouselImages() {
+			carouselInner.innerHTML = previewImages.map((src, index) => `
+				<div class="carousel-item absolute inset-0 transition-opacity duration-500 ${index === 0 ? 'active' : ''}">
+					<img src="./${src}" alt="Aperçu du mariage - Photo ${index + 1}" class="w-full h-full object-cover">
+				</div>
+			`).join('');
+			updateCarouselCounter();
+		}
 
-        // --- Initialisation et Gestion des événements (Suite) ---
+		function updateCarouselCounter() {
+			carouselCounter.textContent = `${currentImageIndex + 1}/${previewImages.length}`;
+		}
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const carouselInner = document.getElementById('carousel-inner');
-            previewImages.forEach((imgSrc, index) => {
-                const imgContainer = document.createElement('div');
-                imgContainer.className = `carousel-item absolute inset-0 transition-opacity duration-500 ${index === 0 ? 'active' : ''}`;
-                imgContainer.innerHTML = `<img src="./${imgSrc}" alt="Aperçu photo mariage ${index + 1}" class="w-full h-full object-contain">`;
-                carouselInner.appendChild(imgContainer);
-            });
-            updateCarouselCounter();
+		function changeCarouselImage(direction) {
+			const items = document.querySelectorAll('.carousel-item');
+			if (items.length === 0) return;
 
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+			// Remove active class from current item
+			items[currentImageIndex].classList.remove('active');
 
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-            
-            document.addEventListener('keydown', handleKeydown);
-        });
+			// Calculate new index
+			currentImageIndex = (currentImageIndex + direction + items.length) % items.length;
 
-        photographerModal.addEventListener('click', (e) => { if (e.target === photographerModal) closeModal('photographerModal'); });
-        videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeModal('videoModal'); });
+			// Add active class to new item
+			items[currentImageIndex].classList.add('active');
+			updateCarouselCounter();
+		}
 
+		// 2. Menu mobile
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+		document.querySelectorAll('.mobile-nav-link').forEach(link => {
+			link.addEventListener('click', () => {
+				document.getElementById('mobile-menu').classList.add('hidden');
+			});
+		});
 
-        // --- Fonctions de gestion du Carrousel (Suite) ---
+        // 3. Modales
+        let activePhotographer = null;
+        let activeVideo = null;
+        
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.style.opacity = 1, 10);
+        }
 
-        function updateCarouselCounter() {
-            document.getElementById('carousel-counter').textContent = `${currentCarouselIndex + 1} / ${previewImages.length}`;
-        }
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.opacity = 0;
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+        
+        function openPhotographerModal(name) {
+            activePhotographer = name;
+            const data = photographers[name];
+            
+            document.getElementById('modalPhotoTitle').textContent = `Collection ${name}`;
+            document.getElementById('modalPhotoDescription').innerHTML = data.description;
+            document.getElementById('photo-code-input').value = '';
+            document.getElementById('photo-error-message').classList.add('hidden');
+            openModal('photographerModal');
+        }
+        
+        function attemptPhotoDownload() {
+            const input = document.getElementById('photo-code-input');
+            const errorMessage = document.getElementById('photo-error-message');
+            const data = photographers[activePhotographer];
+            
+            if (input.value === data.code) {
+window.open(data.file, '_blank');
+                closeModal('photographerModal');
+            } else {
+                errorMessage.textContent = "Code secret incorrect. Veuillez réessayer.";
+                errorMessage.classList.remove('hidden');
+            }
+        }
 
-        function changeCarouselImage(direction) {
-            const items = document.querySelectorAll('#carousel-inner .carousel-item');
-            
-            if (items.length === 0) return; 
+        function openVideoModal(key) {
+            activeVideo = key;
+            const data = videos[key];
+            
+            document.getElementById('modalVideoTitle').textContent = data.title;
+CH_CHARSET           document.getElementById('video-code-input').value = '';
+            document.getElementById('video-error-message').classList.add('hidden');
+            openModal('videoModal');
+        }
 
-            items[currentCarouselIndex].classList.remove('active');
-            
-            currentCarouselIndex = (currentCarouselIndex + direction + previewImages.length) % previewImages.length;
-            
-            items[currentCarouselIndex].classList.add('active');
-            updateCarouselCounter();
-        }
+        function attemptVideoDownload() {
+            const input = document.getElementById('video-code-input');
+A            const errorMessage = document.getElementById('video-error-message');
+            const data = videos[activeVideo];
+            
+            if (input.value === data.code) {
+                window.open(data.file, '_blank');
+                closeModal('videoModal');
+            } else {
+                errorMessage.textContent = "Code secret incorrect. Veuillez réessayer.";
+                errorMessage.classList.remove('hidden');
+            }
+        }
+        
+		// Initialisation au chargement de la page
+		window.onload = function() {
+			loadCarouselImages();
+			// Vous pouvez ajouter une fonction pour démarrer le carrousel automatiquement si désiré
+			// setInterval(() => changeCarouselImage(1), 5000); 
+		}
 
-        function handleKeydown(e) {
-            if (photographerModal.classList.contains('hidden') && videoModal.classList.contains('hidden')) {
-                if (e.key === 'ArrowRight') changeCarouselImage(1);
-                else if (e.key === 'ArrowLeft') changeCarouselImage(-1);
-            }
-        }
-
-        // --- Fonctions de gestion des Modales (Ouverture/Fermeture) ---
-
-        function openPhotographerModal(name) {
-            currentItem = photographers[name];
-            document.getElementById('modalPhotoTitle').textContent = `Photos de ${name}`;
-            // On utilise innerHTML car la description contient des balises HTML (<strong> et <br>)
-            document.getElementById('modalPhotoDescription').innerHTML = currentItem.description; 
-            document.getElementById('photo-code-input').value = '';
-            document.getElementById('photo-error-message').classList.add('hidden');
-            photographerModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function openVideoModal(name) {
-            currentItem = videos[name];
-            document.getElementById('modalVideoTitle').textContent = currentItem.title;
-            document.getElementById('video-code-input').value = '';
-            document.getElementById('video-error-message').classList.add('hidden');
-            videoModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-            if (photographerModal.classList.contains('hidden') && videoModal.classList.contains('hidden')) {
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-
-        // --- Fonctions de Téléchargement sécurisé (Pas de changement) ---
-
-        function attemptPhotoDownload() {
-            const input = document.getElementById('photo-code-input');
-            const error = document.getElementById('photo-error-message');
-            const code = input.value.trim();
-
-            if (code === currentItem.code) {
-                const link = document.createElement('a');
-                link.href = currentItem.file;
-                link.download = currentItem.file.split('/').pop();
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                error.classList.add('hidden');
-                closeModal('photographerModal');
-                alert(`Le téléchargement des photos de ${currentItem.file.split('_')[1].split('.')[0]} a démarré !`);
-            } else {
-                error.textContent = 'Code secret incorrect. Veuillez réessayer.';
-                error.classList.remove('hidden');
-            }
-        }
-
-        function attemptVideoDownload() {
-            const input = document.getElementById('video-code-input');
-            const error = document.getElementById('video-error-message');
-            const code = input.value.trim();
-
-            if (code === currentItem.code) {
-                const link = document.createElement('a');
-                link.href = currentItem.file;
-                link.download = currentItem.file.split('/').pop();
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                error.classList.add('hidden');
-                closeModal('videoModal');
-                alert(`Le téléchargement du ZIP de la vidéo "${currentItem.title}" a démarré !`);
-            } else {
-                error.textContent = 'Code secret incorrect. Veuillez réessayer.';
-                error.classList.remove('hidden');
-            }
-        }
-
-		// Cibler le formulaire
-const contactForm = document.querySelector('#contact form');
-
-contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault(); // empêche le comportement par défaut
-    const formData = new FormData(contactForm);
-
-    try {
-        const response = await fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            document.getElementById('thankYouModal').classList.remove('hidden'); // afficher modale
-            contactForm.reset(); // vider le formulaire
-        } else {
-            alert('Une erreur est survenue. Veuillez réessayer.');
-        }
-    } catch (error) {
-        alert('Une erreur est survenue. Veuillez réessayer.');
-        console.error(error);
-    }
-});
-
-function closeThankYouModal() {
-    document.getElementById('thankYouModal').classList.add('hidden');
-}
-
-    </script>
-<!-- Modale Merci -->
-<div id="thankYouModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-11/12 p-8 text-center animate-fadeIn">
-        <h2 class="text-3xl font-bold text-orange-600 mb-4">Merci pour votre message !</h2>
-        <p class="text-gray-700 mb-6">
-            Nous avons bien reçu votre message et reviendrons vers vous rapidement.
-        </p>
-        <button onclick="closeThankYouModal()" class="action-btn px-6 py-3 rounded-full text-white font-medium text-lg hover:shadow-xl transition">
-            Retour au site
-        </button>
-    </div>
-</div>
+    </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
