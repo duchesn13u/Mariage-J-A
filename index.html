@@ -305,65 +305,43 @@
 
     <hr class="border-t border-yellow-200 my-12">
 
-<!-- NOUVELLE SECTION VIDÉOS (ajoutée) -->
-<section id="videos" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Les Souvenirs en Vidéo 🎥</h2>
-            <p class="text-lg text-gray-600">Cliquez sur la vignette pour **prévisualiser** la vidéo, ou sur le bouton pour la télécharger.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.2s;">
-                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-church mr-2 text-orange-500"></i> Cérémonie Religieuse en l'Eglise de Saint Sever</h3>
-                
-                <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ceremonie')">
-                    <!-- Au clic sur l'image, on ouvre la modale de prévisualisation -->
-                    <img src="./vignette_ceremonie.png" alt="Vignette Cérémonie Religieuse" class="w-full h-full object-cover border-2 border-gray-300">
-                    <div class="play-button">
-                        <i class="fas fa-play text-white text-3xl ml-1"></i>
-                    </div>
-                </div>
-                
-                <!-- Le bouton de téléchargement utilise la même fonction pour afficher le lien/info de téléchargement -->
-                <button onclick="openVideoModal('Ceremonie', true)" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
+    <section id="videos" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Les Souvenirs en Vidéo 🎥</h2>
+                <p class="text-lg text-gray-600">Cliquez sur l'image pour accéder au téléchargement sécurisé des fichiers vidéo.</p>
             </div>
             
-            <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.4s;">
-                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-music mr-2 text-orange-500"></i> Ouverture de Bal</h3>
-                
-                <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ouverture')">
-                    <img src="./vignette_ouverture.png" alt="Vignette Ouverture de Bal" class="w-full h-full object-cover border-2 border-gray-300">
-                    <div class="play-button">
-                        <i class="fas fa-play text-white text-3xl ml-1"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-church mr-2 text-orange-500"></i> Cérémonie Religieuse en l'Eglise de Saint Sever</h3>
+                    
+                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ceremonie')">
+                        <img src="./vignette_ceremonie.png" alt="Vignette Cérémonie Religieuse" class="w-full h-full object-cover border-2 border-gray-300">
+                        <div class="play-button">
+                            <i class="fas fa-play text-white text-3xl ml-1"></i>
+                        </div>
                     </div>
+                    
+                    <button onclick="openVideoModal('Ceremonie')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
                 </div>
                 
-                <button onclick="openVideoModal('Ouverture', true)" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
+                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-music mr-2 text-orange-500"></i> Ouverture de Bal</h3>
+                    
+                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ouverture')">
+                        <img src="./vignette_ouverture.png" alt="Vignette Ouverture de Bal" class="w-full h-full object-cover border-2 border-gray-300">
+                        <div class="play-button">
+                            <i class="fas fa-play text-white text-3xl ml-1"></i>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openVideoModal('Ouverture')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- MODALE POUR LE LECTEUR VIDÉO (Prévisualisation Sécurisée) -->
-<div id="videoModal" class="modal-overlay" onclick="closeVideoModal(event)">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeVideoModal(event)">&times;</span>
-        <h3 id="videoTitle" class="text-xl font-bold text-white mb-4 text-center"></h3>
-
-        <!-- Conteneur pour le lecteur (16:9) -->
-        <div id="videoPlayerContainer" class="aspect-video w-full rounded-lg overflow-hidden bg-black flex items-center justify-center">
-            <!-- Le lecteur <video> sera inséré ici par JavaScript -->
-            <p id="videoPlaceholder" class="text-gray-400">Chargement de la vidéo...</p>
-        </div>
-
-        <div id="downloadInfo" class="mt-4 text-center p-3 rounded-lg text-white font-medium hidden">
-            <!-- Les informations de téléchargement apparaîtront ici si l'utilisateur clique sur le bouton "Télécharger" -->
-            Veuillez utiliser le lien sécurisé suivant pour le téléchargement : <a id="downloadLink" href="#" target="_blank" class="text-orange-400 underline hover:text-orange-300 ml-2">Lien de Téléchargement</a>
-        </div>
-    </div>
-</div>
-	
 	<section id="livret" class="py-16 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="text-center mb-12">
@@ -494,6 +472,8 @@
     </div>
 
     <script>
+        // --- Définitions des données (CORRIGÉES pour Benjamin) ---
+
         const photographers = {
             'Benjamin': {
                 // Chaîne corrigée avec <strong> et <br><br>
@@ -553,120 +533,6 @@
 			'preview-28.jpg','preview-29.jpg', 'preview-30.jpg'
 		];
 
-   // Mappage des vidéos (ajoutez ici les vrais chemins de vos fichiers vidéo !)
-    // REMARQUE IMPORTANTE : L'utilisation du format .mp4 est fortement RECOMMANDÉE pour la compatibilité.
-    // Si vous utilisez .mov, la lecture ne sera pas garantie sur tous les navigateurs (Chrome/Firefox/Android).
-    const videoData = {
-        'Ceremonie': { 
-            title: "Cérémonie de Mariage - Église de Saint Sever", 
-            previewUrl: "./video_ceremonie.mp4", 
-            downloadLink: "LIEN_DE_TELECHARGEMENT_CEREMONIE_SECURISÉ" 
-        },
-        'Ouverture': { 
-            title: "Ouverture de Bal - L'Émotion du Premier Pas", 
-            previewUrl: "./video_ouverture.mov", // Exemple de modification pour tester .mov (moins recommandé)
-            downloadLink: "LIEN_DE_TELECHARGEMENT_OUVERTURE_SECURISÉ" 
-        }
-        // Ajoutez d'autres vidéos ici
-    };
-
-    /**
-     * Détermine le type MIME approprié en fonction de l'extension du fichier.
-     * @param {string} url - L'URL du fichier vidéo.
-     * @returns {string} Le type MIME.
-     */
-    function getMimeType(url) {
-        if (url.endsWith('.mp4')) {
-            return 'video/mp4';
-        } else if (url.endsWith('.mov')) {
-            // Le type MIME pour QuickTime. La compatibilité n'est pas garantie sur tous les navigateurs.
-            return 'video/quicktime'; 
-        }
-        // Ajout d'autres types si nécessaire (webm, ogg)
-        return 'video/mp4'; // Fallback par défaut
-    }
-
-    /**
-     * Ouvre la modale pour la vidéo spécifiée.
-     * @param {string} videoKey - La clé de la vidéo ('Ceremonie', 'Ouverture', etc.).
-     * @param {boolean} [showDownloadOnly=false] - Si vrai, n'affiche que l'info de téléchargement.
-     */
-    function openVideoModal(videoKey, showDownloadOnly = false) {
-        const modal = document.getElementById('videoModal');
-        const playerContainer = document.getElementById('videoPlayerContainer');
-        const titleElement = document.getElementById('videoTitle');
-        const downloadInfo = document.getElementById('downloadInfo');
-        const downloadLink = document.getElementById('downloadLink');
-
-        const data = videoData[videoKey];
-        if (!data) return;
-
-        // Mise à jour du titre
-        titleElement.textContent = data.title;
-
-        // Affichage conditionnel du lecteur/téléchargement
-        if (showDownloadOnly) {
-            // Clic sur le bouton TÉLÉCHARGER
-            playerContainer.style.display = 'none';
-            downloadInfo.style.display = 'block';
-            titleElement.textContent = "Téléchargement : " + data.title;
-            downloadLink.href = data.downloadLink;
-
-        } else {
-            // Clic sur la VIGNETTE (Prévisualisation)
-            playerContainer.style.display = 'flex'; // Affiche le lecteur
-            downloadInfo.style.display = 'none'; // Cache l'info de téléchargement
-            
-            // Supprime l'ancien lecteur s'il existe
-            playerContainer.innerHTML = ''; 
-
-            // Crée le nouvel élément <video>
-            const videoElement = document.createElement('video');
-            videoElement.id = 'activeVideoPlayer';
-            videoElement.className = 'w-full h-full';
-            videoElement.controls = true; // Affiche les contrôles (lecture, volume)
-            videoElement.autoplay = true; // Démarre la lecture automatiquement
-
-            // Détermine le type MIME basé sur l'URL de prévisualisation
-            const mimeType = getMimeType(data.previewUrl);
-            
-            // Crée la source (le chemin de la vidéo)
-            const sourceElement = document.createElement('source');
-            sourceElement.src = data.previewUrl;
-            sourceElement.type = mimeType; // Utilise le type MIME détecté
-
-            videoElement.appendChild(sourceElement);
-            playerContainer.appendChild(videoElement);
-
-            // Affiche un message si la vidéo ne peut pas être lue
-            videoElement.onerror = () => {
-                playerContainer.innerHTML = '<p class="text-red-400 p-8">Erreur de lecture. Le format ' + data.previewUrl.split('.').pop().toUpperCase() + ' n\'est peut-être pas supporté par votre navigateur.</p>';
-            };
-        }
-
-        modal.style.display = 'flex'; // Affiche la modale
-    }
-
-    /**
-     * Ferme la modale vidéo et arrête la lecture.
-     */
-    function closeVideoModal(event) {
-        const modal = document.getElementById('videoModal');
-        // Empêche la fermeture si l'on clique à l'intérieur du contenu
-        if (event && event.target !== modal && !event.target.classList.contains('close-btn')) {
-            return;
-        }
-
-        const video = document.getElementById('activeVideoPlayer');
-        if (video) {
-            video.pause(); // Arrête la lecture
-            video.remove(); // Supprime l'élément pour nettoyer
-        }
-        
-        document.getElementById('videoPlayerContainer').innerHTML = '<p id="videoPlaceholder" class="text-gray-400">Chargement de la vidéo...</p>';
-        modal.style.display = 'none'; // Cache la modale
-    }
-		
         // --- Variables d'état et éléments DOM (Pas de changement) ---
 
         let currentCarouselIndex = 0; // Index pour le carrousel
@@ -855,9 +721,6 @@ function closeThankYouModal() {
 </body>
 
 </html>
-
-
-
 
 
 
