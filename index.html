@@ -215,94 +215,97 @@
 
     <hr class="border-t border-yellow-200 my-12">
 
-    <section id="photos" class="py-16 bg-yellow-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">La Galerie des Photographes 📸</h2>
-                <p class="text-lg text-gray-600">Cliquez pour voir la description et télécharger la collection.</p>
-            </div>
-            
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera-retro mr-2 text-orange-500"></i> Photographes Officiels</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    
-                    <div id="photos-benjamin" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 0.8s;">
-                        <button onclick="openPhotographerModal('Benjamin')" class="focus:outline-none">
-                            <img src="./Benjamin_photo.jpg" alt="Photo de Benjamin" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Benjamin</h3>
-                            <p class="text-orange-600 font-semibold">Photographe Officiel (Pro)</p>
-                        </button>
-                        <button onclick="openPhotographerModal('Benjamin')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-                    </div>
-                    
-                    <div id="photos-yanis" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.0s;">
-                        <button onclick="openPhotographerModal('Yanis')" class="focus:outline-none">
-                            <img src="./Yanis_photo.jpg" alt="Photo de Yanis" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Yanis</h3>
-                            <p class="text-orange-600 font-semibold">Photographe passionné </p>
-                        </button>
-                        <button onclick="openPhotographerModal('Yanis')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-                    </div>
+<section id="photos" class="py-16 bg-yellow-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">La Galerie des Photographes 📸</h2>
+            <p class="text-lg text-gray-600">Cliquez pour voir la description et télécharger la collection.</p>
+        </div>
+        
+        <!-- SECTION 1 : Photographes Officiels -->
+        <div class="mb-16">
+            <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera-retro mr-2 text-orange-500"></i> Photographes Officiels</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <div id="photos-benjamin" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 0.8s;">
+                    <button onclick="openPhotographerModal('Benjamin')" class="focus:outline-none">
+                        <img src="./Benjamin_photo.jpg" alt="Photo de Benjamin" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Benjamin</h3>
+                        <p class="text-orange-600 font-semibold">Photographe Officiel (Pro)</p>
+                    </button>
+                    <button onclick="openPhotographerModal('Benjamin')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                </div>
+                
+                <div id="photos-yanis" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.0s;">
+                    <button onclick="openPhotographerModal('Yanis')" class="focus:outline-none">
+                        <img src="./Yanis_photo.jpg" alt="Photo de Yanis" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Yanis</h3>
+                        <p class="text-orange-600 font-semibold">Photographe passionné </p>
+                    </button>
+                    <button onclick="openPhotographerModal('Yanis')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
                 </div>
             </div>
-
-		<div>
-                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-users-viewfinder mr-2 text-orange-500"></i> Photos des Invités Passionnés</h3>
-                <p class="text-lg text-gray-600 mb-8">Ces collections offrent un regard plus personnel et spontané sur la journée.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    
-				    <div id="photos-alice" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between **h-full**" style="animation-delay: 1.2s;">
-				
-				        <button onclick="openPhotographerModal('Alice')" class="focus:outline-none">
-				            <img src="./Alice_photo.jpg" alt="Photo d'Alice" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-				            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Alice</h3>
-				            <p class="text-orange-600 font-semibold">Amie proche et photographe à ses heures perdues</p>
-				        </button>
-				        <button onclick="openPhotographerModal('Alice')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-				    </div>
-				
-				    <div id="photos-orlando" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between **h-full**" style="animation-delay: 1.2s;">
-				        <button onclick="openPhotographerModal('Orlando')" class="focus:outline-none">
-				            <img src="./Orlando_photo.jpg" alt="Photo d'Orlando" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-				            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Orlando</h3>
-				            <p class="text-orange-600 font-semibold">Prêtre Colombien et amateur de photos</p>
-				        </button>
-				        <button onclick="openPhotographerModal('Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-				    </div>
-				    
-<div id="photos-valentine-pierre" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between h-full" style="animation-delay: 1.2s;">
-				        <button onclick="openPhotographerModal('Valentine & Pierre')" class="focus:outline-none">
-				            <img src="./valpierre_photo.jpg" alt="Photo Valentine & Pierre" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-				            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Valentine et Pierre</h3>
-				            <p class="text-orange-600 font-semibold">Artistes aux talents multiples</p>
-				        </button>
-				        <button onclick="openPhotographerModal('Valentine & Pierre')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-				    </div>
-				</div>
-				<div class="mt-12">
-					<h3 class="text-xl font-bold text-gray-800 border-b border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera mr-2 text-orange-500"></i> Photos de vous tous ! (2 par ligne)</h3>
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-						<div id="photos-alice-orlando" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.4s;">
-							<button onclick="openPhotographerModal('Wedshoot - Alice & Orlando')" class="focus:outline-none">
-								<img src="./wedshoot_photo.jpg" alt="Photo de Wedshoot" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-								<h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Alice et Orlando</h3>
-								<p class="text-orange-600 font-semibold">Réalisé grâce à l'application Wedshoot</p>
-							</button>
-							<button onclick="openPhotographerModal('Wedshoot - Alice & Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-						</div>
-						<div id="photos-wedshoot" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.6s;">
-							<button onclick="openPhotographerModal('Wedshoot - Valentine & Pierre')" class="focus:outline-none">
-								<img src="./wedshoot_photo.jpg" alt="Photo de Wedshoot" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-								<h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Valentine et Pierre</h3>
-								<p class="text-orange-600 font-semibold">Réalisé grâce à l'application Wedshoot</p>
-							</button>
-							<button onclick="openPhotographerModal('Wedshoot')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-						</div>
-					</div>
-				</div>
-            </div>
         </div>
-    </section>
+
+        <!-- SECTION 2 : Photos des Invités Passionnés (Alice, Orlando, Valentine & Pierre) -->
+        <div>
+            <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-users-viewfinder mr-2 text-orange-500"></i> Photos des Invités Passionnés</h3>
+            <p class="text-lg text-gray-600 mb-8">Ces collections offrent un regard plus personnel et spontané sur la journée.</p>
+            
+            <!-- Utilisation de grid-cols-1/sm:grid-cols-2/md:grid-cols-3 pour aligner 3 cartes sur la même ligne -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> 
+                
+                <div id="photos-alice" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between h-full" style="animation-delay: 1.2s;">
+                    <button onclick="openPhotographerModal('Alice')" class="focus:outline-none">
+                        <img src="./Alice_photo.jpg" alt="Photo d'Alice" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Alice</h3>
+                        <p class="text-orange-600 font-semibold">Amie proche et photographe à ses heures perdues</p>
+                    </button>
+                    <button onclick="openPhotographerModal('Alice')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                </div>
+                
+                <div id="photos-orlando" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between h-full" style="animation-delay: 1.2s;">
+                    <button onclick="openPhotographerModal('Orlando')" class="focus:outline-none">
+                        <img src="./Orlando_photo.jpg" alt="Photo d'Orlando" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Orlando</h3>
+                        <p class="text-orange-600 font-semibold">Prêtre Colombien et amateur de photos</p>
+                    </button>
+                    <button onclick="openPhotographerModal('Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                </div>
+                
+                <div id="photos-valentine-pierre" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between h-full" style="animation-delay: 1.2s;">
+                    <button onclick="openPhotographerModal('Valentine & Pierre')" class="focus:outline-none">
+                        <img src="./valpierre_photo.jpg" alt="Photo Valentine & Pierre" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Valentine et Pierre</h3>
+                        <p class="text-orange-600 font-semibold">Artistes aux talents multiples</p>
+                    </button>
+                    <button onclick="openPhotographerModal('Valentine & Pierre')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 3 : Photos de vous tous (Wedshoot - désormais seule) -->
+        <div class="mt-12">
+            <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera mr-2 text-orange-500"></i> Photos de vous tous !</h3>
+            <!-- J'utilise grid-cols-1 md:grid-cols-2 pour centrer la carte Wedshoot sur desktop, comme vous aviez 2 cartes avant -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Laisser la première colonne vide ou utiliser une div vide pour centrer -->
+                <div class="hidden md:block"></div> 
+
+                <!-- Carte Wedshoot unique -->
+                <div id="photos-wedshoot" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn md:col-span-1" style="animation-delay: 1.6s;">
+                    <button onclick="openPhotographerModal('Wedshoot')" class="focus:outline-none">
+                        <img src="./wedshoot_photo.jpg" alt="Photo de Wedshoot" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Wedshoot</h3>
+                        <!-- Nouveau texte demandé -->
+                        <p class="text-orange-600 font-semibold">Nos invités ont du talent !</p>
+                    </button>
+                    <button onclick="openPhotographerModal('Wedshoot')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <hr class="border-t border-yellow-200 my-12">
 
@@ -722,6 +725,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
