@@ -252,7 +252,7 @@
             <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-users-viewfinder mr-2 text-orange-500"></i> Photos des Invités Passionnés</h3>
             <p class="text-lg text-gray-600 mb-8">Ces collections offrent un regard plus personnel et spontané sur la journée.</p>
             
-            <!-- Utilisation de grid-cols-1/sm:grid-cols-2/md:grid-cols-3 pour aligner 3 cartes sur la même ligne -->
+            <!-- Les 3 cartes (Alice, Orlando, Valentine & Pierre) sur une ligne -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> 
                 
                 <div id="photos-alice" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between h-full" style="animation-delay: 1.2s;">
@@ -284,25 +284,20 @@
             </div>
         </div>
         
-        <!-- SECTION 3 : Photos de vous tous (Wedshoot - désormais seule) -->
+        <!-- SECTION 3 : Photos de vous tous (Wedshoot - maintenant pleine largeur) -->
         <div class="mt-12">
             <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera mr-2 text-orange-500"></i> Photos de vous tous !</h3>
-            <!-- J'utilise grid-cols-1 md:grid-cols-2 pour centrer la carte Wedshoot sur desktop, comme vous aviez 2 cartes avant -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Laisser la première colonne vide ou utiliser une div vide pour centrer -->
-                <div class="hidden md:block"></div> 
-
-                <!-- Carte Wedshoot unique -->
-                <div id="photos-wedshoot" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn md:col-span-1" style="animation-delay: 1.6s;">
-                    <button onclick="openPhotographerModal('Wedshoot')" class="focus:outline-none">
-                        <img src="./wedshoot_photo.jpg" alt="Photo de Wedshoot" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Wedshoot</h3>
-                        <!-- Nouveau texte demandé -->
-                        <p class="text-orange-600 font-semibold">Nos invités ont du talent !</p>
-                    </button>
-                    <button onclick="openPhotographerModal('Wedshoot')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-                </div>
+            
+            <!-- Carte Wedshoot unique, sans grille externe pour prendre toute la largeur -->
+            <div id="photos-wedshoot" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.6s;">
+                <button onclick="openPhotographerModal('Wedshoot')" class="focus:outline-none">
+                    <img src="./wedshoot_photo.jpg" alt="Photo de Wedshoot" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Wedshoot</h3>
+                    <p class="text-orange-600 font-semibold">Nos invités ont du talent !</p>
+                </button>
+                <button onclick="openPhotographerModal('Wedshoot')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
             </div>
+            
         </div>
     </div>
 </section>
@@ -725,6 +720,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
