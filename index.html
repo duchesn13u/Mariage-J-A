@@ -345,7 +345,7 @@
     </div>
 </section>
 
-	<!-- MODALE POUR LE LECTEUR VIDÉO (Prévisualisation Sécurisée) -->
+<!-- MODALE POUR LE LECTEUR VIDÉO (Prévisualisation Sécurisée) -->
 <div id="videoModal" class="modal-overlay" onclick="closeVideoModal(event)">
     <div class="modal-content">
         <span class="close-btn" onclick="closeVideoModal(event)">&times;</span>
@@ -553,7 +553,9 @@
 			'preview-28.jpg','preview-29.jpg', 'preview-30.jpg'
 		];
 
-    // Mappage des vidéos (ajoutez ici les vrais chemins de vos fichiers vidéo !)
+   // Mappage des vidéos (ajoutez ici les vrais chemins de vos fichiers vidéo !)
+    // REMARQUE IMPORTANTE : L'utilisation du format .mp4 est fortement RECOMMANDÉE pour la compatibilité.
+    // Si vous utilisez .mov, la lecture ne sera pas garantie sur tous les navigateurs (Chrome/Firefox/Android).
     const videoData = {
         'Ceremonie': { 
             title: "Cérémonie de Mariage - Église de Saint Sever", 
@@ -562,11 +564,27 @@
         },
         'Ouverture': { 
             title: "Ouverture de Bal - L'Émotion du Premier Pas", 
-            previewUrl: "./video_ouverture.mp4", 
+            previewUrl: "./video_ouverture.mov", // Exemple de modification pour tester .mov (moins recommandé)
             downloadLink: "LIEN_DE_TELECHARGEMENT_OUVERTURE_SECURISÉ" 
         }
         // Ajoutez d'autres vidéos ici
     };
+
+    /**
+     * Détermine le type MIME approprié en fonction de l'extension du fichier.
+     * @param {string} url - L'URL du fichier vidéo.
+     * @returns {string} Le type MIME.
+     */
+    function getMimeType(url) {
+        if (url.endsWith('.mp4')) {
+            return 'video/mp4';
+        } else if (url.endsWith('.mov')) {
+            // Le type MIME pour QuickTime. La compatibilité n'est pas garantie sur tous les navigateurs.
+            return 'video/quicktime'; 
+        }
+        // Ajout d'autres types si nécessaire (webm, ogg)
+        return 'video/mp4'; // Fallback par défaut
+    }
 
     /**
      * Ouvre la modale pour la vidéo spécifiée.
@@ -609,17 +627,20 @@
             videoElement.controls = true; // Affiche les contrôles (lecture, volume)
             videoElement.autoplay = true; // Démarre la lecture automatiquement
 
+            // Détermine le type MIME basé sur l'URL de prévisualisation
+            const mimeType = getMimeType(data.previewUrl);
+            
             // Crée la source (le chemin de la vidéo)
             const sourceElement = document.createElement('source');
             sourceElement.src = data.previewUrl;
-            sourceElement.type = 'video/mp4'; // Assurez-vous que le type MIME est correct
+            sourceElement.type = mimeType; // Utilise le type MIME détecté
 
             videoElement.appendChild(sourceElement);
             playerContainer.appendChild(videoElement);
 
             // Affiche un message si la vidéo ne peut pas être lue
             videoElement.onerror = () => {
-                playerContainer.innerHTML = '<p class="text-red-400 p-8">Erreur de chargement de la vidéo. Vérifiez le chemin du fichier.</p>';
+                playerContainer.innerHTML = '<p class="text-red-400 p-8">Erreur de lecture. Le format ' + data.previewUrl.split('.').pop().toUpperCase() + ' n\'est peut-être pas supporté par votre navigateur.</p>';
             };
         }
 
@@ -645,7 +666,6 @@
         document.getElementById('videoPlayerContainer').innerHTML = '<p id="videoPlaceholder" class="text-gray-400">Chargement de la vidéo...</p>';
         modal.style.display = 'none'; // Cache la modale
     }
-
 		
         // --- Variables d'état et éléments DOM (Pas de changement) ---
 
@@ -835,6 +855,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
