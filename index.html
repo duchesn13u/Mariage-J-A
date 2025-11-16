@@ -270,14 +270,35 @@
 				        <button onclick="openPhotographerModal('Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
 				    </div>
 				    
-				    <div id="photos-valentine-pierre" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between **h-full**" style="animation-delay: 1.2s;">
-				        <button onclick="openPhotographerModal('Valentine & Pierre')" class="focus:outline-none">
-				            <img src="./valpierre_photo.jpg" alt="Photo Valentine & Pierre" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
-				            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Valentine et Pierre</h3>
-				            <p class="text-orange-600 font-semibold">Artistes aux talents multiples</p>
-				        </button>
-				        <button onclick="openPhotographerModal('Valentine & Pierre')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
-				    </div>
+<div id="photos-valentine-pierre" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between h-full" style="animation-delay: 1.2s;">
+				        <button onclick="openPhotographerModal('Valentine & Pierre')" class="focus:outline-none">
+				            <img src="./valpierre_photo.jpg" alt="Photo Valentine & Pierre" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+				            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Valentine et Pierre</h3>
+				            <p class="text-orange-600 font-semibold">Artistes aux talents multiples</p>
+				        </button>
+				        <button onclick="openPhotographerModal('Valentine & Pierre')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+				    </div>
+				</div>
+				<div class="mt-12">
+					<h3 class="text-xl font-bold text-gray-800 border-b border-orange-400 pb-2 mb-8 flex items-center"><i class="fas fa-camera mr-2 text-orange-500"></i> Photos de vous tous ! (2 par ligne)</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+						<div id="photos-alice-orlando" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.4s;">
+							<button onclick="openPhotographerModal('Wedshoot - Alice & Orlando')" class="focus:outline-none">
+								<img src="./wedshoot_photo.jpg" alt="Photo de Wedshoot" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+								<h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Alice et Orlando</h3>
+								<p class="text-orange-600 font-semibold">Réalisé grâce à l'application Wedshoot</p>
+							</button>
+							<button onclick="openPhotographerModal('Wedshoot - Alice & Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+						</div>
+						<div id="photos-wedshoot" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.6s;">
+							<button onclick="openPhotographerModal('Wedshoot - Valentine & Pierre')" class="focus:outline-none">
+								<img src="./wedshoot_photo.jpg" alt="Photo de Wedshoot" class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg border-4 border-orange-400 hover:border-orange-600 transition duration-300">
+								<h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Valentine et Pierre</h3>
+								<p class="text-orange-600 font-semibold">Réalisé grâce à l'application Wedshoot</p>
+							</button>
+							<button onclick="openPhotographerModal('Wedshoot')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+						</div>
+					</div>
 				</div>
             </div>
         </div>
@@ -458,27 +479,32 @@
             'Benjamin': {
                 // Chaîne corrigée avec <strong> et <br><br>
 				description: "Photographe professionnel aux <strong>horizons sans limites</strong>, Benjamin Faure a capturé l’extraordinaire : des paysages exotiques aux <strong>sportifs de l’extrême</strong>.<br><br>Son <strong>regard unique</strong> transforme chaque instant en une œuvre <strong>intemporelle</strong>.<br><br>Benjamin, un <strong>ami exceptionnel</strong> rencontré par Antoine lors de leur formation commando à la BA 118 de Mont de Marsan, a immortalisé notre cérémonie avec la même <strong>passion et générosité</strong> qui le définissent.<br><br>Un <strong>immense merci</strong> pour ces souvenirs inoubliables !",
-				file: 'https://drive.google.com/file/d/1Yp-7GHweC0EuZLJqQrXZxMhYYjOJxmtH/view?usp=drive_link',  
+				file: 'https://drive.google.com/file/d/1vGokF3OP8z2iJ8ZFk0Y3henD-EZh1y_c/view?usp=sharing',  
                 code: 'J&A2308' // Code secret pour les photos
             },
             'Yanis': {
                 description: "Yanis, vétérinaire rencontré sur les bancs de l’école, mais aussi <strong>photographe talentueux</strong> qui capture la beauté du monde à travers son objectif.<br><br>Un <strong>ami fidèle</strong>, toujours présent pour partager les fous rires et les moments précieux, et dont la <strong>générosité</strong> a rendu notre journée encore plus lumineuse.",
-                file: 'https://drive.google.com/file/d/1ypJiedLUyqclgghF-i89iE77GN0JllVn/view?usp=drive_link',
+                file: 'https://drive.google.com/file/d/12vhCM6RMDrymAbAaEk7yadGLJjGvymKQ/view?usp=sharing',
                 code: 'J&A2308'  
             },
             'Alice': {
-                description: "Alice, amie <strong>très proche</strong> de Jeanne et Antoine, est toujours dans les bons coups. Sa générosité et son talent pour la photographie l'ont tout de suite convaincue d'immortaliser la <strong>cérémonie civile à la mairie et le brunch !</strong><br><br>Elle nous a offert une série de clichés <strong>chaleureux et spontanés</strong>. <br><br> N'hésitez pas si vous avez une vache qui ne va pas bien dans la région de Foix : Alice est aussi <strong>vétérinaire</strong> !",
-                file: 'https://drive.google.com/file/d/1q2tWJjrQ74FsNbntM7gdvuT6xulTbcE-/view?usp=sharing',
+                description: "Alice, amie <strong>très proche</strong> de Jeanne et Antoine, est toujours dans les bons coups. Sa générosité et son talent pour la photographie l'ont tout de suite convaincue d'immortaliser la <strong>nos enterrements de vie de garçon/jeune fille, la cérémonie civile à la mairie et le brunch !</strong><br><br>Elle nous a offert une série de clichés <strong>chaleureux et spontanés</strong>. <br><br> N'hésitez pas si vous avez une vache qui ne va pas bien dans la région de Foix : Alice est aussi <strong>vétérinaire</strong> !",
+                file: 'https://drive.google.com/file/d/15mQWQ_md2MgVqRV_KnJ-LlGHLAjH8io6/view?usp=sharing',
                 code: 'J&A2308'  
             },
             'Orlando': {
 				description: "Le Père Orlando, celui qui a officié notre cérémonie religieuse, est bien plus qu'un prêtre : il est un <strong>ami très proche</strong> et un membre à part entière de la famille d'Antoine.<br><br>Il n'a pas hésité à traverser l’Atlantique, depuis sa <strong>Colombie natale</strong>, pour venir célébrer ce mariage si important en France.<br><br>Considéré comme un frère depuis qu'il est venu étudier en France durant son séminaire catholique, sa présence et sa bénédiction ont été le <strong>plus beau des cadeaux</strong>.",                
-                file: 'https://drive.google.com/file/d/1nMrOi4uSwvM5XbAphTmzvzdp_C-P2d4v/view?usp=sharing',
+                file: 'https://drive.google.com/file/d/1FAwyleP1TLC_8FGGhe2GK0AB6iHTpYH0/view?usp=sharing',
                 code: 'J&A2308'  
             },
             'Valentine & Pierre': {
 				description: "Valentine, notre <strong>belle</strong> sœur dont le mot <strong>belle</strong> est un euphémisme — et Pierre, le frère d'Antoine, notre batteur star pour le vin d’honneur, ont dépassé toutes nos attentes. En plus de nous faire danser, ils nous ont offert des <strong>photos extraordinaires</strong>, des images qui valent tous les <strong>cadeaux</strong> du monde.<br><br> Leur talent et leur générosité ont rendu cette journée encore plus <strong>exceptionnelle</strong>. Merci à eux pour ces <strong>moments inoubliables</strong> !",                
-                file: 'https://drive.google.com/file/d/1eJWG1RwUVQ8-HjmIspQdqZH2ovXYApPX/view?usp=sharing',
+                file: 'https://drive.google.com/file/d/1ReWEgTmfRiQOtLZSfSrr7eGIxvZUu17A/view?usp=sharing',
+                code: 'J&A2308'  
+            },
+			'Wedshoot': {
+				description: "Ces photos ont été récupérées sur l'application <strong class='font-bold'>Wedshoot</strong> grâce aux <strong class='font-bold'>contributions de tous</strong>. Tous les invités sont des <strong class='font-bold'>photographes précieux</strong> qui rendent par ces images la <strong class='font-bold'>joie et la simplicité</strong> du plus beau jour de notre vie !",                
+                file: 'https://drive.google.com/file/d/1thtS-3DsykDSs_Frt85lbtZhFBoHQbGL/view?usp=sharing',
                 code: 'J&A2308'  
             }
         };
@@ -696,6 +722,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
