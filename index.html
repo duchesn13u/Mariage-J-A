@@ -344,7 +344,7 @@
 <hr class="border-t border-yellow-200 my-12">
 
 	
-    <section id="hommage-bernard" class="py-16 bg-orange-50">
+<section id="hommage-bernard" class="py-16 bg-orange-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Un Cadeau du Cœur 🎁</h2>
@@ -353,7 +353,6 @@
 
             <div class="bg-white rounded-xl shadow-2xl p-8 border-4 border-orange-400 animate-fadeIn" style="animation-delay: 0.2s;">
                 
-                <!-- Texte explicatif -->
                 <div class="text-gray-700 text-lg leading-relaxed text-center mb-8">
                     <p>
                         <strong>Bernard Labatut et Josette Labatut</strong>, grands-parents de Jeanne, nous ont offert un cadeau magnifique : une <em>ode œcuménique</em> chantée par Bernard à l'église, devant tous, sur la beauté de la nature, du divin et de l'amour.
@@ -368,7 +367,6 @@
                     </p>
                 </div>
 
-                <!-- Photo de Bernard -->
                 <div class="flex justify-center mb-8">
                     <div class="relative">
                         <img src="./bernard_chant.png" alt="Bernard Labatut chantant à l'église" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg border-4 border-yellow-300">
@@ -378,34 +376,59 @@
                     </div>
                 </div>
 
-                <!-- Boutons et Audio -->
                 <div class="flex flex-col items-center space-y-6">
                     
-                    <!-- Bouton Télécharger le PDF -->
-                    <a href="./ode.pdf" download class="action-btn w-full md:w-2/3 py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
-                        <i class="fas fa-file-pdf mr-3"></i> Télécharger le texte (L'Ode)
-                    </a>
+                    <button onclick="openModal('odePdfModal')" class="action-btn w-full md:w-2/3 py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
+                        <i class="fas fa-book-open mr-3"></i> Voir le texte (L'Ode)
+                    </button>
 
                     <hr class="w-1/2 border-yellow-200">
 
-                    <!-- Lecteur Audio -->
                     <div class="w-full md:w-2/3 bg-gray-50 p-4 rounded-lg border border-gray-200 text-center">
                         <p class="font-semibold text-gray-800 mb-3"><i class="fas fa-music text-orange-500 mr-2"></i>Écouter l'enregistrement</p>
                         <audio controls class="w-full mb-4">
-                            <!-- Assure-toi que le fichier audio est bien dans le dossier -->
                             <source src="./ode_bernard.m4a" type="audio/mpeg">
                             Votre navigateur ne supporte pas l'élément audio.
                         </audio>
                         
-                        <!-- Téléchargement Audio avec mention du code -->
-						<button onclick="openPhotographerModal('Bernard')" class="text-orange-600 hover:text-orange-800 font-medium text-sm flex items-center justify-center mx-auto focus:outline-none hover:underline">
-                            <i class="fas fa-download mr-2"></i> Télécharger l'audio (Code : J&A2308)
+                        <button onclick="openPhotographerModal('Bernard')" class="text-orange-600 hover:text-orange-800 font-medium text-sm flex items-center justify-center mx-auto focus:outline-none hover:underline">
+                            <i class="fas fa-download mr-2"></i> Télécharger l'audio
                         </button>
                     </div>
 
                 </div>
             </div>
         </div>
+
+        <div id="odePdfModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeModal('odePdfModal')"></div>
+
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl leading-6 font-bold text-gray-900" id="modal-title">Ode Œcuménique</h3>
+                            <button onclick="closeModal('odePdfModal')" class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                                <i class="fas fa-times text-2xl"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="w-full h-[600px] border border-gray-300 rounded-lg bg-gray-100 mb-6">
+                            <iframe src="./ode.pdf" class="w-full h-full rounded-lg" title="Ode PDF"></iframe>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="./ode.pdf" download class="action-btn inline-flex justify-center w-full md:w-auto px-8 py-3 border border-transparent shadow-sm text-base font-medium rounded-full text-white focus:outline-none">
+                                <i class="fas fa-download mr-2"></i> Télécharger le PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 	
 	<section id="livret" class="py-16 bg-white">
@@ -796,6 +819,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
