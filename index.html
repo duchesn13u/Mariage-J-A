@@ -840,20 +840,25 @@
 	function closeModal(modalId) {
 	    const modal = document.getElementById(modalId);
 	    if (modal) {
+	        // Cache la modale
 	        modal.classList.add('hidden');
 	    }
 	    
-	    // NOUVEAU : Si on ferme la modale audio, on arrête l'audio pour éviter qu'elle continue en arrière-plan
+	    // 1. ARRÊT DE L'AUDIO (Modale : #audioModal) 🎤
 	    if (modalId === 'audioModal') {
 	        const audioPlayer = document.getElementById('odeAudioPlayer');
 	        if (audioPlayer) {
+	            // Met en pause l'audio
 	            audioPlayer.pause();
-	            audioPlayer.currentTime = 0; // Rembobine au début
+	            // Rembobine au début (optionnel, mais recommandé)
+	            audioPlayer.currentTime = 0; 
 	        }
 	    }
 	
-	    // Le code pour les autres modales (photos/vidéos) doit rester
+	    // 2. ARRÊT DE LA VIDÉO (Modale : #videoReaderModal) 🎥
+	    // Cette partie est cruciale pour l'iframe vidéo
 	    if (modalId === 'videoReaderModal') {
+	        // Vide la source de l'iframe, ce qui stoppe la lecture
 	        document.getElementById('videoIframe').src = '';
 	    }
 	}
@@ -1138,6 +1143,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
