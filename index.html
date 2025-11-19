@@ -380,9 +380,26 @@
 
                 <div class="flex flex-col items-center space-y-6">
                     
-                    <button onclick="openModal('odePdfModal')" class="action-btn w-full md:w-2/3 py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
-                        <i class="fas fa-book-open mr-3"></i> Voir le texte (L'Ode)
-                    </button>
+				<div class="w-full md:w-2/3 bg-gray-50 p-4 rounded-lg border border-gray-200 text-center">
+				    <p class="font-semibold text-gray-800 mb-3"><i class="fas fa-book-open text-orange-500 mr-2"></i>Texte de l'Ode (Lecture)</p>
+				    
+				    <div class="w-full h-[300px] md:h-[400px] border border-gray-300 rounded-lg overflow-y-scroll mb-4">
+				        <iframe 
+				            src="./ode.pdf" 
+				            width="100%" 
+				            height="100%" 
+				            style="border: none;" 
+				            title="Lecture de l'Ode de Bernard">
+				            Votre navigateur ne supporte pas la visualisation de PDF.
+				        </iframe>
+				    </div>
+				
+				    <a href="./ode.pdf" download="ode_ecumenique.pdf" class="action-btn w-full py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
+				        <i class="fas fa-download mr-3"></i> Télécharger le PDF de l'Ode
+				    </a>
+				</div>
+				
+				<hr class="w-1/2 border-yellow-200">
 
 				<hr class="w-1/2 border-yellow-200">
 				
@@ -400,37 +417,6 @@
 				    </button>
 				</div>
 
-                </div>
-            </div>
-        </div>
-
-        <div id="odePdfModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeModal('odePdfModal')"></div>
-
-                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
-                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-2xl leading-6 font-bold text-gray-900" id="modal-title">Ode Œcuménique</h3>
-                            <button onclick="closeModal('odePdfModal')" class="text-gray-400 hover:text-gray-500 focus:outline-none">
-                                <i class="fas fa-times text-2xl"></i>
-                            </button>
-                        </div>
-                        
-						<div class="w-full h-[600px] max-h-[70vh] border-2 border-gray-200 rounded-lg bg-gray-50 mb-6 overflow-y-auto">
-						    <iframe src="./ode.pdf" class="w-full h-full rounded-lg" title="Lecture de l'Ode">
-						        <p class="text-center py-10">Votre navigateur ne supporte pas les PDF.</p>
-						    </iframe>
-						</div>
-
-                        <div class="text-center">
-                            <a href="ode.pdf" download class="action-btn inline-flex justify-center w-full md:w-auto px-8 py-3 border border-transparent shadow-sm text-base font-medium rounded-full text-white focus:outline-none">
-                                <i class="fas fa-download mr-2"></i> Télécharger le PDF
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1152,6 +1138,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
