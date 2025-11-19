@@ -383,20 +383,19 @@
                         <i class="fas fa-book-open mr-3"></i> Voir le texte (L'Ode)
                     </button>
 
-                    <hr class="w-1/2 border-yellow-200">
-
-					<div class="w-full md:w-2/3 bg-gray-50 p-4 rounded-lg border border-gray-200 text-center">
-					    <p class="font-semibold text-gray-800 mb-3"><i class="fas fa-music text-orange-500 mr-2"></i>Écouter l'enregistrement</p>
-					    <audio controls class="w-full mb-4">
-					        <source src="./ode_bernard.m4a" type="audio/mp4">
-					        Votre navigateur ne supporte pas l'élément audio.
-					    </audio>
-					</div>
-                        
-						<button onclick="openAudioModal()" class="text-orange-600 hover:text-orange-800 font-medium text-sm flex items-center justify-center mx-auto focus:outline-none hover:underline cursor-pointer">
-                            <i class="fas fa-download mr-2"></i> Télécharger l'audio
-                        </button>
-                    </div>
+				<hr class="w-1/2 border-yellow-200">
+				
+				<div class="w-full md:w-2/3 bg-gray-50 p-4 rounded-lg border border-gray-200 text-center">
+				    <p class="font-semibold text-gray-800 mb-3"><i class="fas fa-music text-orange-500 mr-2"></i>Écouter l'enregistrement</p>
+				    <audio controls class="w-full mb-4">
+				        <source src="./ode_bernard.m4a" type="audio/mp4">
+				        Votre navigateur ne supporte pas l'élément audio.
+				    </audio>
+				    
+				    <button onclick="openAudioModal()" class="action-btn w-full md:w-full py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
+				        <i class="fas fa-download mr-3"></i> Télécharger l'audio
+				    </button>
+				</div>
 
                 </div>
             </div>
@@ -417,9 +416,11 @@
                             </button>
                         </div>
                         
-                        <div class="w-full h-[600px] border border-gray-300 rounded-lg bg-gray-100 mb-6">
-                            <iframe src="./ode.pdf" class="w-full h-full rounded-lg" title="Ode PDF"></iframe>
-                        </div>
+						<div class="w-full h-[600px] max-h-[70vh] border-2 border-gray-200 rounded-lg bg-gray-50 mb-6 overflow-y-auto">
+						    <iframe src="./ode.pdf" class="w-full h-full rounded-lg" title="Lecture de l'Ode">
+						        <p class="text-center py-10">Votre navigateur ne supporte pas les PDF.</p>
+						    </iframe>
+						</div>
 
                         <div class="text-center">
                             <a href="ode.pdf" download class="action-btn inline-flex justify-center w-full md:w-auto px-8 py-3 border border-transparent shadow-sm text-base font-medium rounded-full text-white focus:outline-none">
@@ -443,16 +444,16 @@
 			<div class="max-w-4xl mx-auto bg-gray-100 rounded-xl shadow-2xl p-4 border-4 border-orange-500 animate-fadeIn" style="animation-delay: 0.2s;">
 				<h3 class="text-xl font-semibold text-gray-800 mb-4 text-center flex items-center justify-center"><i class="fas fa-book-open mr-2 text-orange-600"></i> Aperçu (Lecteur PDF)</h3>
 				
-				<div class="w-full h-[600px] md:h-[800px] border border-gray-300 rounded-lg overflow-hidden">
-					<iframe 
-						src="./livret_messe.pdf" 
-						width="100%" 
-						height="100%" 
-						style="border: none;" 
-						title="Livret de Messe du Mariage">
-						Votre navigateur ne supporte pas la visualisation de PDF.
-					</iframe>
-				</div>
+			<div class="w-full h-[600px] md:h-[800px] border border-gray-300 rounded-lg overflow-y-scroll">
+			    <iframe 
+			        src="./livret_messe.pdf" 
+			        width="100%" 
+			        height="100%" 
+			        style="border: none;" 
+			        title="Livret de Messe du Mariage">
+			        Votre navigateur ne supporte pas la visualisation de PDF.
+			    </iframe>
+			</div>
 
 				<p class="text-center text-gray-600 mt-6 mb-4">
 					Si l'aperçu ne s'affiche pas ou si vous préférez le conserver, vous pouvez le télécharger :
@@ -944,6 +945,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
