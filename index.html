@@ -342,6 +342,7 @@
             </div>
         </div>
     </section>
+	
 <hr class="border-t border-yellow-200 my-12">
 
 	
@@ -545,23 +546,54 @@
         </div>
     </div>
 
-    <div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl max-w-xl w-full">
-            <div class="p-8">
-                <div class="flex justify-between items-start mb-6">
-                    <h3 id="modalVideoTitle" class="text-3xl font-bold text-gray-900"></h3>
-                    <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
+	<div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+	    <div class="bg-white rounded-xl max-w-xl w-full">
+	        <div class="p-8">
+	            <div class="flex justify-between items-start mb-6">
+	                <h3 id="videoModalTitle" class="text-3xl font-bold text-gray-900"></h3>
+	                <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
+	            </div>
+	<div id="videoReaderModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="reader-title" role="dialog" aria-modal="true">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-90 transition-opacity" aria-hidden="true" onclick="closeModal('videoReaderModal')"></div>
+        
+        <div class="inline-block align-middle bg-black rounded-lg text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-4xl sm:w-full w-full">
+            <div class="bg-black p-2 sm:p-4">
+                
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="readerVideoTitle" class="text-xl sm:text-2xl font-bold text-white"></h3>
+                    <button onclick="closeModal('videoReaderModal')" class="text-gray-400 hover:text-white focus:outline-none">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+
+                <div class="aspect-video w-full rounded-lg overflow-hidden bg-gray-900">
+                    <iframe id="videoIframe" width="100%" height="100%" allow="autoplay" allowfullscreen style="border: none;"></iframe>
                 </div>
                 
-                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès au Téléchargement</h4>
-                <div id="download-form-videos">
-                    <input type="password" id="video-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
-                    <p id="video-error-message" class="text-red-500 mb-4 hidden"></p>
-                    <button onclick="attemptVideoDownload()" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-cloud-download-alt mr-2"></i> Télécharger le ZIP de la Vidéo</button>
+                <div class="text-center mt-4">
+                    <button onclick="closeModal('videoReaderModal'); openVideoDownloadModal(currentVideoKey);" class="text-white hover:text-orange-400 font-medium text-sm flex items-center justify-center mx-auto focus:outline-none hover:underline">
+                        <i class="fas fa-download mr-2"></i> Télécharger cette vidéo
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+	            
+	            <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès sécurisé</h4>
+	            <div id="download-form-videos">
+	                <input type="password" id="video-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
+	                <p id="video-error-message" class="text-red-500 mb-4 hidden"></p>
+	                
+	                <button id="attemptVideoAction" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center">
+	                    <i class="fas fa-play-circle mr-2"></i> Action
+	                </button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
 <div id="audioModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -637,20 +669,25 @@
             }
         };
 
-        const videos = {
-            'Ceremonie': {
-                title: 'Cérémonie Religieuse en l\'Eglise de Saint Sever',
-                file: 'https://drive.google.com/file/d/1AxxVmsFkEwKIxwj5H1WgWm5x1I9mW4W0/view?usp=sharing',  
-                code: 'J&A2308' // Code secret pour les vidéos
-            },
-            'Ouverture': {
-                title: 'Ouverture de Bal',
-                file: 'https://drive.google.com/file/d/1CW-3_BFDsb6xv8BG_r4NP66WK41qIok9/view?usp=sharing',
-                code: 'J&A2308'  
-            }
-        };
+		const videos = {
+		    'Ceremonie': {
+		        title: 'Cérémonie Religieuse en l\'Eglise de Saint Sever',
+		        // Lien de téléchargement (le ZIP)
+		        file: 'https://drive.google.com/file/d/1AxxVmsFkEwKIxwj5H1WgWm5x1I9mW4W0/view?usp=sharing', 
+		        // Lien d'intégration/preview pour l'iframe (IMPORTANT : remplacez l'ID par le vôtre)
+		        previewUrl: 'https://drive.google.com/file/d/1AxxVmsFkEwKIxwj5H1WgWm5x1I9mW4W0/preview', 
+		        code: 'J&A2308' 
+		    },
+		    'Ouverture': {
+		        title: 'Ouverture de Bal',
+		        file: 'https://drive.google.com/file/d/1CjEDOOzPeWX6i-YkYemdc36IyEiLFm-R/view?usp=sharing',
+		        // Lien d'intégration/preview
+		        previewUrl: 'https://drive.google.com/file/d/1CjEDOOzPeWX6i-YkYemdc36IyEiLFm-R/preview', 
+		        code: 'J&A2308' 
+		    }
+		};
 
-const audio = {
+		const audio = {
             'Bernard': {
                 description: "Une prestation émouvante...",
                 file: 'https://drive.google.com/file/d/16zCuPP-BvqN8y1KKfP6saIrX_40JQNfq/view?usp=sharing',
@@ -659,6 +696,59 @@ const audio = {
         }; // <--- C'est ces accolades qui manquaient !
 
 
+		let currentVideoKey = '';
+		
+		// Fonction utilisée par la vignette pour demander le code AVANT la lecture
+		function openVideoPreviewModal(key) {
+		    currentVideoKey = key; // On stocke la clé ('Ceremonie' ou 'Ouverture')
+		    document.getElementById('videoModalTitle').innerText = `Lecture : ${videos[key].title}`;
+		    
+		    // On met en place le gestionnaire d'événement pour le mode LECTURE
+		    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoPreview()");
+		    
+		    // Assurer que le bouton affiche "Lire la Vidéo"
+		    document.querySelector('#videoModal button.action-btn i.fas').className = 'fas fa-play-circle mr-2';
+		    document.querySelector('#videoModal button.action-btn').innerHTML = document.querySelector('#videoModal button.action-btn').innerHTML.replace(/Télécharger le ZIP de la Vidéo/i, 'Lire la Vidéo');
+		    
+		    // Afficher la modale standard
+		    document.getElementById('videoModal').classList.remove('hidden');
+		    document.getElementById('video-code-input').value = '';
+		    document.getElementById('video-error-message').classList.add('hidden');
+		}
+		
+		// Fonction utilisée par le bouton Téléchargement (pour ne pas casser l'ancien code)
+		function openVideoDownloadModal(key) {
+		    currentVideoKey = key;
+		    document.getElementById('videoModalTitle').innerText = `Téléchargement : ${videos[key].title}`;
+		    
+		    // On met en place le gestionnaire d'événement pour le mode TÉLÉCHARGEMENT
+		    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoDownload()");
+		    
+		    // Afficher la modale standard (tu dois adapter le bouton dans la modale manuellement si ce n'est pas déjà fait)
+		    document.getElementById('videoModal').classList.remove('hidden');
+		    document.getElementById('video-code-input').value = '';
+		    document.getElementById('video-error-message').classList.add('hidden');
+		}
+		
+		
+		// C. Nouvelle Logique de Lecture (Preview)
+		function attemptVideoPreview() {
+		    const inputCode = document.getElementById('video-code-input').value.trim();
+		    const videoData = videos[currentVideoKey];
+		    const errorMessage = document.getElementById('video-error-message');
+		
+		    if (inputCode === videoData.code) {
+		        // Code bon : on ferme la modale de code
+		        closeModal('videoModal'); 
+		        
+		        // Et on ouvre la modale de LECTURE
+		        openReaderModal(videoData.title, videoData.previewUrl);
+		
+		    } else {
+		        // Code faux
+		        errorMessage.classList.remove('hidden');
+		    }
+		}		
         // 1. Ouvrir la fenêtre de mot de passe
         function openAudioModal() {
             document.getElementById('audioModal').classList.remove('hidden');
@@ -702,7 +792,30 @@ const audio = {
 	        modal.classList.remove('hidden');
 	    }
 	};
+
+	function openReaderModal(title, url) {
+	    // Injecte le titre
+	    document.getElementById('readerVideoTitle').innerText = title;
+	    
+	    // Injecte l'URL de prévisualisation dans l'iframe
+	    document.getElementById('videoIframe').src = url; 
 	
+	    // Ouvre la modale du lecteur
+	    document.getElementById('videoReaderModal').classList.remove('hidden');
+	}
+	
+	// Assurez-vous que la fonction closeModal existe
+	function closeModal(modalId) {
+	    const modal = document.getElementById(modalId);
+	    if (modal) {
+	        modal.classList.add('hidden');
+	    }
+	    // Si on ferme le lecteur, on arrête la vidéo
+	    if (modalId === 'videoReaderModal') {
+	        document.getElementById('videoIframe').src = ''; 
+	    }
+	}
+		
 	function closeModal(modalId) {
 	    const modal = document.getElementById(modalId);
 	    if (modal) {
@@ -945,6 +1058,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
