@@ -789,19 +789,18 @@
 			}
 
 		
-		// Arrête la lecture audio et ferme la modale (NOUVELLE FONCTION)
-		function closeAudioModalAndStopPlayback() {
-		    closeModal('audioModal');
-		    // Réinitialise l'audio pour stopper la lecture
-		    const audioPlayer = document.getElementById('odeAudioPlayer');
-		    if (audioPlayer) {
-		        audioPlayer.pause();
-		        audioPlayer.currentTime = 0; // Remet au début
-		    }
-		}
 		
 		// --- Fonctions Audio ---
-		
+
+		// Arrête la lecture audio et ferme la modale (NOUVELLE FONCTION)
+		function closeAudioModalAndStopPlayback() {
+		    closeModal('audioModal');
+		    // Réinitialise l'audio pour stopper la lecture
+		    const audioPlayer = document.getElementById('odeAudioPlayer');
+		    if (audioPlayer) {
+		        audioPlayer.pause();
+		        audioPlayer.currentTime = 0; // Remet au début
+		    }
 		// Fonction générique pour ouvrir la modale audio
 		function openAudioModal(mode) {
 		    const modal = document.getElementById('audioModal');
@@ -854,16 +853,6 @@
 		    }
 		}
 
-		// Arrête la lecture audio et ferme la modale
-		function closeAudioModalAndStopPlayback() {
-		    closeModal('audioModal');
-		    // Réinitialise l'audio pour stopper la lecture
-		    const audioPlayer = document.getElementById('odeAudioPlayer');
-		    if (audioPlayer) {
-		        audioPlayer.pause();
-		        audioPlayer.currentTime = 0; // Remet au début
-		    }
-		}
 		function attemptAudioPlayback() {
 		    const inputCode = document.getElementById('audio-code-input').value.trim();
 		    const audioData = audio['Bernard'];
@@ -1152,6 +1141,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
