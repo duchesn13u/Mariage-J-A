@@ -876,7 +876,7 @@
 		        // Cache la modale
 		        modal.classList.add('hidden');
 		    }
-		    
+		
 		    // 1. ARRÊT DE L'AUDIO (Modale : #audioModal) 🎤
 		    if (modalId === 'audioModal') {
 		        const audioPlayer = document.getElementById('odeAudioPlayer');
@@ -892,6 +892,7 @@
 		        document.getElementById('videoIframe').src = '';
 		    }
 		}
+
 
 		// Liste des images de prévisualisation (pour le carrousel)
 		const previewImages = [
@@ -914,6 +915,20 @@
         const videoModal = document.getElementById('videoModal');
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+
+		// Ajouter un écouteur d'événements pour le clic en dehors de la modale vidéo
+		document.getElementById('videoReaderModal').addEventListener('click', function(e) {
+		    if (e.target === document.getElementById('videoReaderModal')) {
+		        closeModal('videoReaderModal');
+		    }
+		});
+		
+		// Ajouter un écouteur d'événements pour le clic en dehors de la modale audio
+		document.getElementById('audioModal').addEventListener('click', function(e) {
+		    if (e.target === document.getElementById('audioModal')) {
+		        closeModal('audioModal');
+		    }
+		});
 
 
         // --- Initialisation et Gestion des événements (Suite) ---
@@ -1128,3 +1143,4 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
