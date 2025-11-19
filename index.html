@@ -648,21 +648,58 @@
             }
         };
 
-        const audio = {					
-			'Bernard': {
-	        // Tu peux adapter ce texte si tu veux
-	        description: "Une <strong>prestation émouvante</strong> et inoubliable. Bernard, à 93 ans, nous offre une leçon de vie à travers cette ode à la <strong>nature et à l'amour</strong>.<br><br>Voici l'enregistrement audio pour écouter ou réécouter ce moment de grâce.",
-	        // REMPLACE LE LIEN CI-DESSOUS PAR TON VRAI LIEN GOOGLE DRIVE DE L'AUDIO
-	        file: 'https://drive.google.com/file/d/16zCuPP-BvqN8y1KKfP6saIrX_40JQNfq/view?usp=sharing',  
-	        code: 'J&A2308'
-	    }
-    };
+const audio = {
+            'Bernard': {
+                description: "Une prestation émouvante...",
+                file: 'https://drive.google.com/file/d/16zCuPP-BvqN8y1KKfP6saIrX_40JQNfq/view?usp=sharing',
+                code: 'J&A2308'
+            }
+        }; // <--- C'est ces accolades qui manquaient !
+
+
+        // 1. Ouvrir la fenêtre de mot de passe
+        function openAudioModal() {
+            document.getElementById('audioModal').classList.remove('hidden');
+            // On vide le champ mot de passe à chaque ouverture
+            document.getElementById('audio-code-input').value = '';
+            // On cache le message d'erreur
+            document.getElementById('audio-error-message').classList.add('hidden');
+        }
+
+        // 2. Vérifier le code et lancer le téléchargement
+        function attemptAudioDownload() {
+            // On récupère le code tapé par l'utilisateur
+            const inputCode = document.getElementById('audio-code-input').value.trim();
+            // On récupère les infos de Bernard
+            const audioData = audio['Bernard']; 
+            const errorMessage = document.getElementById('audio-error-message');
+
+            if (inputCode === audioData.code) {
+                // Si le code est bon : on ouvre le lien Drive
+                window.open(audioData.file, '_blank');
+                // Et on ferme la fenêtre
+                closeModal('audioModal');
+            } else {
+                // Si le code est faux : on affiche l'erreur en rouge
+                errorMessage.classList.remove('hidden');
+            }
+        }
+
+        // --- FONCTIONS GÉNÉRIQUES (Déjà présentes normalement) ---
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Si tu n'as pas encore les fonctions pour les photos/vidéos, garde-les, 
+        // sinon assure-toi juste que openAudioModal et attemptAudioDownload sont bien ajoutées.
+
 			function openModal(modalId) {
 	    const modal = document.getElementById(modalId);
 	    if (modal) {
 	        modal.classList.remove('hidden');
 	    }
-	}
+	};
 	
 	function closeModal(modalId) {
 	    const modal = document.getElementById(modalId);
@@ -906,6 +943,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
