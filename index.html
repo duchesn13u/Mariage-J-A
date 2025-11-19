@@ -306,42 +306,42 @@
 
     <hr class="border-t border-yellow-200 my-12">
 
-    <section id="videos" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Les Souvenirs en Vidéo 🎥</h2>
-                <p class="text-lg text-gray-600">Cliquez sur l'image pour accéder au téléchargement sécurisé des fichiers vidéo.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.2s;">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-church mr-2 text-orange-500"></i> Cérémonie Religieuse en l'Eglise de Saint Sever</h3>
-                    
-                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ceremonie')">
-                        <img src="./vignette_ceremonie.png" alt="Vignette Cérémonie Religieuse" class="w-full h-full object-cover border-2 border-gray-300">
-                        <div class="play-button">
-                            <i class="fas fa-play text-white text-3xl ml-1"></i>
-                        </div>
-                    </div>
-                    
-                    <button onclick="openVideoModal('Ceremonie')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
-                </div>
-                
-                <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.4s;">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-music mr-2 text-orange-500"></i> Ouverture de Bal</h3>
-                    
-                    <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoModal('Ouverture')">
-                        <img src="./vignette_ouverture.png" alt="Vignette Ouverture de Bal" class="w-full h-full object-cover border-2 border-gray-300">
-                        <div class="play-button">
-                            <i class="fas fa-play text-white text-3xl ml-1"></i>
-                        </div>
-                    </div>
-                    
-                    <button onclick="openVideoModal('Ouverture')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section id="videos" class="py-16 bg-white">
+	    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	        <div class="text-center mb-16">
+	            <h2 class="text-3xl font-bold text-gray-900 mb-4">Les Souvenirs en Vidéo 🎥</h2>
+	            <p class="text-lg text-gray-600">Cliquez sur la vignette pour la lecture sécurisée, ou sur le bouton pour le téléchargement.</p>
+	        </div>
+	        
+	        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+	            <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.2s;">
+	                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-church mr-2 text-orange-500"></i> Cérémonie Religieuse en l'Eglise de Saint Sever</h3>
+	                
+	                <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoPreviewModal('Ceremonie')">
+	                    <img src="./vignette_ceremonie.png" alt="Vignette Cérémonie Religieuse" class="w-full h-full object-cover border-2 border-gray-300">
+	                    <div class="play-button">
+	                        <i class="fas fa-play text-white text-3xl ml-1"></i>
+	                    </div>
+	                </div>
+	                
+	                <button onclick="openVideoDownloadModal('Ceremonie')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
+	            </div>
+	            
+	            <div class="bg-gray-50 rounded-lg shadow-xl p-6 animate-fadeIn" style="animation-delay: 0.4s;">
+	                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-music mr-2 text-orange-500"></i> Ouverture de Bal</h3>
+	                
+	                <div class="aspect-video mb-4 rounded-lg overflow-hidden video-thumbnail-container" onclick="openVideoPreviewModal('Ouverture')">
+	                    <img src="./vignette_ouverture.png" alt="Vignette Ouverture de Bal" class="w-full h-full object-cover border-2 border-gray-300">
+	                    <div class="play-button">
+	                        <i class="fas fa-play text-white text-3xl ml-1"></i>
+	                    </div>
+	                </div>
+	                
+	                <button onclick="openVideoDownloadModal('Ouverture')" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center"><i class="fas fa-download mr-2"></i> Télécharger la Vidéo</button>
+	            </div>
+	        </div>
+	    </div>
+	</section>
 	
 <hr class="border-t border-yellow-200 my-12">
 
@@ -387,14 +387,16 @@
 				<hr class="w-1/2 border-yellow-200">
 				
 				<div class="w-full md:w-2/3 bg-gray-50 p-4 rounded-lg border border-gray-200 text-center">
-				    <p class="font-semibold text-gray-800 mb-3"><i class="fas fa-music text-orange-500 mr-2"></i>Écouter l'enregistrement</p>
-				    <audio controls class="w-full mb-4">
-				        <source src="./ode_bernard.m4a" type="audio/mp4">
-				        Votre navigateur ne supporte pas l'élément audio.
-				    </audio>
+				    <p class="font-semibold text-gray-800 mb-3"><i class="fas fa-music text-orange-500 mr-2"></i>Accéder à l'enregistrement</p>
 				    
-				    <button onclick="openAudioModal()" class="action-btn w-full md:w-full py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300">
-				        <i class="fas fa-download mr-3"></i> Télécharger l'audio
+				    <button onclick="openAudioPlayerModal()" class="action-btn w-full md:w-full py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300 mb-4">
+				        <i class="fas fa-play-circle mr-3"></i> Écouter l'audio (Code Requis)
+				    </button>
+				    
+				    <hr class="w-1/2 border-yellow-200 mx-auto">
+				
+				    <button onclick="openAudioDownloadModal()" class="action-btn w-full md:w-full py-3 px-6 rounded-full text-white font-medium flex items-center justify-center text-lg hover:shadow-xl transition duration-300 mt-4">
+				        <i class="fas fa-download mr-3"></i> Télécharger l'audio (Code Requis)
 				    </button>
 				</div>
 
@@ -546,13 +548,26 @@
         </div>
     </div>
 
-	<div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-	    <div class="bg-white rounded-xl max-w-xl w-full">
-	        <div class="p-8">
-	            <div class="flex justify-between items-start mb-6">
-	                <h3 id="videoModalTitle" class="text-3xl font-bold text-gray-900"></h3>
-	                <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
-	            </div>
+<div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-xl w-full">
+        <div class="p-8">
+            <div class="flex justify-between items-start mb-6">
+                <h3 id="videoModalTitle" class="text-3xl font-bold text-gray-900"></h3>
+                <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
+            </div>
+            
+            <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès sécurisé</h4>
+            <div id="download-form-videos">
+                <input type="password" id="video-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
+                <p id="video-error-message" class="text-red-500 mb-4 hidden"></p>
+                
+                <button id="attemptVideoAction" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center">
+                    <i class="fas fa-play-circle mr-2"></i> Action
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 	<div id="videoReaderModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="reader-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen p-4">
         
@@ -606,15 +621,15 @@
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 
                 <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-2xl font-bold text-gray-900">L'Ode de Bernard</h3>
+                    <h3 id="audioModalTitle" class="text-2xl font-bold text-gray-900"></h3>
                     <button onclick="closeModal('audioModal')" class="text-gray-400 hover:text-gray-500 focus:outline-none">
                         <i class="fas fa-times text-2xl"></i>
                     </button>
                 </div>
                 
-                <div class="mt-2">
+                <div class="mt-2" id="audio-password-form">
                     <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                        <i class="fas fa-lock mr-2 text-orange-500"></i> Accès au Téléchargement
+                        <i class="fas fa-lock mr-2 text-orange-500"></i> Code Requis
                     </h4>
                     
                     <div>
@@ -622,11 +637,19 @@
                         
                         <p id="audio-error-message" class="text-red-500 mb-4 hidden text-sm font-semibold">Code incorrect. Réessayez.</p>
                         
-                        <button onclick="attemptAudioDownload()" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center shadow-md hover:shadow-lg transition duration-300">
-                            <i class="fas fa-cloud-download-alt mr-2"></i> Télécharger l'audio
+                        <button id="attemptAudioAction" onclick="" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center shadow-md hover:shadow-lg transition duration-300">
+                            <i id="audioActionButtonIcon" class="fas mr-2"></i> <span id="audioActionButtonText"></span>
                         </button>
                     </div>
                 </div>
+
+                <div id="audioPlayerContainer" class="hidden">
+                    <audio id="odeAudioPlayer" controls class="w-full mb-4">
+                        <source src="./ode_bernard.m4a" type="audio/mp4">
+                        Votre navigateur ne supporte pas l'élément audio.
+                    </audio>
+                </div>
+
             </div>
         </div>
     </div>
@@ -639,32 +662,32 @@
             'Benjamin': {
                 // Chaîne corrigée avec <strong> et <br><br>
 				description: "Photographe professionnel aux <strong>horizons sans limites</strong>, Benjamin Faure a capturé l’extraordinaire : des paysages exotiques aux <strong>sportifs de l’extrême</strong>.<br><br>Son <strong>regard unique</strong> transforme chaque instant en une œuvre <strong>intemporelle</strong>.<br><br>Benjamin, un <strong>ami exceptionnel</strong> rencontré par Antoine lors de leur formation commando à la BA 118 de Mont de Marsan, a immortalisé notre cérémonie avec la même <strong>passion et générosité</strong> qui le définissent.<br><br>Un <strong>immense merci</strong> pour ces souvenirs inoubliables !",
-				file: 'https://drive.google.com/file/d/1vGokF3OP8z2iJ8ZFk0Y3henD-EZh1y_c/view?usp=sharing',  
+				file: 'https://drive.google.com/drive/folders/1guaqniFV_RayfWsmFVotqoYDm0hNAYIL?usp=sharing',  
                 code: 'J&A2308' // Code secret pour les photos
             },
             'Yanis': {
                 description: "Yanis, vétérinaire rencontré sur les bancs de l’école, mais aussi <strong>photographe talentueux</strong> qui capture la beauté du monde à travers son objectif.<br><br>Un <strong>ami fidèle</strong>, toujours présent pour partager les fous rires et les moments précieux, et dont la <strong>générosité</strong> a rendu notre journée encore plus lumineuse.",
-                file: 'https://drive.google.com/file/d/12vhCM6RMDrymAbAaEk7yadGLJjGvymKQ/view?usp=sharing',
+                file: 'https://drive.google.com/drive/folders/1SjbZJeFMxAYzoG60EE-BaONz1e7lmumr?usp=sharing',
                 code: 'J&A2308'  
             },
             'Alice': {
                 description: "Alice, amie <strong>très proche</strong> de Jeanne et Antoine, est toujours dans les bons coups. Sa générosité et son talent pour la photographie l'ont tout de suite convaincue d'immortaliser la <strong>nos enterrements de vie de garçon/jeune fille, la cérémonie civile à la mairie et le brunch !</strong><br><br>Elle nous a offert une série de clichés <strong>chaleureux et spontanés</strong>. <br><br> N'hésitez pas si vous avez une vache qui ne va pas bien dans la région de Foix : Alice est aussi <strong>vétérinaire</strong> !",
-                file: 'https://drive.google.com/file/d/15mQWQ_md2MgVqRV_KnJ-LlGHLAjH8io6/view?usp=sharing',
+                file: 'https://drive.google.com/drive/folders/1QqNW3MeHHMEPb07FiRA_12pQnY8bB1VY?usp=sharing',
                 code: 'J&A2308'  
             },
             'Orlando': {
 				description: "Le Père Orlando, celui qui a officié notre cérémonie religieuse, est bien plus qu'un prêtre : il est un <strong>ami très proche</strong> et un membre à part entière de la famille d'Antoine.<br><br>Il n'a pas hésité à traverser l’Atlantique, depuis sa <strong>Colombie natale</strong>, pour venir célébrer ce mariage si important en France.<br><br>Considéré comme un frère depuis qu'il est venu étudier en France durant son séminaire catholique, sa présence et sa bénédiction ont été le <strong>plus beau des cadeaux</strong>.",                
-                file: 'https://drive.google.com/file/d/1FAwyleP1TLC_8FGGhe2GK0AB6iHTpYH0/view?usp=sharing',
+                file: 'https://drive.google.com/drive/folders/1mYK9mvLTT29ugXxzMSNQsY-yhstRXkFW?usp=sharing',
                 code: 'J&A2308'  
             },
             'Valentine & Pierre': {
 				description: "Valentine, notre <strong>belle</strong> sœur dont le mot <strong>belle</strong> est un euphémisme — et Pierre, le frère d'Antoine, notre batteur star pour le vin d’honneur, ont dépassé toutes nos attentes. En plus de nous faire danser, ils nous ont offert des <strong>photos extraordinaires</strong>, des images qui valent tous les <strong>cadeaux</strong> du monde.<br><br> Leur talent et leur générosité ont rendu cette journée encore plus <strong>exceptionnelle</strong>. Merci à eux pour ces <strong>moments inoubliables</strong> !",                
-                file: 'https://drive.google.com/file/d/1ReWEgTmfRiQOtLZSfSrr7eGIxvZUu17A/view?usp=sharing',
+                file: 'https://drive.google.com/drive/folders/1SsKQT4Baj0sZYdegWJw7KrjOxCNEh1ef?usp=sharing',
                 code: 'J&A2308'  
             },
 			'Wedshoot': {
 				description: "Ces photos ont été récupérées sur l'application <strong class='font-bold'>Wedshoot</strong> grâce aux <strong class='font-bold'>contributions de tous</strong>.<br><br>Tous les invités sont des <strong class='font-bold'>photographes précieux</strong> qui rendent par ces images la <strong class='font-bold'>joie et la simplicité</strong> du plus beau jour de notre vie !",                
-                file: 'https://drive.google.com/file/d/1thtS-3DsykDSs_Frt85lbtZhFBoHQbGL/view?usp=sharing',
+                file: 'https://drive.google.com/drive/folders/1ui7ND4KR7kFriJLIJIUdlZKBVtoelzCf?usp=sharing',
                 code: 'J&A2308'  
             }
         };
@@ -749,34 +772,105 @@
 		        errorMessage.classList.remove('hidden');
 		    }
 		}		
-        // 1. Ouvrir la fenêtre de mot de passe
-        function openAudioModal() {
-            document.getElementById('audioModal').classList.remove('hidden');
-            // On vide le champ mot de passe à chaque ouverture
-            document.getElementById('audio-code-input').value = '';
-            // On cache le message d'erreur
-            document.getElementById('audio-error-message').classList.add('hidden');
-        }
+	// Fonction générique pour ouvrir la modale audio
+	function openAudioModal(mode) {
+	    const modal = document.getElementById('audioModal');
+	    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+	    const passwordForm = document.getElementById('audio-password-form');
+	    const buttonAction = document.getElementById('attemptAudioAction');
+	    const buttonIcon = document.getElementById('audioActionButtonIcon');
+	    const buttonText = document.getElementById('audioActionButtonText');
+	    const title = document.getElementById('audioModalTitle');
+	
+	    // Réinitialisation de la modale
+	    document.getElementById('audio-code-input').value = '';
+	    document.getElementById('audio-error-message').classList.add('hidden');
+	    audioPlayerContainer.classList.add('hidden');
+	    passwordForm.classList.remove('hidden');
+	
+	    if (mode === 'download') {
+	        title.innerText = 'Télécharger l\'Ode de Bernard';
+	        buttonAction.setAttribute('onclick', "attemptAudioDownload()");
+	        buttonIcon.className = 'fas fa-cloud-download-alt mr-2';
+	        buttonText.innerText = 'Télécharger l\'audio';
+	    } else if (mode === 'player') {
+	        title.innerText = 'Écouter l\'Ode de Bernard';
+	        buttonAction.setAttribute('onclick', "attemptAudioPlayback()");
+	        buttonIcon.className = 'fas fa-play-circle mr-2';
+	        buttonText.innerText = 'Débloquer la Lecture';
+	    }
+	    
+	    modal.classList.remove('hidden');
+	}
 
-        // 2. Vérifier le code et lancer le téléchargement
-        function attemptAudioDownload() {
-            // On récupère le code tapé par l'utilisateur
-            const inputCode = document.getElementById('audio-code-input').value.trim();
-            // On récupère les infos de Bernard
-            const audioData = audio['Bernard']; 
-            const errorMessage = document.getElementById('audio-error-message');
-
-            if (inputCode === audioData.code) {
-                // Si le code est bon : on ouvre le lien Drive
-                window.open(audioData.file, '_blank');
-                // Et on ferme la fenêtre
-                closeModal('audioModal');
-            } else {
-                // Si le code est faux : on affiche l'erreur en rouge
-                errorMessage.classList.remove('hidden');
-            }
-        }
-
+	// 1. Nouvelle fonction pour ouvrir en mode "Lecture" (appelée par le bouton "Écouter")
+	function openAudioPlayerModal() {
+	    openAudioModal('player');
+	}
+	
+	// 2. Ancienne fonction renommée pour le mode "Téléchargement" (appelée par le bouton "Télécharger")
+	function openAudioDownloadModal() {
+	    openAudioModal('download');
+	}
+	
+	// 3. Logique de VÉRIFICATION DU CODE pour le TÉLÉCHARGEMENT
+	function attemptAudioDownload() {
+	    const inputCode = document.getElementById('audio-code-input').value.trim();
+	    const audioData = audio['Bernard'];
+	    const errorMessage = document.getElementById('audio-error-message');
+	
+	    if (inputCode === audioData.code) {
+	        window.open(audioData.file, '_blank');
+	        closeModal('audioModal');
+	    } else {
+	        errorMessage.classList.remove('hidden');
+	    }
+	}
+	
+	// 4. Logique de VÉRIFICATION DU CODE pour la LECTURE
+	function attemptAudioPlayback() {
+	    const inputCode = document.getElementById('audio-code-input').value.trim();
+	    const audioData = audio['Bernard'];
+	    const errorMessage = document.getElementById('audio-error-message');
+	    const passwordForm = document.getElementById('audio-password-form');
+	    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+	
+	    if (inputCode === audioData.code) {
+	        // Code bon : on cache le formulaire et on montre l'audio
+	        passwordForm.classList.add('hidden');
+	        audioPlayerContainer.classList.remove('hidden');
+	        document.getElementById('audioModalTitle').innerText = 'Écouter l\'Ode de Bernard';
+	        
+	        // Optionnel : Lancer la lecture immédiatement
+	        // document.getElementById('odeAudioPlayer').play(); 
+	
+	    } else {
+	        // Code faux
+	        errorMessage.classList.remove('hidden');
+	    }
+	}
+	
+	// 5. Modification de la fonction générique closeModal
+	function closeModal(modalId) {
+	    const modal = document.getElementById(modalId);
+	    if (modal) {
+	        modal.classList.add('hidden');
+	    }
+	    
+	    // NOUVEAU : Si on ferme la modale audio, on arrête l'audio pour éviter qu'elle continue en arrière-plan
+	    if (modalId === 'audioModal') {
+	        const audioPlayer = document.getElementById('odeAudioPlayer');
+	        if (audioPlayer) {
+	            audioPlayer.pause();
+	            audioPlayer.currentTime = 0; // Rembobine au début
+	        }
+	    }
+	
+	    // Le code pour les autres modales (photos/vidéos) doit rester
+	    if (modalId === 'videoReaderModal') {
+	        document.getElementById('videoIframe').src = '';
+	    }
+	}
         // --- FONCTIONS GÉNÉRIQUES (Déjà présentes normalement) ---
         
         function closeModal(modalId) {
@@ -1058,6 +1152,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
