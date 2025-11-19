@@ -393,14 +393,14 @@
                         <p class="font-semibold text-gray-800 mb-3"><i class="fas fa-music text-orange-500 mr-2"></i>Écouter l'enregistrement</p>
                         <audio controls class="w-full mb-4">
                             <!-- Assure-toi que le fichier audio est bien dans le dossier -->
-                            <source src="./ode_bernard.mp3" type="audio/mpeg">
+                            <source src="./ode_bernard.m4a" type="audio/mpeg">
                             Votre navigateur ne supporte pas l'élément audio.
                         </audio>
                         
                         <!-- Téléchargement Audio avec mention du code -->
-                        <a href="./ode_bernard.mp3" download class="text-orange-600 hover:text-orange-800 font-medium text-sm flex items-center justify-center">
-                            <i class="fas fa-download mr-2"></i> Télécharger l'audio (Code accès : J&A2308)
-                        </a>
+						<button onclick="openPhotographerModal('Bernard')" class="text-orange-600 hover:text-orange-800 font-medium text-sm flex items-center justify-center mx-auto focus:outline-none hover:underline">
+                            <i class="fas fa-download mr-2"></i> Télécharger l'audio (Code : J&A2308)
+                        </button>
                     </div>
 
                 </div>
@@ -571,7 +571,15 @@
 				description: "Ces photos ont été récupérées sur l'application <strong class='font-bold'>Wedshoot</strong> grâce aux <strong class='font-bold'>contributions de tous</strong>.<br><br>Tous les invités sont des <strong class='font-bold'>photographes précieux</strong> qui rendent par ces images la <strong class='font-bold'>joie et la simplicité</strong> du plus beau jour de notre vie !",                
                 file: 'https://drive.google.com/file/d/1thtS-3DsykDSs_Frt85lbtZhFBoHQbGL/view?usp=sharing',
                 code: 'J&A2308'  
-            }
+            },
+
+			'Bernard': {
+        // Tu peux adapter ce texte si tu veux
+        description: "Une <strong>prestation émouvante</strong> et inoubliable. Bernard, à 93 ans, nous offre une leçon de vie à travers cette ode à la <strong>nature et à l'amour</strong>.<br><br>Voici l'enregistrement audio pour écouter ou réécouter ce moment de grâce.",
+        // REMPLACE LE LIEN CI-DESSOUS PAR TON VRAI LIEN GOOGLE DRIVE DE L'AUDIO
+        file: 'https://drive.google.com/file/d/1ax_yCvN_xVe26S2EpCYcQ_k3tg5r4zYq/view?usp=sharing',  
+        code: 'J&A2308'
+    },
         };
 
         const videos = {
@@ -586,6 +594,7 @@
                 code: 'J&A2308'  
             }
         };
+		
 
 		// Liste des images de prévisualisation (pour le carrousel)
 		const previewImages = [
@@ -787,6 +796,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
