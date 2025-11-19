@@ -681,8 +681,7 @@
                 file: 'https://drive.google.com/file/d/16zCuPP-BvqN8y1KKfP6saIrX_40JQNfq/view?usp=sharing',
                 code: 'J&A2308'
             }
-        }; // <--- C'est ces accolades qui manquaient !
-
+        }; 
 
 		let currentVideoKey = '';
 		
@@ -789,14 +788,6 @@
 			    iframe.src = ''; 
 			}
 
-
-		// Arrête la lecture vidéo et ferme la modale
-		function closeVideoReaderModal() {
-		    closeModal('videoReaderModal');
-		    // Réinitialise la source de l'iframe pour stopper la lecture
-		    const iframe = document.getElementById('videoIframe');
-		    iframe.src = ''; 
-		}
 		
 		// Arrête la lecture audio et ferme la modale (NOUVELLE FONCTION)
 		function closeAudioModalAndStopPlayback() {
@@ -1161,6 +1152,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
