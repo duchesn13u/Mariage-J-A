@@ -715,9 +715,9 @@
 		    // On met en place le gestionnaire d'événement pour le mode LECTURE
 		    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoPreview()");
 		    
-		    // Assurer que le bouton affiche "Lire la Vidéo"
-		    document.querySelector('#videoModal button.action-btn i.fas').className = 'fas fa-play-circle mr-2';
-		    document.querySelector('#videoModal button.action-btn').innerHTML = document.querySelector('#videoModal button.action-btn').innerHTML.replace(/Télécharger le ZIP de la Vidéo/i, 'Lire la Vidéo');
+		    // *** NOUVEAU : METTRE À JOUR LE TEXTE ET L'ICÔNE POUR LA LECTURE ***
+		    document.querySelector('#videoModal button#attemptVideoAction i.fas').className = 'fas fa-play-circle mr-2';
+		    document.getElementById('attemptVideoAction').querySelector('span').innerText = 'Débloquer la Lecture'; // Assurez-vous d'avoir un <span> dans votre bouton si vous utilisez .innerText
 		    
 		    // Afficher la modale standard
 		    document.getElementById('videoModal').classList.remove('hidden');
@@ -726,18 +726,22 @@
 		}
 		
 		// Fonction utilisée par le bouton Téléchargement (pour ne pas casser l'ancien code)
-		function openVideoDownloadModal(key) {
-		    currentVideoKey = key;
-		    document.getElementById('videoModalTitle').innerText = `Téléchargement : ${videos[key].title}`;
-		    
-		    // On met en place le gestionnaire d'événement pour le mode TÉLÉCHARGEMENT
-		    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoDownload()");
-		    
-		    // Afficher la modale standard (tu dois adapter le bouton dans la modale manuellement si ce n'est pas déjà fait)
-		    document.getElementById('videoModal').classList.remove('hidden');
-		    document.getElementById('video-code-input').value = '';
-		    document.getElementById('video-error-message').classList.add('hidden');
-		}
+			function openVideoDownloadModal(key) {
+			    currentVideoKey = key;
+			    document.getElementById('videoModalTitle').innerText = `Téléchargement : ${videos[key].title}`;
+			    
+			    // On met en place le gestionnaire d'événement pour le mode TÉLÉCHARGEMENT
+			    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoDownload()");
+			    
+			    // *** NOUVEAU : METTRE À JOUR LE TEXTE ET L'ICÔNE POUR LE TÉLÉCHARGEMENT ***
+			    document.querySelector('#videoModal button#attemptVideoAction i.fas').className = 'fas fa-cloud-download-alt mr-2';
+			    document.getElementById('attemptVideoAction').querySelector('span').innerText = 'Télécharger la Vidéo'; // Assurez-vous d'avoir un <span> dans votre bouton
+			    
+			    // Afficher la modale standard (tu dois adapter le bouton dans la modale manuellement si ce n'est pas déjà fait)
+			    document.getElementById('videoModal').classList.remove('hidden');
+			    document.getElementById('video-code-input').value = '';
+			    document.getElementById('video-error-message').classList.add('hidden');
+			}
 		
 		
 		// C. Nouvelle Logique de Lecture (Preview)
@@ -1143,6 +1147,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
