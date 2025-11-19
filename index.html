@@ -707,17 +707,41 @@
 
 		let currentVideoKey = '';
 		
+		// --- Fonctions de base ---
+		
+		function openModal(modalId) {
+		    const modal = document.getElementById(modalId);
+		    if (modal) {
+		        modal.classList.remove('hidden');
+		    }
+		}
+		
+		function openReaderModal(title, url) {
+		    // Injecte le titre
+		    document.getElementById('readerVideoTitle').innerText = title;
+		    
+		    // Injecte l'URL de prévisualisation dans l'iframe
+		    document.getElementById('videoIframe').src = url; 
+		
+		    // Ouvre la modale du lecteur
+		    document.getElementById('videoReaderModal').classList.remove('hidden');
+		}
+		
+		
+		// --- Fonctions Vidéo ---
+		
 		// Fonction utilisée par la vignette pour demander le code AVANT la lecture
 		function openVideoPreviewModal(key) {
-		    currentVideoKey = key; // On stocke la clé ('Ceremonie' ou 'Ouverture')
+		    currentVideoKey = key; 
 		    document.getElementById('videoModalTitle').innerText = `Lecture : ${videos[key].title}`;
 		    
 		    // On met en place le gestionnaire d'événement pour le mode LECTURE
 		    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoPreview()");
 		    
-		    // *** NOUVEAU : METTRE À JOUR LE TEXTE ET L'ICÔNE POUR LA LECTURE ***
-		    document.querySelector('#videoModal button#attemptVideoAction i.fas').className = 'fas fa-play-circle mr-2';
-		    document.getElementById('attemptVideoAction').querySelector('span').innerText = 'Débloquer la Lecture'; // Assurez-vous d'avoir un <span> dans votre bouton si vous utilisez .innerText
+		    // METTRE À JOUR LE TEXTE ET L'ICÔNE POUR LA LECTURE (avec le <span> corrigé)
+		    const actionButton = document.getElementById('attemptVideoAction');
+		    actionButton.querySelector('i.fas').className = 'fas fa-play-circle mr-2';
+		    actionButton.querySelector('span').innerText = 'Débloquer la Lecture'; 
 		    
 		    // Afficher la modale standard
 		    document.getElementById('videoModal').classList.remove('hidden');
@@ -725,26 +749,26 @@
 		    document.getElementById('video-error-message').classList.add('hidden');
 		}
 		
-		// Fonction utilisée par le bouton Téléchargement (pour ne pas casser l'ancien code)
-			function openVideoDownloadModal(key) {
-			    currentVideoKey = key;
-			    document.getElementById('videoModalTitle').innerText = `Téléchargement : ${videos[key].title}`;
-			    
-			    // On met en place le gestionnaire d'événement pour le mode TÉLÉCHARGEMENT
-			    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoDownload()");
-			    
-			    // *** NOUVEAU : METTRE À JOUR LE TEXTE ET L'ICÔNE POUR LE TÉLÉCHARGEMENT ***
-			    document.querySelector('#videoModal button#attemptVideoAction i.fas').className = 'fas fa-cloud-download-alt mr-2';
-			    document.getElementById('attemptVideoAction').querySelector('span').innerText = 'Télécharger la Vidéo'; // Assurez-vous d'avoir un <span> dans votre bouton
-			    
-			    // Afficher la modale standard (tu dois adapter le bouton dans la modale manuellement si ce n'est pas déjà fait)
-			    document.getElementById('videoModal').classList.remove('hidden');
-			    document.getElementById('video-code-input').value = '';
-			    document.getElementById('video-error-message').classList.add('hidden');
-			}
+		// Fonction utilisée par le bouton Téléchargement
+		function openVideoDownloadModal(key) {
+		    currentVideoKey = key;
+		    document.getElementById('videoModalTitle').innerText = `Téléchargement : ${videos[key].title}`;
+		    
+		    // On met en place le gestionnaire d'événement pour le mode TÉLÉCHARGEMENT
+		    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoDownload()");
+		    
+		    // METTRE À JOUR LE TEXTE ET L'ICÔNE POUR LE TÉLÉCHARGEMENT
+		    const actionButton = document.getElementById('attemptVideoAction');
+		    actionButton.querySelector('i.fas').className = 'fas fa-cloud-download-alt mr-2';
+		    actionButton.querySelector('span').innerText = 'Télécharger la Vidéo';
+		    
+		    // Afficher la modale standard 
+		    document.getElementById('videoModal').classList.remove('hidden');
+		    document.getElementById('video-code-input').value = '';
+		    document.getElementById('video-error-message').classList.add('hidden');
+		}
 		
-		
-		// C. Nouvelle Logique de Lecture (Preview)
+		// Logique de Lecture (Preview)
 		function attemptVideoPreview() {
 		    const inputCode = document.getElementById('video-code-input').value.trim();
 		    const videoData = videos[currentVideoKey];
@@ -761,156 +785,122 @@
 		        // Code faux
 		        errorMessage.classList.remove('hidden');
 		    }
-		}		
-	// Fonction générique pour ouvrir la modale audio
-	function openAudioModal(mode) {
-	    const modal = document.getElementById('audioModal');
-	    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
-	    const passwordForm = document.getElementById('audio-password-form');
-	    const buttonAction = document.getElementById('attemptAudioAction');
-	    const buttonIcon = document.getElementById('audioActionButtonIcon');
-	    const buttonText = document.getElementById('audioActionButtonText');
-	    const title = document.getElementById('audioModalTitle');
-	
-	    // Réinitialisation de la modale
-	    document.getElementById('audio-code-input').value = '';
-	    document.getElementById('audio-error-message').classList.add('hidden');
-	    audioPlayerContainer.classList.add('hidden');
-	    passwordForm.classList.remove('hidden');
-	
-	    if (mode === 'download') {
-	        title.innerText = 'Télécharger l\'Ode de Bernard';
-	        buttonAction.setAttribute('onclick', "attemptAudioDownload()");
-	        buttonIcon.className = 'fas fa-cloud-download-alt mr-2';
-	        buttonText.innerText = 'Télécharger l\'audio';
-	    } else if (mode === 'player') {
-	        title.innerText = 'Écouter l\'Ode de Bernard';
-	        buttonAction.setAttribute('onclick', "attemptAudioPlayback()");
-	        buttonIcon.className = 'fas fa-play-circle mr-2';
-	        buttonText.innerText = 'Débloquer la Lecture';
-	    }
-	    
-	    modal.classList.remove('hidden');
-	}
-
-	// 1. Nouvelle fonction pour ouvrir en mode "Lecture" (appelée par le bouton "Écouter")
-	function openAudioPlayerModal() {
-	    openAudioModal('player');
-	}
-	
-	// 2. Ancienne fonction renommée pour le mode "Téléchargement" (appelée par le bouton "Télécharger")
-	function openAudioDownloadModal() {
-	    openAudioModal('download');
-	}
-	
-	// 3. Logique de VÉRIFICATION DU CODE pour le TÉLÉCHARGEMENT
-	function attemptAudioDownload() {
-	    const inputCode = document.getElementById('audio-code-input').value.trim();
-	    const audioData = audio['Bernard'];
-	    const errorMessage = document.getElementById('audio-error-message');
-	
-	    if (inputCode === audioData.code) {
-	        window.open(audioData.file, '_blank');
-	        closeModal('audioModal');
-	    } else {
-	        errorMessage.classList.remove('hidden');
-	    }
-	}
-	
-	// 4. Logique de VÉRIFICATION DU CODE pour la LECTURE
-	function attemptAudioPlayback() {
-	    const inputCode = document.getElementById('audio-code-input').value.trim();
-	    const audioData = audio['Bernard'];
-	    const errorMessage = document.getElementById('audio-error-message');
-	    const passwordForm = document.getElementById('audio-password-form');
-	    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
-	
-	    if (inputCode === audioData.code) {
-	        // Code bon : on cache le formulaire et on montre l'audio
-	        passwordForm.classList.add('hidden');
-	        audioPlayerContainer.classList.remove('hidden');
-	        document.getElementById('audioModalTitle').innerText = 'Écouter l\'Ode de Bernard';
-	        
-	        // Optionnel : Lancer la lecture immédiatement
-	        // document.getElementById('odeAudioPlayer').play(); 
-	
-	    } else {
-	        // Code faux
-	        errorMessage.classList.remove('hidden');
-	    }
-	}
-	
-	// 5. Modification de la fonction générique closeModal
-	function closeModal(modalId) {
-	    const modal = document.getElementById(modalId);
-	    if (modal) {
-	        // Cache la modale
-	        modal.classList.add('hidden');
-	    }
-	    
-	    // 1. ARRÊT DE L'AUDIO (Modale : #audioModal) 🎤
-	    if (modalId === 'audioModal') {
-	        const audioPlayer = document.getElementById('odeAudioPlayer');
-	        if (audioPlayer) {
-	            // Met en pause l'audio
-	            audioPlayer.pause();
-	            // Rembobine au début (optionnel, mais recommandé)
-	            audioPlayer.currentTime = 0; 
-	        }
-	    }
-	
-	    // 2. ARRÊT DE LA VIDÉO (Modale : #videoReaderModal) 🎥
-	    // Cette partie est cruciale pour l'iframe vidéo
-	    if (modalId === 'videoReaderModal') {
-	        // Vide la source de l'iframe, ce qui stoppe la lecture
-	        document.getElementById('videoIframe').src = '';
-	    }
-	}
-        // --- FONCTIONS GÉNÉRIQUES (Déjà présentes normalement) ---
-        
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-        }
-
-        // Si tu n'as pas encore les fonctions pour les photos/vidéos, garde-les, 
-        // sinon assure-toi juste que openAudioModal et attemptAudioDownload sont bien ajoutées.
-
-			function openModal(modalId) {
-	    const modal = document.getElementById(modalId);
-	    if (modal) {
-	        modal.classList.remove('hidden');
-	    }
-	};
-
-	function openReaderModal(title, url) {
-	    // Injecte le titre
-	    document.getElementById('readerVideoTitle').innerText = title;
-	    
-	    // Injecte l'URL de prévisualisation dans l'iframe
-	    document.getElementById('videoIframe').src = url; 
-	
-	    // Ouvre la modale du lecteur
-	    document.getElementById('videoReaderModal').classList.remove('hidden');
-	}
-	
-	// Assurez-vous que la fonction closeModal existe
-	function closeModal(modalId) {
-	    const modal = document.getElementById(modalId);
-	    if (modal) {
-	        modal.classList.add('hidden');
-	    }
-	    // Si on ferme le lecteur, on arrête la vidéo
-	    if (modalId === 'videoReaderModal') {
-	        document.getElementById('videoIframe').src = ''; 
-	    }
-	}
+		}	
 		
-	function closeModal(modalId) {
-	    const modal = document.getElementById(modalId);
-	    if (modal) {
-	        modal.classList.add('hidden');
-	    }
-	}
+		// Logique de Téléchargement Vidéo (pour l'exemple)
+		function attemptVideoDownload() {
+		    const inputCode = document.getElementById('video-code-input').value.trim();
+		    const videoData = videos[currentVideoKey];
+		    const errorMessage = document.getElementById('video-error-message');
+		
+		    if (inputCode === videoData.code) {
+		        window.open(videoData.downloadUrl, '_blank');
+		        closeModal('videoModal'); 
+		
+		    } else {
+		        errorMessage.classList.remove('hidden');
+		    }
+		}	
+		
+		
+		// --- Fonctions Audio ---
+		
+		// Fonction générique pour ouvrir la modale audio
+		function openAudioModal(mode) {
+		    const modal = document.getElementById('audioModal');
+		    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+		    const passwordForm = document.getElementById('audio-password-form');
+		    const buttonAction = document.getElementById('attemptAudioAction');
+		    const buttonIcon = document.getElementById('audioActionButtonIcon');
+		    const buttonText = document.getElementById('audioActionButtonText');
+		    const title = document.getElementById('audioModalTitle');
+		
+		    // Réinitialisation de la modale
+		    document.getElementById('audio-code-input').value = '';
+		    document.getElementById('audio-error-message').classList.add('hidden');
+		    audioPlayerContainer.classList.add('hidden');
+		    passwordForm.classList.remove('hidden');
+		
+		    if (mode === 'download') {
+		        title.innerText = 'Télécharger l\'Ode de Bernard';
+		        buttonAction.setAttribute('onclick', "attemptAudioDownload()");
+		        buttonIcon.className = 'fas fa-cloud-download-alt mr-2';
+		        buttonText.innerText = 'Télécharger l\'audio';
+		    } else if (mode === 'player') {
+		        title.innerText = 'Écouter l\'Ode de Bernard';
+		        buttonAction.setAttribute('onclick', "attemptAudioPlayback()");
+		        buttonIcon.className = 'fas fa-play-circle mr-2';
+		        buttonText.innerText = 'Débloquer la Lecture';
+		    }
+		    
+		    modal.classList.remove('hidden');
+		}
+		
+		function openAudioPlayerModal() {
+		    openAudioModal('player');
+		}
+		
+		function openAudioDownloadModal() {
+		    openAudioModal('download');
+		}
+		
+		function attemptAudioDownload() {
+		    const inputCode = document.getElementById('audio-code-input').value.trim();
+		    const audioData = audio['Bernard'];
+		    const errorMessage = document.getElementById('audio-error-message');
+		
+		    if (inputCode === audioData.code) {
+		        window.open(audioData.file, '_blank');
+		        closeModal('audioModal');
+		    } else {
+		        errorMessage.classList.remove('hidden');
+		    }
+		}
+		
+		function attemptAudioPlayback() {
+		    const inputCode = document.getElementById('audio-code-input').value.trim();
+		    const audioData = audio['Bernard'];
+		    const errorMessage = document.getElementById('audio-error-message');
+		    const passwordForm = document.getElementById('audio-password-form');
+		    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+		
+		    if (inputCode === audioData.code) {
+		        // Code bon : on cache le formulaire et on montre l'audio
+		        passwordForm.classList.add('hidden');
+		        audioPlayerContainer.classList.remove('hidden');
+		        document.getElementById('audioModalTitle').innerText = 'Écouter l\'Ode de Bernard';
+		    } else {
+		        // Code faux
+		        errorMessage.classList.remove('hidden');
+		    }
+		}
+		
+		
+		// --- Fonction de Fermeture (Unique et Complète) ---
+		
+		// C'est la seule fonction closeModal que vous devez avoir !
+		function closeModal(modalId) {
+		    const modal = document.getElementById(modalId);
+		    if (modal) {
+		        // Cache la modale
+		        modal.classList.add('hidden');
+		    }
+		    
+		    // 1. ARRÊT DE L'AUDIO (Modale : #audioModal) 🎤
+		    if (modalId === 'audioModal') {
+		        const audioPlayer = document.getElementById('odeAudioPlayer');
+		        if (audioPlayer) {
+		            audioPlayer.pause();
+		            audioPlayer.currentTime = 0; // Rembobine
+		        }
+		    }
+		
+		    // 2. ARRÊT DE LA VIDÉO (Modale : #videoReaderModal) 🎥
+		    if (modalId === 'videoReaderModal') {
+		        // Vide la source de l'iframe, ce qui stoppe la lecture
+		        document.getElementById('videoIframe').src = '';
+		    }
+		}
 
 		// Liste des images de prévisualisation (pour le carrousel)
 		const previewImages = [
@@ -1147,6 +1137,7 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
 
