@@ -644,41 +644,65 @@
     // ==========================================
     // 1. DONNÉES (Vos données)
     // ==========================================
-    const photographers = {
-        'Benjamin': {
-            description: "Photographe professionnel aux <strong>horizons sans limites</strong>...",
-            file: 'https://drive.google.com/drive/folders/VOTRE_LIEN_ICI', // Remplacez par vos liens
-            code: 'J&A2308'
-        },
-        'Yanis': {
-            description: "Yanis, vétérinaire rencontré sur les bancs de l’école...",
-            file: 'https://drive.google.com/drive/folders/VOTRE_LIEN_ICI',
-            code: 'J&A2308'
-        },
-        // ... ajoutez les autres photographes ici ...
-    };
+        const photographers = {
+            'Benjamin': {
+                // Chaîne corrigée avec <strong> et <br><br>
+				description: "Photographe professionnel aux <strong>horizons sans limites</strong>, Benjamin Faure a capturé l’extraordinaire : des paysages exotiques aux <strong>sportifs de l’extrême</strong>.<br><br>Son <strong>regard unique</strong> transforme chaque instant en une œuvre <strong>intemporelle</strong>.<br><br>Benjamin, un <strong>ami exceptionnel</strong> rencontré par Antoine lors de leur formation commando à la BA 118 de Mont de Marsan, a immortalisé notre cérémonie avec la même <strong>passion et générosité</strong> qui le définissent.<br><br>Un <strong>immense merci</strong> pour ces souvenirs inoubliables !",
+				file: 'https://drive.google.com/drive/folders/1guaqniFV_RayfWsmFVotqoYDm0hNAYIL?usp=sharing',  
+                code: 'J&A2308' // Code secret pour les photos
+            },
+            'Yanis': {
+                description: "Yanis, vétérinaire rencontré sur les bancs de l’école, mais aussi <strong>photographe talentueux</strong> qui capture la beauté du monde à travers son objectif.<br><br>Un <strong>ami fidèle</strong>, toujours présent pour partager les fous rires et les moments précieux, et dont la <strong>générosité</strong> a rendu notre journée encore plus lumineuse.",
+                file: 'https://drive.google.com/drive/folders/1SjbZJeFMxAYzoG60EE-BaONz1e7lmumr?usp=sharing',
+                code: 'J&A2308'  
+            },
+            'Alice': {
+                description: "Alice, amie <strong>très proche</strong> de Jeanne et Antoine, est toujours dans les bons coups. Sa générosité et son talent pour la photographie l'ont tout de suite convaincue d'immortaliser la <strong>nos enterrements de vie de garçon/jeune fille, la cérémonie civile à la mairie et le brunch !</strong><br><br>Elle nous a offert une série de clichés <strong>chaleureux et spontanés</strong>. <br><br> N'hésitez pas si vous avez une vache qui ne va pas bien dans la région de Foix : Alice est aussi <strong>vétérinaire</strong> !",
+                file: 'https://drive.google.com/drive/folders/1QqNW3MeHHMEPb07FiRA_12pQnY8bB1VY?usp=sharing',
+                code: 'J&A2308'  
+            },
+            'Orlando': {
+				description: "Le Père Orlando, celui qui a officié notre cérémonie religieuse, est bien plus qu'un prêtre : il est un <strong>ami très proche</strong> et un membre à part entière de la famille d'Antoine.<br><br>Il n'a pas hésité à traverser l’Atlantique, depuis sa <strong>Colombie natale</strong>, pour venir célébrer ce mariage si important en France.<br><br>Considéré comme un frère depuis qu'il est venu étudier en France durant son séminaire catholique, sa présence et sa bénédiction ont été le <strong>plus beau des cadeaux</strong>.",                
+                file: 'https://drive.google.com/drive/folders/1mYK9mvLTT29ugXxzMSNQsY-yhstRXkFW?usp=sharing',
+                code: 'J&A2308'  
+            },
+            'Valentine & Pierre': {
+				description: "Valentine, notre <strong>belle</strong> sœur dont le mot <strong>belle</strong> est un euphémisme — et Pierre, le frère d'Antoine, notre batteur star pour le vin d’honneur, ont dépassé toutes nos attentes. En plus de nous faire danser, ils nous ont offert des <strong>photos extraordinaires</strong>, des images qui valent tous les <strong>cadeaux</strong> du monde.<br><br> Leur talent et leur générosité ont rendu cette journée encore plus <strong>exceptionnelle</strong>. Merci à eux pour ces <strong>moments inoubliables</strong> !",                
+                file: 'https://drive.google.com/drive/folders/1SsKQT4Baj0sZYdegWJw7KrjOxCNEh1ef?usp=sharing',
+                code: 'J&A2308'  
+            },
+			'Wedshoot': {
+				description: "Ces photos ont été récupérées sur l'application <strong class='font-bold'>Wedshoot</strong> grâce aux <strong class='font-bold'>contributions de tous</strong>.<br><br>Tous les invités sont des <strong class='font-bold'>photographes précieux</strong> qui rendent par ces images la <strong class='font-bold'>joie et la simplicité</strong> du plus beau jour de notre vie !",                
+                file: 'https://drive.google.com/drive/folders/1ui7ND4KR7kFriJLIJIUdlZKBVtoelzCf?usp=sharing',
+                code: 'J&A2308'  
+            }
+        };
 
-    const videos = {
-        'Ceremonie': {
-            title: 'Cérémonie Religieuse',
-            file: 'https://drive.google.com/file/d/VOTRE_LIEN_ZIP/view?usp=sharing', // Lien ZIP
-            previewUrl: 'https://drive.google.com/file/d/VOTRE_ID_VIDEO/preview', // Lien PREVIEW
-            code: 'J&A2308'
-        },
-        'Ouverture': {
-            title: 'Ouverture de Bal',
-            file: 'https://drive.google.com/file/d/VOTRE_LIEN_ZIP/view?usp=sharing',
-            previewUrl: 'https://drive.google.com/file/d/VOTRE_ID_VIDEO/preview',
-            code: 'J&A2308'
-        }
-    };
+		const videos = {
+		    'Ceremonie': {
+		        title: 'Cérémonie Religieuse en l\'Eglise de Saint Sever',
+		        // Lien de téléchargement (le ZIP)
+		        file: 'https://drive.google.com/file/d/1AxxVmsFkEwKIxwj5H1WgWm5x1I9mW4W0/view?usp=sharing', 
+		        // Lien d'intégration/preview pour l'iframe (IMPORTANT : remplacez l'ID par le vôtre)
+		        previewUrl: 'https://drive.google.com/file/d/1Nz88f4K-mDGkTTSVmN-Gfseyqm4gL5gA/preview', 
+		        code: 'J&A2308' 
+		    },
+		    'Ouverture': {
+		        title: 'Ouverture de Bal',
+		        file: 'https://drive.google.com/file/d/1CjEDOOzPeWX6i-YkYemdc36IyEiLFm-R/view?usp=sharing',
+		        // Lien d'intégration/preview
+		        previewUrl: 'https://drive.google.com/file/d/1CjEDOOzPeWX6i-YkYemdc36IyEiLFm-R/preview', 
+		        code: 'J&A2308' 
+		    }
+		};
 
-    const audio = {
-        'Bernard': {
-            file: 'https://drive.google.com/file/d/16zCuPP-BvqN8y1KKfP6saIrX_40JQNfq/view?usp=sharing',
-            code: 'J&A2308'
-        }
-    };
+		const audio = {
+            'Bernard': {
+                description: "Une prestation émouvante...",
+                file: 'https://drive.google.com/file/d/16zCuPP-BvqN8y1KKfP6saIrX_40JQNfq/view?usp=sharing',
+                code: 'J&A2308'
+            }
+        };
 
     // Variables globales
     let currentVideoKey = ''; // Pour les vidéos
@@ -1045,6 +1069,7 @@
 </body>
 
 </html>
+
 
 
 
