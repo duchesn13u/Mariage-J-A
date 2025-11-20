@@ -237,7 +237,7 @@
                         <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Benjamin</h3>
                         <p class="text-orange-600 font-semibold">Photographe Officiel (Pro)</p>
                     </button>
-                    <button onclick="openPhotographerModal('Benjamin')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    <button onclick="openPhotographerModal('Benjamin')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-download-open mr-2"></i> Télécharger</button>
                 </div>
                 
                 <div id="photos-yanis" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn" style="animation-delay: 1.0s;">
@@ -246,7 +246,7 @@
                         <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Yanis</h3>
                         <p class="text-orange-600 font-semibold">Photographe passionné </p>
                     </button>
-                    <button onclick="openPhotographerModal('Yanis')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    <button onclick="openPhotographerModal('Yanis')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-download-open mr-2"></i> Télécharger</button>
                 </div>
             </div>
         </div>
@@ -265,7 +265,7 @@
                         <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Alice</h3>
                         <p class="text-orange-600 font-semibold">Amie proche et photographe à ses heures perdues</p>
                     </button>
-                    <button onclick="openPhotographerModal('Alice')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    <button onclick="openPhotographerModal('Alice')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-download-open mr-2"></i> Télécharger</button>
                 </div>
                 
                 <div id="photos-orlando" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between h-full" style="animation-delay: 1.2s;">
@@ -274,7 +274,7 @@
                         <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Orlando</h3>
                         <p class="text-orange-600 font-semibold">Prêtre Colombien et amateur de photos</p>
                     </button>
-                    <button onclick="openPhotographerModal('Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    <button onclick="openPhotographerModal('Orlando')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-download-open mr-2"></i> Télécharger</button>
                 </div>
                 
                 <div id="photos-valentine-pierre" class="photographer-card text-center bg-white rounded-xl p-8 shadow-xl animate-fadeIn flex flex-col items-center justify-between h-full" style="animation-delay: 1.2s;">
@@ -283,7 +283,7 @@
                         <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Valentine et Pierre</h3>
                         <p class="text-orange-600 font-semibold">Artistes aux talents multiples</p>
                     </button>
-                    <button onclick="openPhotographerModal('Valentine & Pierre')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                    <button onclick="openPhotographerModal('Valentine & Pierre')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-download-open mr-2"></i> Télécharger</button>
                 </div>
             </div>
         </div>
@@ -300,7 +300,7 @@
                     <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">Tous Photographes</h3>
                     <p class="text-orange-600 font-semibold">Nos invités ont du talent !</p>
                 </button>
-                <button onclick="openPhotographerModal('Wedshoot')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-folder-open mr-2"></i> Télécharger</button>
+                <button onclick="openPhotographerModal('Wedshoot')" class="action-btn mt-6 w-3/4 py-3 px-4 rounded-full text-white font-medium flex items-center justify-center mx-auto"><i class="fas fa-download-open mr-2"></i> Télécharger</button>
             </div>
             
         </div>
@@ -537,35 +537,52 @@
         </div>
     </div>
 
-<div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-xl max-w-xl w-full">
+<div id="videoModal" class="modal fixed inset-0 bg-black bg-opacity-75 z-40 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-xl w-full shadow-2xl relative z-50">
         <div class="p-8">
             <div class="flex justify-between items-start mb-6">
                 <h3 id="videoModalTitle" class="text-3xl font-bold text-gray-900"></h3>
-                <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
+                <button onclick="closeModal('videoModal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
             </div>
             
-	<div id="videoReaderModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="reader-title" role="dialog" aria-modal="true">
-    <div class="flex items-center justify-center min-h-screen p-4">
-        
-        <div class="fixed inset-0 bg-gray-900 bg-opacity-90 transition-opacity" aria-hidden="true" onclick="closeModal('videoReaderModal')"></div>
-        
-        <div class="inline-block align-middle bg-black rounded-lg text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-4xl sm:w-full w-full">
-            <div class="bg-black p-2 sm:p-4">
+            <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-lock mr-2 text-orange-500"></i> Accès sécurisé
+            </h4>
+            
+            <div id="download-form-videos">
+                <input type="password" id="video-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
+                <p id="video-error-message" class="text-red-500 mb-4 hidden"></p>
                 
+                <button id="attemptVideoAction" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center">
+                    <i class="fas fa-play-circle mr-2"></i> <span>Action</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="videoReaderModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="reader-title" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-gray-900 bg-opacity-95 transition-opacity" aria-hidden="true"></div>
+
+    <div class="flex items-center justify-center min-h-screen p-4 text-center sm:p-0">
+        
+        <div class="inline-block align-middle bg-black rounded-lg text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-4xl sm:w-full w-full relative z-50">
+            <div class="bg-black p-2 sm:p-4">
                 <div class="flex justify-between items-center mb-4">
                     <h3 id="readerVideoTitle" class="text-xl sm:text-2xl font-bold text-white"></h3>
                     <button onclick="closeModal('videoReaderModal')" class="text-gray-400 hover:text-white focus:outline-none">
-                        <i class="fas fa-times text-2xl"></i>
+                        <i class="fas fa-times text-2xl"></i> Fermer
                     </button>
                 </div>
 
                 <div class="aspect-video w-full rounded-lg overflow-hidden bg-gray-900">
-                    <iframe id="videoIframe" width="100%" height="100%" allow="autoplay" allowfullscreen style="border: none;"></iframe>
+                    <iframe id="videoIframe" width="100%" height="100%" allow="autoplay; fullscreen" style="border: none;"></iframe>
                 </div>
                 
                 <div class="text-center mt-4">
-                    <button onclick="closeModal('videoReaderModal'); openVideoDownloadModal(currentVideoKey);" class="text-white hover:text-orange-400 font-medium text-sm flex items-center justify-center mx-auto focus:outline-none hover:underline">
+                     <button onclick="closeModal('videoReaderModal'); openVideoDownloadModal(currentVideoKey);" class="text-white hover:text-orange-400 font-medium text-sm flex items-center justify-center mx-auto focus:outline-none hover:underline">
                         <i class="fas fa-download mr-2"></i> Télécharger cette vidéo
                     </button>
                 </div>
@@ -573,19 +590,6 @@
         </div>
     </div>
 </div>
-	            
-	            <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lock mr-2 text-orange-500"></i> Accès sécurisé</h4>
-	            <div id="download-form-videos">
-	                <input type="password" id="video-code-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 mb-4" placeholder="Entrez le code secret">
-	                <p id="video-error-message" class="text-red-500 mb-4 hidden"></p>
-	                
-					<button id="attemptVideoAction" class="action-btn w-full py-3 px-4 rounded-full text-white font-medium flex items-center justify-center">
-					    <i class="fas fa-play-circle mr-2"></i> <span>Action</span>
-					</button>
-	            </div>
-	        </div>
-	    </div>
-	</div>
 
 <div id="audioModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -632,467 +636,361 @@
     </div>
 </div>
 
-    <script>
-        // --- Définitions des données (CORRIGÉES pour Benjamin) ---
+<script>
+    // ==========================================
+    // 1. DONNÉES (Vos données)
+    // ==========================================
+    const photographers = {
+        'Benjamin': {
+            description: "Photographe professionnel aux <strong>horizons sans limites</strong>...",
+            file: 'https://drive.google.com/drive/folders/VOTRE_LIEN_ICI', // Remplacez par vos liens
+            code: 'J&A2308'
+        },
+        'Yanis': {
+            description: "Yanis, vétérinaire rencontré sur les bancs de l’école...",
+            file: 'https://drive.google.com/drive/folders/VOTRE_LIEN_ICI',
+            code: 'J&A2308'
+        },
+        // ... ajoutez les autres photographes ici ...
+    };
 
-        const photographers = {
-            'Benjamin': {
-                // Chaîne corrigée avec <strong> et <br><br>
-				description: "Photographe professionnel aux <strong>horizons sans limites</strong>, Benjamin Faure a capturé l’extraordinaire : des paysages exotiques aux <strong>sportifs de l’extrême</strong>.<br><br>Son <strong>regard unique</strong> transforme chaque instant en une œuvre <strong>intemporelle</strong>.<br><br>Benjamin, un <strong>ami exceptionnel</strong> rencontré par Antoine lors de leur formation commando à la BA 118 de Mont de Marsan, a immortalisé notre cérémonie avec la même <strong>passion et générosité</strong> qui le définissent.<br><br>Un <strong>immense merci</strong> pour ces souvenirs inoubliables !",
-				file: 'https://drive.google.com/drive/folders/1guaqniFV_RayfWsmFVotqoYDm0hNAYIL?usp=sharing',  
-                code: 'J&A2308' // Code secret pour les photos
-            },
-            'Yanis': {
-                description: "Yanis, vétérinaire rencontré sur les bancs de l’école, mais aussi <strong>photographe talentueux</strong> qui capture la beauté du monde à travers son objectif.<br><br>Un <strong>ami fidèle</strong>, toujours présent pour partager les fous rires et les moments précieux, et dont la <strong>générosité</strong> a rendu notre journée encore plus lumineuse.",
-                file: 'https://drive.google.com/drive/folders/1SjbZJeFMxAYzoG60EE-BaONz1e7lmumr?usp=sharing',
-                code: 'J&A2308'  
-            },
-            'Alice': {
-                description: "Alice, amie <strong>très proche</strong> de Jeanne et Antoine, est toujours dans les bons coups. Sa générosité et son talent pour la photographie l'ont tout de suite convaincue d'immortaliser la <strong>nos enterrements de vie de garçon/jeune fille, la cérémonie civile à la mairie et le brunch !</strong><br><br>Elle nous a offert une série de clichés <strong>chaleureux et spontanés</strong>. <br><br> N'hésitez pas si vous avez une vache qui ne va pas bien dans la région de Foix : Alice est aussi <strong>vétérinaire</strong> !",
-                file: 'https://drive.google.com/drive/folders/1QqNW3MeHHMEPb07FiRA_12pQnY8bB1VY?usp=sharing',
-                code: 'J&A2308'  
-            },
-            'Orlando': {
-				description: "Le Père Orlando, celui qui a officié notre cérémonie religieuse, est bien plus qu'un prêtre : il est un <strong>ami très proche</strong> et un membre à part entière de la famille d'Antoine.<br><br>Il n'a pas hésité à traverser l’Atlantique, depuis sa <strong>Colombie natale</strong>, pour venir célébrer ce mariage si important en France.<br><br>Considéré comme un frère depuis qu'il est venu étudier en France durant son séminaire catholique, sa présence et sa bénédiction ont été le <strong>plus beau des cadeaux</strong>.",                
-                file: 'https://drive.google.com/drive/folders/1mYK9mvLTT29ugXxzMSNQsY-yhstRXkFW?usp=sharing',
-                code: 'J&A2308'  
-            },
-            'Valentine & Pierre': {
-				description: "Valentine, notre <strong>belle</strong> sœur dont le mot <strong>belle</strong> est un euphémisme — et Pierre, le frère d'Antoine, notre batteur star pour le vin d’honneur, ont dépassé toutes nos attentes. En plus de nous faire danser, ils nous ont offert des <strong>photos extraordinaires</strong>, des images qui valent tous les <strong>cadeaux</strong> du monde.<br><br> Leur talent et leur générosité ont rendu cette journée encore plus <strong>exceptionnelle</strong>. Merci à eux pour ces <strong>moments inoubliables</strong> !",                
-                file: 'https://drive.google.com/drive/folders/1SsKQT4Baj0sZYdegWJw7KrjOxCNEh1ef?usp=sharing',
-                code: 'J&A2308'  
-            },
-			'Wedshoot': {
-				description: "Ces photos ont été récupérées sur l'application <strong class='font-bold'>Wedshoot</strong> grâce aux <strong class='font-bold'>contributions de tous</strong>.<br><br>Tous les invités sont des <strong class='font-bold'>photographes précieux</strong> qui rendent par ces images la <strong class='font-bold'>joie et la simplicité</strong> du plus beau jour de notre vie !",                
-                file: 'https://drive.google.com/drive/folders/1ui7ND4KR7kFriJLIJIUdlZKBVtoelzCf?usp=sharing',
-                code: 'J&A2308'  
+    const videos = {
+        'Ceremonie': {
+            title: 'Cérémonie Religieuse',
+            file: 'https://drive.google.com/file/d/VOTRE_LIEN_ZIP/view?usp=sharing', // Lien ZIP
+            previewUrl: 'https://drive.google.com/file/d/VOTRE_ID_VIDEO/preview', // Lien PREVIEW
+            code: 'J&A2308'
+        },
+        'Ouverture': {
+            title: 'Ouverture de Bal',
+            file: 'https://drive.google.com/file/d/VOTRE_LIEN_ZIP/view?usp=sharing',
+            previewUrl: 'https://drive.google.com/file/d/VOTRE_ID_VIDEO/preview',
+            code: 'J&A2308'
+        }
+    };
+
+    const audio = {
+        'Bernard': {
+            file: 'https://drive.google.com/file/d/16zCuPP-BvqN8y1KKfP6saIrX_40JQNfq/view?usp=sharing',
+            code: 'J&A2308'
+        }
+    };
+
+    // Variables globales
+    let currentVideoKey = ''; // Pour les vidéos
+    let currentPhotoItem = null; // Pour les photos
+
+    // ==========================================
+    // 2. FONCTIONS GÉNÉRALES
+    // ==========================================
+
+    // LA SEULE ET UNIQUE FONCTION CLOSEMODAL (Celle qui marche)
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('hidden');
+        }
+
+        // ARRÊT VIDÉO : Coupe le son et l'image
+        if (modalId === 'videoReaderModal') {
+            const iframe = document.getElementById('videoIframe');
+            if (iframe) {
+                iframe.src = ""; 
             }
-        };
+        }
 
-		const videos = {
-		    'Ceremonie': {
-		        title: 'Cérémonie Religieuse en l\'Eglise de Saint Sever',
-		        // Lien de téléchargement (le ZIP)
-		        file: 'https://drive.google.com/file/d/1AxxVmsFkEwKIxwj5H1WgWm5x1I9mW4W0/view?usp=sharing', 
-		        // Lien d'intégration/preview pour l'iframe (IMPORTANT : remplacez l'ID par le vôtre)
-		        previewUrl: 'https://drive.google.com/file/d/1Nz88f4K-mDGkTTSVmN-Gfseyqm4gL5gA/preview', 
-		        code: 'J&A2308' 
-		    },
-		    'Ouverture': {
-		        title: 'Ouverture de Bal',
-		        file: 'https://drive.google.com/file/d/1CjEDOOzPeWX6i-YkYemdc36IyEiLFm-R/view?usp=sharing',
-		        // Lien d'intégration/preview
-		        previewUrl: 'https://drive.google.com/file/d/1CjEDOOzPeWX6i-YkYemdc36IyEiLFm-R/preview', 
-		        code: 'J&A2308' 
-		    }
-		};
-
-		const audio = {
-            'Bernard': {
-                description: "Une prestation émouvante...",
-                file: 'https://drive.google.com/file/d/16zCuPP-BvqN8y1KKfP6saIrX_40JQNfq/view?usp=sharing',
-                code: 'J&A2308'
+        // ARRÊT AUDIO
+        if (modalId === 'audioModal') {
+            const audioPlayer = document.getElementById('odeAudioPlayer');
+            if (audioPlayer) {
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0;
             }
-        }; // <--- C'est ces accolades qui manquaient !
+        }
 
+        document.body.style.overflow = 'auto';
+    }
 
-		let currentVideoKey = '';
-		
-		// --- Fonctions de base ---
-		
-		function openModal(modalId) {
-		    const modal = document.getElementById(modalId);
-		    if (modal) {
-		        modal.classList.remove('hidden');
-		    }
-		}
-		
-		function openReaderModal(title, url) {
-		    // Injecte le titre
-		    document.getElementById('readerVideoTitle').innerText = title;
-		    
-		    // Injecte l'URL de prévisualisation dans l'iframe
-		    document.getElementById('videoIframe').src = url; 
-		
-		    // Ouvre la modale du lecteur
-		    document.getElementById('videoReaderModal').classList.remove('hidden');
-		}
-		
-		
-		// --- Fonctions Vidéo ---
-		
-		// Fonction utilisée par la vignette pour demander le code AVANT la lecture
-		function openVideoPreviewModal(key) {
-		    currentVideoKey = key; 
-		    document.getElementById('videoModalTitle').innerText = `Lecture : ${videos[key].title}`;
-		    
-		    // On met en place le gestionnaire d'événement pour le mode LECTURE
-		    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoPreview()");
-		    
-		    // METTRE À JOUR LE TEXTE ET L'ICÔNE POUR LA LECTURE (avec le <span> corrigé)
-		    const actionButton = document.getElementById('attemptVideoAction');
-		    actionButton.querySelector('i.fas').className = 'fas fa-play-circle mr-2';
-		    actionButton.querySelector('span').innerText = 'Débloquer la Lecture'; 
-		    
-		    // Afficher la modale standard
-		    document.getElementById('videoModal').classList.remove('hidden');
-		    document.getElementById('video-code-input').value = '';
-		    document.getElementById('video-error-message').classList.add('hidden');
-		}
-		
-		// Fonction utilisée par le bouton Téléchargement
-		function openVideoDownloadModal(key) {
-		    currentVideoKey = key;
-		    document.getElementById('videoModalTitle').innerText = `Téléchargement : ${videos[key].title}`;
-		    
-		    // On met en place le gestionnaire d'événement pour le mode TÉLÉCHARGEMENT
-		    document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoDownload()");
-		    
-		    // METTRE À JOUR LE TEXTE ET L'ICÔNE POUR LE TÉLÉCHARGEMENT
-		    const actionButton = document.getElementById('attemptVideoAction');
-		    actionButton.querySelector('i.fas').className = 'fas fa-cloud-download-alt mr-2';
-		    actionButton.querySelector('span').innerText = 'Télécharger la Vidéo';
-		    
-		    // Afficher la modale standard 
-		    document.getElementById('videoModal').classList.remove('hidden');
-		    document.getElementById('video-code-input').value = '';
-		    document.getElementById('video-error-message').classList.add('hidden');
-		}
-		
-		// Logique de Lecture (Preview)
-		function attemptVideoPreview() {
-		    const inputCode = document.getElementById('video-code-input').value.trim();
-		    const videoData = videos[currentVideoKey];
-		    const errorMessage = document.getElementById('video-error-message');
-		
-		    if (inputCode === videoData.code) {
-		        // Code bon : on ferme la modale de code
-		        closeModal('videoModal'); 
-		        
-		        // Et on ouvre la modale de LECTURE
-		        openReaderModal(videoData.title, videoData.previewUrl);
-		
-		    } else {
-		        // Code faux
-		        errorMessage.classList.remove('hidden');
-		    }
-		}	
-		
-		// Logique de Téléchargement Vidéo (pour l'exemple)
-		function attemptVideoDownload() {
-		    const inputCode = document.getElementById('video-code-input').value.trim();
-		    const videoData = videos[currentVideoKey];
-		    const errorMessage = document.getElementById('video-error-message');
-		
-		    if (inputCode === videoData.code) {
-		        window.open(videoData.downloadUrl, '_blank');
-		        closeModal('videoModal'); 
-		
-		    } else {
-		        errorMessage.classList.remove('hidden');
-		    }
-		}	
-		
-		
-		// --- Fonctions Audio ---
-		
-		// Fonction générique pour ouvrir la modale audio
-		function openAudioModal(mode) {
-		    const modal = document.getElementById('audioModal');
-		    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
-		    const passwordForm = document.getElementById('audio-password-form');
-		    const buttonAction = document.getElementById('attemptAudioAction');
-		    const buttonIcon = document.getElementById('audioActionButtonIcon');
-		    const buttonText = document.getElementById('audioActionButtonText');
-		    const title = document.getElementById('audioModalTitle');
-		
-		    // Réinitialisation de la modale
-		    document.getElementById('audio-code-input').value = '';
-		    document.getElementById('audio-error-message').classList.add('hidden');
-		    audioPlayerContainer.classList.add('hidden');
-		    passwordForm.classList.remove('hidden');
-		
-		    if (mode === 'download') {
-		        title.innerText = 'Télécharger l\'Ode de Bernard';
-		        buttonAction.setAttribute('onclick', "attemptAudioDownload()");
-		        buttonIcon.className = 'fas fa-cloud-download-alt mr-2';
-		        buttonText.innerText = 'Télécharger l\'audio';
-		    } else if (mode === 'player') {
-		        title.innerText = 'Écouter l\'Ode de Bernard';
-		        buttonAction.setAttribute('onclick', "attemptAudioPlayback()");
-		        buttonIcon.className = 'fas fa-play-circle mr-2';
-		        buttonText.innerText = 'Débloquer la Lecture';
-		    }
-		    
-		    modal.classList.remove('hidden');
-		}
-		
-		function openAudioPlayerModal() {
-		    openAudioModal('player');
-		}
-		
-		function openAudioDownloadModal() {
-		    openAudioModal('download');
-		}
-		
-		function attemptAudioDownload() {
-		    const inputCode = document.getElementById('audio-code-input').value.trim();
-		    const audioData = audio['Bernard'];
-		    const errorMessage = document.getElementById('audio-error-message');
-		
-		    if (inputCode === audioData.code) {
-		        window.open(audioData.file, '_blank');
-		        closeModal('audioModal');
-		    } else {
-		        errorMessage.classList.remove('hidden');
-		    }
-		}
-		
-		function attemptAudioPlayback() {
-		    const inputCode = document.getElementById('audio-code-input').value.trim();
-		    const audioData = audio['Bernard'];
-		    const errorMessage = document.getElementById('audio-error-message');
-		    const passwordForm = document.getElementById('audio-password-form');
-		    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
-		
-		    if (inputCode === audioData.code) {
-		        // Code bon : on cache le formulaire et on montre l'audio
-		        passwordForm.classList.add('hidden');
-		        audioPlayerContainer.classList.remove('hidden');
-		        document.getElementById('audioModalTitle').innerText = 'Écouter l\'Ode de Bernard';
-		    } else {
-		        // Code faux
-		        errorMessage.classList.remove('hidden');
-		    }
-		}
-		
-		
-		// --- Fonction de Fermeture (Unique et Complète) ---
-		
-		// C'est la seule fonction closeModal que vous devez avoir !
-		function closeModal(modalId) {
-		    const modal = document.getElementById(modalId);
-		    if (modal) {
-		        // Cache la modale
-		        modal.classList.add('hidden');
-		    }
-		
-		    // 1. ARRÊT DE L'AUDIO (Modale : #audioModal) 🎤
-		    if (modalId === 'audioModal') {
-		        const audioPlayer = document.getElementById('odeAudioPlayer');
-		        if (audioPlayer) {
-		            audioPlayer.pause();
-		            audioPlayer.currentTime = 0; // Rembobine
-		        }
-		    }
-		
-		    // 2. ARRÊT DE LA VIDÉO (Modale : #videoReaderModal) 🎥
-		    if (modalId === 'videoReaderModal') {
-		        // Vide la source de l'iframe, ce qui stoppe la lecture
-		        document.getElementById('videoIframe').src = '';
-		    }
-		}
-
-
-		// Liste des images de prévisualisation (pour le carrousel)
-		const previewImages = [
-			'preview-1.jpg', 'preview-2.jpg', 'preview-3.jpg', 'preview-4.jpg', 
-			'preview-5.jpg','preview-6.jpg', 'preview-7.jpg', 'preview-8.jpg',
-			'preview-9.jpg', 'preview-10.jpg', 'preview-11.jpg', 'preview-12.jpg',
-			'preview-13.jpg','preview-14.jpg','preview-15.jpg', 'preview-16.jpg', 
-			'preview-17.jpg','preview-18.jpg', 'preview-19.jpg',
-			'preview-20.jpg','preview-21.jpg','preview-22.jpg', 'preview-23.jpg', 
-			'preview-24.jpg','preview-25.jpg', 'preview-26.jpg', 'preview-27.jpg',
-			'preview-28.jpg','preview-29.jpg', 'preview-30.jpg'
-		];
-
-        // --- Variables d'état et éléments DOM (Pas de changement) ---
-
-        let currentCarouselIndex = 0; // Index pour le carrousel
-        let currentItem = null; // Photographe ou Vidéo sélectionnée
-
+    // Gestionnaire de clics "Intelligent" (Click Outside)
+    window.onclick = function(event) {
+        const videoReaderModal = document.getElementById('videoReaderModal');
+        const audioModal = document.getElementById('audioModal');
         const photographerModal = document.getElementById('photographerModal');
         const videoModal = document.getElementById('videoModal');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const odePdfModal = document.getElementById('odePdfModal');
 
-		// Ajouter un écouteur d'événements pour le clic en dehors de la modale vidéo
-		document.getElementById('videoReaderModal').addEventListener('click', function(e) {
-		    if (e.target === document.getElementById('videoReaderModal')) {
-		        closeModal('videoReaderModal');
-		    }
-		});
-		
-		// Ajouter un écouteur d'événements pour le clic en dehors de la modale audio
-		document.getElementById('audioModal').addEventListener('click', function(e) {
-		    if (e.target === document.getElementById('audioModal')) {
-		        closeModal('audioModal');
-		    }
-		});
+        // 1. Clic en dehors du Lecteur Vidéo
+        if (videoReaderModal && !videoReaderModal.classList.contains('hidden')) {
+            if (event.target === videoReaderModal || 
+                event.target.classList.contains('bg-opacity-95') || 
+                event.target.closest('.min-h-screen') && !event.target.closest('.bg-black')) {
+                closeModal('videoReaderModal');
+            }
+        }
+        // 2. Audio
+        if (audioModal && !audioModal.classList.contains('hidden')) {
+            if (event.target === audioModal || event.target.classList.contains('bg-opacity-75')) closeModal('audioModal');
+        }
+        // 3. Photos
+        if (photographerModal && !photographerModal.classList.contains('hidden')) {
+            if (event.target === photographerModal || event.target.classList.contains('bg-opacity-75')) closeModal('photographerModal');
+        }
+        // 4. Code Vidéo
+        if (videoModal && !videoModal.classList.contains('hidden')) {
+            if (event.target === videoModal || event.target.classList.contains('bg-opacity-75')) closeModal('videoModal');
+        }
+        // 5. PDF
+        if (odePdfModal && !odePdfModal.classList.contains('hidden')) {
+            if (event.target === odePdfModal || event.target.classList.contains('bg-opacity-75')) closeModal('odePdfModal');
+        }
+    };
 
+    // ==========================================
+    // 3. LOGIQUE VIDÉO
+    // ==========================================
+    
+    // Ouvre le lecteur (Iframe)
+    function openReaderModal(title, url) {
+        document.getElementById('readerVideoTitle').innerText = title;
+        document.getElementById('videoIframe').src = url; 
+        document.getElementById('videoReaderModal').classList.remove('hidden');
+    }
 
-        // --- Initialisation et Gestion des événements (Suite) ---
+    // Mode Lecture (Demande code)
+    function openVideoPreviewModal(key) {
+        currentVideoKey = key;
+        document.getElementById('videoModalTitle').innerText = `Lecture : ${videos[key].title}`;
+        document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoPreview()");
+        
+        const actionButton = document.getElementById('attemptVideoAction');
+        actionButton.querySelector('i.fas').className = 'fas fa-play-circle mr-2';
+        actionButton.querySelector('span').innerText = 'Débloquer la Lecture';
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const carouselInner = document.getElementById('carousel-inner');
-            previewImages.forEach((imgSrc, index) => {
+        document.getElementById('videoModal').classList.remove('hidden');
+        document.getElementById('video-code-input').value = '';
+        document.getElementById('video-error-message').classList.add('hidden');
+    }
+
+    // Mode Téléchargement (Demande code)
+    function openVideoDownloadModal(key) {
+        currentVideoKey = key;
+        document.getElementById('videoModalTitle').innerText = `Téléchargement : ${videos[key].title}`;
+        document.getElementById('attemptVideoAction').setAttribute('onclick', "attemptVideoDownload()");
+        
+        const actionButton = document.getElementById('attemptVideoAction');
+        actionButton.querySelector('i.fas').className = 'fas fa-cloud-download-alt mr-2';
+        actionButton.querySelector('span').innerText = 'Télécharger la Vidéo';
+
+        document.getElementById('videoModal').classList.remove('hidden');
+        document.getElementById('video-code-input').value = '';
+        document.getElementById('video-error-message').classList.add('hidden');
+    }
+
+    // Validation Code -> Lecture
+    function attemptVideoPreview() {
+        const inputCode = document.getElementById('video-code-input').value.trim();
+        const videoData = videos[currentVideoKey];
+        
+        if (inputCode === videoData.code) {
+            closeModal('videoModal');
+            openReaderModal(videoData.title, videoData.previewUrl);
+        } else {
+            document.getElementById('video-error-message').classList.remove('hidden');
+        }
+    }
+
+    // Validation Code -> Téléchargement
+    function attemptVideoDownload() {
+        const inputCode = document.getElementById('video-code-input').value.trim();
+        const videoData = videos[currentVideoKey];
+        
+        if (inputCode === videoData.code) {
+            window.open(videoData.file, '_blank'); // Utilise .file (le ZIP)
+            closeModal('videoModal');
+        } else {
+            document.getElementById('video-error-message').classList.remove('hidden');
+        }
+    }
+
+    // ==========================================
+    // 4. LOGIQUE PHOTOS
+    // ==========================================
+
+    function openPhotographerModal(name) {
+        currentPhotoItem = photographers[name];
+        document.getElementById('modalPhotoTitle').textContent = `Photos de ${name}`;
+        document.getElementById('modalPhotoDescription').innerHTML = currentPhotoItem.description;
+        document.getElementById('photo-code-input').value = '';
+        document.getElementById('photo-error-message').classList.add('hidden');
+        document.getElementById('photographerModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function attemptPhotoDownload() {
+        const input = document.getElementById('photo-code-input');
+        const error = document.getElementById('photo-error-message');
+        const code = input.value.trim();
+
+        if (code === currentPhotoItem.code) {
+            window.open(currentPhotoItem.file, '_blank');
+            error.classList.add('hidden');
+            closeModal('photographerModal');
+        } else {
+            error.textContent = 'Code secret incorrect.';
+            error.classList.remove('hidden');
+        }
+    }
+
+    // ==========================================
+    // 5. LOGIQUE AUDIO
+    // ==========================================
+
+    function openAudioModal(mode) {
+        const modal = document.getElementById('audioModal');
+        const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+        const passwordForm = document.getElementById('audio-password-form');
+        const buttonAction = document.getElementById('attemptAudioAction');
+        const buttonIcon = document.getElementById('audioActionButtonIcon');
+        const buttonText = document.getElementById('audioActionButtonText');
+        const title = document.getElementById('audioModalTitle');
+
+        document.getElementById('audio-code-input').value = '';
+        document.getElementById('audio-error-message').classList.add('hidden');
+        audioPlayerContainer.classList.add('hidden');
+        passwordForm.classList.remove('hidden');
+
+        if (mode === 'download') {
+            title.innerText = 'Télécharger l\'Ode de Bernard';
+            buttonAction.setAttribute('onclick', "attemptAudioDownload()");
+            buttonIcon.className = 'fas fa-cloud-download-alt mr-2';
+            buttonText.innerText = 'Télécharger l\'audio';
+        } else if (mode === 'player') {
+            title.innerText = 'Écouter l\'Ode de Bernard';
+            buttonAction.setAttribute('onclick', "attemptAudioPlayback()");
+            buttonIcon.className = 'fas fa-play-circle mr-2';
+            buttonText.innerText = 'Débloquer la Lecture';
+        }
+        modal.classList.remove('hidden');
+    }
+
+    function openAudioPlayerModal() { openAudioModal('player'); }
+    function openAudioDownloadModal() { openAudioModal('download'); }
+
+    function attemptAudioDownload() {
+        const inputCode = document.getElementById('audio-code-input').value.trim();
+        if (inputCode === audio['Bernard'].code) {
+            window.open(audio['Bernard'].file, '_blank');
+            closeModal('audioModal');
+        } else {
+            document.getElementById('audio-error-message').classList.remove('hidden');
+        }
+    }
+
+    function attemptAudioPlayback() {
+        const inputCode = document.getElementById('audio-code-input').value.trim();
+        if (inputCode === audio['Bernard'].code) {
+            document.getElementById('audio-password-form').classList.add('hidden');
+            document.getElementById('audioPlayerContainer').classList.remove('hidden');
+            document.getElementById('audioModalTitle').innerText = 'Écouter l\'Ode de Bernard';
+        } else {
+            document.getElementById('audio-error-message').classList.remove('hidden');
+        }
+    }
+
+    // ==========================================
+    // 6. CARROUSEL & MENU MOBILE
+    // ==========================================
+    
+    const previewImages = [
+        'preview-1.jpg', 'preview-2.jpg', 'preview-3.jpg', 'preview-4.jpg', 
+        'preview-5.jpg','preview-6.jpg', 'preview-7.jpg', 'preview-8.jpg'
+        // Ajoutez vos images ici
+    ];
+    let currentCarouselIndex = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Carrousel
+        const carouselInner = document.getElementById('carousel-inner');
+        if(carouselInner) {
+             previewImages.forEach((imgSrc, index) => {
                 const imgContainer = document.createElement('div');
                 imgContainer.className = `carousel-item absolute inset-0 transition-opacity duration-500 ${index === 0 ? 'active' : ''}`;
-                imgContainer.innerHTML = `<img src="./${imgSrc}" alt="Aperçu photo mariage ${index + 1}" class="w-full h-full object-contain">`;
+                imgContainer.innerHTML = `<img src="./${imgSrc}" alt="Aperçu ${index + 1}" class="w-full h-full object-contain">`;
                 carouselInner.appendChild(imgContainer);
             });
             updateCarouselCounter();
+        }
 
+        // Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(mobileMenuButton) {
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
-
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
+        }
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
-            
-            document.addEventListener('keydown', handleKeydown);
         });
 
-        photographerModal.addEventListener('click', (e) => { if (e.target === photographerModal) closeModal('photographerModal'); });
-        videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeModal('videoModal'); });
+        document.addEventListener('keydown', handleKeydown);
+    });
 
-
-        // --- Fonctions de gestion du Carrousel (Suite) ---
-
-        function updateCarouselCounter() {
-            document.getElementById('carousel-counter').textContent = `${currentCarouselIndex + 1} / ${previewImages.length}`;
-        }
-
-        function changeCarouselImage(direction) {
-            const items = document.querySelectorAll('#carousel-inner .carousel-item');
-            
-            if (items.length === 0) return; 
-
-            items[currentCarouselIndex].classList.remove('active');
-            
-            currentCarouselIndex = (currentCarouselIndex + direction + previewImages.length) % previewImages.length;
-            
-            items[currentCarouselIndex].classList.add('active');
-            updateCarouselCounter();
-        }
-
-        function handleKeydown(e) {
-            if (photographerModal.classList.contains('hidden') && videoModal.classList.contains('hidden')) {
-                if (e.key === 'ArrowRight') changeCarouselImage(1);
-                else if (e.key === 'ArrowLeft') changeCarouselImage(-1);
-            }
-        }
-
-        // --- Fonctions de gestion des Modales (Ouverture/Fermeture) ---
-
-        function openPhotographerModal(name) {
-            currentItem = photographers[name];
-            document.getElementById('modalPhotoTitle').textContent = `Photos de ${name}`;
-            // On utilise innerHTML car la description contient des balises HTML (<strong> et <br>)
-            document.getElementById('modalPhotoDescription').innerHTML = currentItem.description; 
-            document.getElementById('photo-code-input').value = '';
-            document.getElementById('photo-error-message').classList.add('hidden');
-            photographerModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function openVideoModal(name) {
-            currentItem = videos[name];
-            document.getElementById('modalVideoTitle').textContent = currentItem.title;
-            document.getElementById('video-code-input').value = '';
-            document.getElementById('video-error-message').classList.add('hidden');
-            videoModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-            if (photographerModal.classList.contains('hidden') && videoModal.classList.contains('hidden')) {
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-
-        // --- Fonctions de Téléchargement sécurisé (Pas de changement) ---
-
-        function attemptPhotoDownload() {
-            const input = document.getElementById('photo-code-input');
-            const error = document.getElementById('photo-error-message');
-            const code = input.value.trim();
-
-            if (code === currentItem.code) {
-                const link = document.createElement('a');
-                link.href = currentItem.file;
-                link.download = currentItem.file.split('/').pop();
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                error.classList.add('hidden');
-                closeModal('photographerModal');
-                alert(`Le téléchargement des photos de ${currentItem.file.split('_')[1].split('.')[0]} a démarré !`);
-            } else {
-                error.textContent = 'Code secret incorrect. Veuillez réessayer.';
-                error.classList.remove('hidden');
-            }
-        }
-
-        function attemptVideoDownload() {
-            const input = document.getElementById('video-code-input');
-            const error = document.getElementById('video-error-message');
-            const code = input.value.trim();
-
-            if (code === currentItem.code) {
-                const link = document.createElement('a');
-                link.href = currentItem.file;
-                link.download = currentItem.file.split('/').pop();
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                error.classList.add('hidden');
-                closeModal('videoModal');
-                alert(`Le téléchargement du ZIP de la vidéo "${currentItem.title}" a démarré !`);
-            } else {
-                error.textContent = 'Code secret incorrect. Veuillez réessayer.';
-                error.classList.remove('hidden');
-            }
-        }
-
-		// Cibler le formulaire
-const contactForm = document.querySelector('#contact form');
-
-contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault(); // empêche le comportement par défaut
-    const formData = new FormData(contactForm);
-
-    try {
-        const response = await fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            document.getElementById('thankYouModal').classList.remove('hidden'); // afficher modale
-            contactForm.reset(); // vider le formulaire
-        } else {
-            alert('Une erreur est survenue. Veuillez réessayer.');
-        }
-    } catch (error) {
-        alert('Une erreur est survenue. Veuillez réessayer.');
-        console.error(error);
+    function updateCarouselCounter() {
+        const counter = document.getElementById('carousel-counter');
+        if(counter) counter.textContent = `${currentCarouselIndex + 1} / ${previewImages.length}`;
     }
-});
 
-function closeThankYouModal() {
-    document.getElementById('thankYouModal').classList.add('hidden');
-}
+    function changeCarouselImage(direction) {
+        const items = document.querySelectorAll('#carousel-inner .carousel-item');
+        if (items.length === 0) return; 
+        items[currentCarouselIndex].classList.remove('active');
+        currentCarouselIndex = (currentCarouselIndex + direction + previewImages.length) % previewImages.length;
+        items[currentCarouselIndex].classList.add('active');
+        updateCarouselCounter();
+    }
 
-    </script>
+    function handleKeydown(e) {
+        const photoModal = document.getElementById('photographerModal');
+        const vidModal = document.getElementById('videoModal');
+        if (photoModal.classList.contains('hidden') && vidModal.classList.contains('hidden')) {
+            if (e.key === 'ArrowRight') changeCarouselImage(1);
+            else if (e.key === 'ArrowLeft') changeCarouselImage(-1);
+        }
+    }
+
+    // ==========================================
+    // 7. FORMULAIRE DE CONTACT
+    // ==========================================
+    const contactForm = document.querySelector('#contact form');
+    if(contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    document.getElementById('thankYouModal').classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    alert('Une erreur est survenue.');
+                }
+            } catch (error) {
+                alert('Une erreur est survenue.');
+            }
+        });
+    }
+
+    function closeThankYouModal() {
+        document.getElementById('thankYouModal').classList.add('hidden');
+    }
+</script>
 <!-- Modale Merci -->
 <div id="thankYouModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
     <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-11/12 p-8 text-center animate-fadeIn">
@@ -1143,5 +1041,6 @@ function closeThankYouModal() {
 </body>
 
 </html>
+
 
 
