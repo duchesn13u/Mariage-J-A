@@ -178,6 +178,7 @@
 		        <a href="#hommage-bernard" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">L'Ode</a>
 		        
 		        <a href="#livret" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Livret de messe</a>
+				<a href="#discours" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Discours</a>
 		        <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-orange-600">Contact</a>
 		    </div>
 		</div>
@@ -504,35 +505,48 @@
       </p>
     </div>
 
-    <!-- MODE CAROUSEL -->
-    <div id="discours-carousel-container" class="relative flex flex-col items-center">
-
-		<div id="discours-carousel" class="discours-carousel">
-		  <div class="discours-item" data-title="Paroles d'amour" data-file="Paroles d'amour.pdf">
-		    <img src="./Image Paroles d'amour.png" alt="Paroles d'amour">
-		    <p class="carousel-title">Paroles d'amour</p>
+		<!-- MODE CAROUSEL -->
+		<div id="discours-carousel-container" class="relative flex flex-col items-center">
+		
+		  <div id="discours-carousel" class="discours-carousel">
+		    <div class="discours-item" data-title="Paroles d'amour" data-file="Paroles d'amour.pdf">
+		      <img src="./Image Paroles d'amour.png" alt="Paroles d'amour">
+		      <p class="carousel-title">Paroles d'amour</p>
+		    </div>
+		
+		    <div class="discours-item" data-title="Discours Paul Tastet" data-file="Discours Paul Tastet.pdf">
+		      <img src="./Image Discours Paul Tastet.png" alt="Discours Paul Tastet">
+		      <p class="carousel-title">Discours Paul Tastet</p>
+		    </div>
+		
+		    <div class="discours-item" data-title="Discours Gilles Tastet" data-file="Discours Gilles Tastet.pdf">
+		      <img src="./Image Discours Gilles Tastet.png" alt="Discours Gilles Tastet">
+		      <p class="carousel-title">Discours Gilles Tastet</p>
+		    </div>
+		
+		    <div class="discours-item" data-title="Discours Mouligasses" data-file="Discours Mouligasses.pdf">
+		      <img src="./Image Discours Mouligasses.png" alt="Discours Mouligasses">
+		      <p class="carousel-title">Discours Mouligasses</p>
+		    </div>
+		
+		    <div class="discours-item" data-title="Discours frères Duchesne" data-file="Discours frères Duchesne.pdf">
+		      <img src="./Image Discours frères Duchesne.png" alt="Discours frères Duchesne">
+		      <p class="carousel-title">Discours frères Duchesne</p>
+		    </div>
 		  </div>
 		
-		  <div class="discours-item" data-title="Discours Paul Tastet" data-file="Discours Paul Tastet.pdf">
-		    <img src="./Image Discours Paul Tastet.png" alt="Discours Paul Tastet">
-		    <p class="carousel-title">Discours Paul Tastet</p>
+		  <!-- ✅ Boutons bien centrés -->
+		  <div class="flex justify-center gap-6 mt-8">
+		    <button onclick="rotateDiscours(-1)" class="action-btn px-6 py-3 rounded-full text-white">
+		      <i class="fas fa-chevron-left"></i>
+		    </button>
+		    <button onclick="rotateDiscours(1)" class="action-btn px-6 py-3 rounded-full text-white">
+		      <i class="fas fa-chevron-right"></i>
+		    </button>
 		  </div>
 		
-		  <div class="discours-item" data-title="Discours Gilles Tastet" data-file="Discours Gilles Tastet.pdf">
-		    <img src="./Image Discours Gilles Tastet.png" alt="Discours Gilles Tastet">
-		    <p class="carousel-title">Discours Gilles Tastet</p>
-		  </div>
-		
-		  <div class="discours-item" data-title="Discours Mouligasses" data-file="Discours Mouligasses.pdf">
-		    <img src="./Image Discours Mouligasses.png" alt="Discours Mouligasses">
-		    <p class="carousel-title">Discours Mouligasses</p>
-		  </div>
-		
-		  <div class="discours-item" data-title="Discours frères Duchesne" data-file="Discours frères Duchesne.pdf">
-		    <img src="./Image Discours frères Duchesne.png" alt="Discours frères Duchesne">
-		    <p class="carousel-title">Discours frères Duchesne</p>
-		  </div>
 		</div>
+
       </div>
 
       <!-- Boutons -->
@@ -1228,6 +1242,7 @@ function closeDiscoursFocus() {
 </body>
 
 </html>
+
 
 
 
