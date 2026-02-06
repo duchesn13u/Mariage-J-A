@@ -107,6 +107,40 @@
 .animate-fadeIn {
     animation: fadeIn 0.5s ease-out forwards;
 }
+		.perspective {
+  perspective: 1200px;
+}
+
+.carousel-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.carousel-3d-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-style: preserve-3d;
+  width: 280px;
+  transform-origin: center center -400px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.carousel-3d-item img {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.carousel-title {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
 
     </style>
 </head>
@@ -128,7 +162,8 @@
                         <a href="#videos" class="nav-link text-gray-700 hover:text-orange-600">Vidéos</a>
 						<a href="#hommage-bernard" class="nav-link text-gray-700 hover:text-orange-600">L'Ode</a>
 						<a href="#livret" class="nav-link text-gray-700 hover:text-orange-600">Livret de messe</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-orange-600">Contact</a>
+                        <a href="#discours" class="nav-link text-gray-700 hover:text-orange-600">Discours</a>
+						<a href="#contact" class="nav-link text-gray-700 hover:text-orange-600">Contact</a>
                     </div>
                     
                     <div class="md:hidden flex items-center">
@@ -463,6 +498,84 @@
 		</div>
 	</section>
 
+	<section id="discours" class="py-16 bg-yellow-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        Magnifiques discours 💖
+      </h2>
+      <p class="text-lg text-gray-600">
+        Des mots forts, sincères et inoubliables.
+      </p>
+    </div>
+
+    <!-- MODE CAROUSEL -->
+    <div id="discours-carousel-container" class="relative flex flex-col items-center">
+
+      <div class="relative w-full max-w-xl h-[500px] perspective">
+        <div id="discours-carousel" class="carousel-3d">
+
+          <!-- Item -->
+          <div class="carousel-3d-item" data-title="Paroles d'amour" data-file="Paroles d'amour.pdf">
+            <img src="./Image Paroles d'amour.png" alt="Paroles d'amour">
+            <p class="carousel-title">Paroles d'amour</p>
+          </div>
+
+          <div class="carousel-3d-item" data-title="Discours Paul Tastet" data-file="Discours Paul Tastet.pdf">
+            <img src="./Image Discours Paul Tastet.png" alt="Discours Paul Tastet">
+            <p class="carousel-title">Discours Paul Tastet</p>
+          </div>
+
+          <div class="carousel-3d-item" data-title="Discours Gilles Tastet" data-file="Discours Gilles Tastet.pdf">
+            <img src="./Image Discours Gilles Tastet.png" alt="Discours Gilles Tastet">
+            <p class="carousel-title">Discours Gilles Tastet</p>
+          </div>
+
+          <div class="carousel-3d-item" data-title="Discours Mouligasses" data-file="Discours Mouligasses.pdf">
+            <img src="./Image Discours Mouligasses.png" alt="Discours Mouligasses">
+            <p class="carousel-title">Discours Mouligasses</p>
+          </div>
+
+          <div class="carousel-3d-item" data-title="Discours frères Duchesne" data-file="Discours frères Duchesne.pdf">
+            <img src="./Image Discours frères Duchesne.png" alt="Discours frères Duchesne">
+            <p class="carousel-title">Discours frères Duchesne</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Boutons -->
+      <div class="flex gap-6 mt-8">
+        <button onclick="rotateDiscours(-1)" class="action-btn px-6 py-3 rounded-full text-white">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button onclick="rotateDiscours(1)" class="action-btn px-6 py-3 rounded-full text-white">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODE FOCUS -->
+    <div id="discours-focus" class="hidden text-center mt-12">
+      <img id="discours-focus-image" class="mx-auto rounded-xl shadow-2xl max-h-[600px] mb-6">
+      <h3 id="discours-focus-title" class="text-2xl font-bold text-gray-800 mb-6"></h3>
+
+      <a id="discours-download-btn" class="action-btn inline-block px-8 py-3 rounded-full text-white text-lg">
+        <i class="fas fa-download mr-2"></i> Télécharger le discours
+      </a>
+
+      <div class="mt-6">
+        <button onclick="closeDiscoursFocus()" class="text-orange-600 hover:underline">
+          ← Revenir aux discours
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
     <hr class="border-t border-yellow-200 my-12">
     
     <section id="contact" class="py-16 bg-yellow-50">
@@ -639,6 +752,7 @@
         </div>
     </div>
 </div>
+	
 
 <script>
     // ==========================================
@@ -1023,6 +1137,49 @@
     function closeThankYouModal() {
         document.getElementById('thankYouModal').classList.add('hidden');
     }
+
+	let discoursIndex = 0;
+const discoursItems = document.querySelectorAll('.carousel-3d-item');
+
+function updateDiscoursCarousel() {
+  const angle = 360 / discoursItems.length;
+  discoursItems.forEach((item, i) => {
+    item.style.transform = `
+      rotateY(${(i - discoursIndex) * angle}deg)
+      translateZ(400px)
+    `;
+  });
+}
+
+updateDiscoursCarousel();
+
+function rotateDiscours(direction) {
+  discoursIndex += direction;
+  updateDiscoursCarousel();
+}
+
+// Mode focus
+discoursItems.forEach(item => {
+  item.addEventListener('click', () => {
+    document.getElementById('discours-carousel-container').classList.add('hidden');
+    document.getElementById('discours-focus').classList.remove('hidden');
+
+    document.getElementById('discours-focus-image').src =
+      item.querySelector('img').src;
+
+    document.getElementById('discours-focus-title').innerText =
+      item.dataset.title;
+
+    document.getElementById('discours-download-btn').href =
+      `./${item.dataset.file}`;
+  });
+});
+
+function closeDiscoursFocus() {
+  document.getElementById('discours-focus').classList.add('hidden');
+  document.getElementById('discours-carousel-container').classList.remove('hidden');
+}
+
 </script>
 <!-- Modale Merci -->
 <div id="thankYouModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
@@ -1074,6 +1231,7 @@
 </body>
 
 </html>
+
 
 
 
